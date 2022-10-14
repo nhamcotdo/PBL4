@@ -1,9 +1,23 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using PBL4.Classes;
+using PBL4.Courses;
+using PBL4.Domain.Teachers;
+using PBL4.LessonCompletes;
+using PBL4.LessonOfCourses;
+using PBL4.Lessons;
+using PBL4.Registers;
+using PBL4.SessionRegisters;
+using PBL4.Sessions;
+using PBL4.Students;
+using PBL4.TeacherOfSessions;
+using PBL4.Terms;
+using PBL4.UserLogins;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.BackgroundJobs.EntityFrameworkCore;
 using Volo.Abp.Data;
 using Volo.Abp.DependencyInjection;
 using Volo.Abp.EntityFrameworkCore;
+using Volo.Abp.EntityFrameworkCore.Modeling;
 using Volo.Abp.FeatureManagement.EntityFrameworkCore;
 using Volo.Abp.Identity;
 using Volo.Abp.Identity.EntityFrameworkCore;
@@ -50,6 +64,20 @@ public class PBL4DbContext :
     public DbSet<Tenant> Tenants { get; set; }
     public DbSet<TenantConnectionString> TenantConnectionStrings { get; set; }
 
+    // Coure Table
+    public DbSet<Class> Classes { get; set; }
+    public DbSet<Term> Terms { get; set; }
+    public DbSet<Course> Courses { get; set; }
+    public DbSet<LessonOfCourse> LessonOfCourses { get; set; }
+    public DbSet<Lesson> Lessons { get; set; }
+    public DbSet<Register> Registers { get; set; }
+    public DbSet<Student> Students { get; set; }
+    public DbSet<Session> Sessions { get; set; }
+    public DbSet<SessionRegister> SessionRegisters { get; set; }
+    public DbSet<LessonComplete> LessonCompletes { get; set; }
+    public DbSet<TeacherOfSession> TeacherOfSessions { get; set; }
+    public DbSet<Teacher> Teachers { get; set; }
+    public DbSet<UserLogin> UserLogins { get; set; }
     #endregion
 
     public PBL4DbContext(DbContextOptions<PBL4DbContext> options)
@@ -75,11 +103,92 @@ public class PBL4DbContext :
 
         /* Configure your own tables/entities inside here */
 
-        //builder.Entity<YourEntity>(b =>
-        //{
-        //    b.ToTable(PBL4Consts.DbTablePrefix + "YourEntities", PBL4Consts.DbSchema);
-        //    b.ConfigureByConvention(); //auto configure for the base class props
-        //    //...
-        //});
+        builder.Entity<Class>(b =>
+        {
+            b.ToTable(PBL4Consts.Class + "Classes", PBL4Consts.DbSchema);
+            b.HasOne(t => t.Term).WithMany(l => l.Classes).HasForeignKey(t => t.TermId);
+            b.HasOne(t => t.Course).WithMany(l => l.Classes).HasForeignKey(t => t.CourseId);
+            b.ConfigureByConvention();
+        });
+
+        builder.Entity<Term>(b =>
+        {
+            b.ToTable(PBL4Consts.Course + "Terms", PBL4Consts.DbSchema);
+            b.ConfigureByConvention();
+        });
+
+        builder.Entity<LessonOfCourse>(b =>
+        {
+            b.ToTable(PBL4Consts.Course + "LessonOfCourses", PBL4Consts.DbSchema);
+            b.HasOne(x => x.Course).WithMany(l => l.LessonOfCourses).HasForeignKey(x => x.CourseId);
+            b.HasOne(x => x.Lesson).WithMany(l => l.LessonOfCourses).HasForeignKey(x => x.LessonId);
+            b.ConfigureByConvention();
+        });
+
+        builder.Entity<Course>(b =>
+        {
+            b.ToTable(PBL4Consts.Course + "Courses", PBL4Consts.DbSchema);
+            b.ConfigureByConvention();
+        });
+
+        builder.Entity<Lesson>(b =>
+        {
+            b.ToTable(PBL4Consts.Course + "Lessons", PBL4Consts.DbSchema);
+            b.ConfigureByConvention();
+        });
+
+        builder.Entity<Register>(b =>
+        {
+            b.ToTable(PBL4Consts.Class + "Registers", PBL4Consts.DbSchema);
+            b.HasOne(x => x.Class).WithMany(l => l.Registers).HasForeignKey(x => x.ClassId);
+            b.HasOne(x => x.Student).WithMany(l => l.Registers).HasForeignKey(x => x.StudentId);
+            b.ConfigureByConvention();
+        });
+
+        builder.Entity<Session>(b =>
+        {
+           b.ToTable(PBL4Consts.Class + "Sessions", PBL4Consts.DbSchema);
+           b.HasOne(x => x.Class).WithMany(l => l.Sessions).HasForeignKey(x => x.ClassId);
+           b.HasOne(x => x.Lesson).WithMany(l => l.Sessions).HasForeignKey(x => x.LessonId);
+           b.ConfigureByConvention();
+        });
+
+        builder.Entity<SessionRegister>(b =>
+        {
+            b.ToTable(PBL4Consts.Class + "SessionRegisters", PBL4Consts.DbSchema);
+            b.HasOne(x => x.Student).WithMany(l => l.SessionRegisters).HasForeignKey(x => x.StudentId);
+            b.HasOne(x => x.Session).WithMany(l => l.SessionRegisters).HasForeignKey(x => x.SessionId);
+            b.ConfigureByConvention();
+        });
+
+        builder.Entity<LessonComplete>(b =>
+        {
+            b.ToTable(PBL4Consts.Course + "LessonCompletes", PBL4Consts.DbSchema);
+            b.HasOne(x => x.Student).WithMany(l => l.LessonCompletes).HasForeignKey(x => x.StudentId);
+            b.HasOne(x => x.Class).WithMany(l => l.LessonCompletes).HasForeignKey(x => x.ClassId);
+            b.HasOne(x => x.Lesson).WithMany(l => l.LessonCompletes).HasForeignKey(x => x.LessonId);
+            b.HasOne(x => x.Session).WithMany(l => l.LessonCompletes).HasForeignKey(x => x.SessionId);
+            b.ConfigureByConvention();
+        });
+
+        builder.Entity<TeacherOfSession>(b =>
+        {
+            b.ToTable(PBL4Consts.Class + "TeacherOfSessions", PBL4Consts.DbSchema);
+            b.HasOne(x => x.Teacher).WithMany(l => l.TeacherOfSessions).HasForeignKey(x => x.TeacherId);
+            b.ConfigureByConvention();
+            b.HasOne(x => x.Session).WithMany(l => l.TeacherOfSessions).HasForeignKey(x => x.SessionId);
+        });
+
+        builder.Entity<Teacher>(b =>
+        {
+            b.ToTable(PBL4Consts.Person + "Teachers", PBL4Consts.DbSchema);
+            b.ConfigureByConvention();
+        });
+
+        builder.Entity<Student>(b =>
+        {
+            b.ToTable(PBL4Consts.Person + "Students", PBL4Consts.DbSchema);
+            b.ConfigureByConvention();
+        });
     }
 }
