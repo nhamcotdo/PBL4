@@ -41,7 +41,6 @@ using Volo.Abp.VirtualFileSystem;
 namespace PBL4.Web;
 
 [DependsOn(
-    typeof(PBL4HttpApiModule),
     typeof(PBL4ApplicationModule),
     typeof(PBL4EntityFrameworkCoreModule),
     typeof(AbpAutofacModule),
