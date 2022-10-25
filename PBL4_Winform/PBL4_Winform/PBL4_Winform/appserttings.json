@@ -1,0 +1,19 @@
+﻿{
+  "RemoteServices": {
+    "Default": {
+      "BaseUrl": "http://yu.dev.bkhightech.vn/"
+    }
+  },
+  "IdentityClients": {
+    "Default": {
+      "GrantType": "password",
+      "ClientId": "PBL4_Web",
+      "ClientSecret": "1q2w3e*",
+      "UserName": "",
+      "UserPassword": "",
+      "Authority": "https://localhost:44338",
+      "RequireHttpsMetadata": "false",
+      "Scope": "CYUSystem_Web"
+    }
+  }
+}
