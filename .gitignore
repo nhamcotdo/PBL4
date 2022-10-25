@@ -252,13 +252,13 @@ paket-files/
 *.sln.iml
 
 # PBL4
-src/PBL4.Web/Logs/*
-src/PBL4.Web.Host/Logs/*
-src/PBL4.IdentityServer/Logs/*
-src/PBL4.HttpApi.Host/Logs/*
-src/PBL4.HttpApi.HostWithIds/Logs/*
-src/PBL4.DbMigrator/Logs/*
-src/PBL4.Blazor.Server/Logs/*
-src/PBL4.Blazor.Server.Tiered/Logs/*
+PBL4_ServerAPI/src/PBL4.Web/Logs/*
+PBL4_ServerAPI/src/PBL4.Web.Host/Logs/*
+PBL4_ServerAPI/src/PBL4.IdentityServer/Logs/*
+PBL4_ServerAPI/src/PBL4.HttpApi.Host/Logs/*
+PBL4_ServerAPI/src/PBL4.HttpApi.HostWithIds/Logs/*
+PBL4_ServerAPI/src/PBL4.DbMigrator/Logs/*
+PBL4_ServerAPI/src/PBL4.Blazor.Server/Logs/*
+PBL4_ServerAPI/src/PBL4.Blazor.Server.Tiered/Logs/*
 .vscode/launch.json
 .vscode/tasks.json
