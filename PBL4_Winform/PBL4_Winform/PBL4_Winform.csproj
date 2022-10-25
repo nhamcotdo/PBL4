@@ -1,0 +1,512 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.Extensions.Configuration.UserSecrets.6.0.0\build\netstandard2.0\Microsoft.Extensions.Configuration.UserSecrets.props" Condition="Exists('..\packages\Microsoft.Extensions.Configuration.UserSecrets.6.0.0\build\netstandard2.0\Microsoft.Extensions.Configuration.UserSecrets.props')" />
+  <Import Project="..\packages\Microsoft.Extensions.FileProviders.Embedded.6.0.0\build\netstandard2.0\Microsoft.Extensions.FileProviders.Embedded.props" Condition="Exists('..\packages\Microsoft.Extensions.FileProviders.Embedded.6.0.0\build\netstandard2.0\Microsoft.Extensions.FileProviders.Embedded.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D1810665-118D-438D-9D49-23E45BCB9CEF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>PBL4_Winform</RootNamespace>
+    <AssemblyName>PBL4_Winform</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=10.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.10.1.1\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="IdentityModel, Version=5.0.0.0, Culture=neutral, PublicKeyToken=e7877f4675df049f, processorArchitecture=MSIL">
+      <HintPath>..\packages\IdentityModel.5.0.0\lib\net472\IdentityModel.dll</HintPath>
+    </Reference>
+    <Reference Include="JetBrains.Annotations, Version=2021.2.0.0, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
+      <HintPath>..\packages\JetBrains.Annotations.2021.2.0\lib\net20\JetBrains.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Authorization, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Authorization.6.0.0\lib\net461\Microsoft.AspNetCore.Authorization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Cryptography.Internal, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Cryptography.Internal.6.0.0\lib\net461\Microsoft.AspNetCore.Cryptography.Internal.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Cryptography.KeyDerivation, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Cryptography.KeyDerivation.6.0.0\lib\net461\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Metadata, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Metadata.6.0.0\lib\net461\Microsoft.AspNetCore.Metadata.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Abstractions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Caching.Abstractions.6.0.0\lib\net461\Microsoft.Extensions.Caching.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Memory, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Caching.Memory.6.0.0\lib\net461\Microsoft.Extensions.Caching.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.6.0.0\lib\net461\Microsoft.Extensions.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Abstractions.6.0.0\lib\net461\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Binder, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Binder.6.0.0\lib\net461\Microsoft.Extensions.Configuration.Binder.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.CommandLine, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.CommandLine.6.0.0\lib\net461\Microsoft.Extensions.Configuration.CommandLine.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.EnvironmentVariables, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.EnvironmentVariables.6.0.0\lib\net461\Microsoft.Extensions.Configuration.EnvironmentVariables.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.FileExtensions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.FileExtensions.6.0.0\lib\net461\Microsoft.Extensions.Configuration.FileExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Json.6.0.0\lib\net461\Microsoft.Extensions.Configuration.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.UserSecrets, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.UserSecrets.6.0.0\lib\net461\Microsoft.Extensions.Configuration.UserSecrets.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.6.0.0\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.6.0.0\lib\net461\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Abstractions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileProviders.Abstractions.6.0.0\lib\net461\Microsoft.Extensions.FileProviders.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Composite, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileProviders.Composite.6.0.0\lib\net461\Microsoft.Extensions.FileProviders.Composite.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Embedded, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileProviders.Embedded.6.0.0\lib\net461\Microsoft.Extensions.FileProviders.Embedded.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Physical, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileProviders.Physical.6.0.0\lib\net461\Microsoft.Extensions.FileProviders.Physical.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileSystemGlobbing, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileSystemGlobbing.6.0.0\lib\net461\Microsoft.Extensions.FileSystemGlobbing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Hosting, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Hosting.5.0.0\lib\net461\Microsoft.Extensions.Hosting.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Hosting.Abstractions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Hosting.Abstractions.6.0.0\lib\net461\Microsoft.Extensions.Hosting.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Identity.Core, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Identity.Core.6.0.0\lib\net461\Microsoft.Extensions.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Localization, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Localization.6.0.0\lib\net461\Microsoft.Extensions.Localization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Localization.Abstractions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Localization.Abstractions.6.0.0\lib\net461\Microsoft.Extensions.Localization.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.6.0.0\lib\net461\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\lib\net461\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Configuration, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Configuration.5.0.0\lib\net461\Microsoft.Extensions.Logging.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Console, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Console.5.0.0\lib\net461\Microsoft.Extensions.Logging.Console.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Debug, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Debug.5.0.0\lib\net461\Microsoft.Extensions.Logging.Debug.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.EventLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.EventLog.5.0.0\lib\net461\Microsoft.Extensions.Logging.EventLog.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.EventSource, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.EventSource.5.0.0\lib\net461\Microsoft.Extensions.Logging.EventSource.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Options.6.0.0\lib\net461\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options.ConfigurationExtensions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Options.ConfigurationExtensions.6.0.0\lib\net461\Microsoft.Extensions.Options.ConfigurationExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.6.0.0\lib\net461\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Nito.AsyncEx.Context, Version=5.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nito.AsyncEx.Context.5.1.0\lib\netstandard2.0\Nito.AsyncEx.Context.dll</HintPath>
+    </Reference>
+    <Reference Include="Nito.AsyncEx.Coordination, Version=5.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nito.AsyncEx.Coordination.5.1.0\lib\netstandard2.0\Nito.AsyncEx.Coordination.dll</HintPath>
+    </Reference>
+    <Reference Include="Nito.AsyncEx.Tasks, Version=5.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nito.AsyncEx.Tasks.5.1.0\lib\netstandard2.0\Nito.AsyncEx.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="Nito.Collections.Deque, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nito.Collections.Deque.1.1.0\lib\netstandard2.0\Nito.Collections.Deque.dll</HintPath>
+    </Reference>
+    <Reference Include="Nito.Disposables, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nito.Disposables.2.2.0\lib\net461\Nito.Disposables.dll</HintPath>
+    </Reference>
+    <Reference Include="Refit, Version=5.2.0.0, Culture=neutral, PublicKeyToken=2f9b1262776509f5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Refit.5.2.4\lib\net461\Refit.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.6.0.0\lib\net461\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.5.0.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Configuration.ConfigurationManager.5.0.0\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.6.0.0\lib\net461\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Linq.Dynamic.Core, Version=1.2.12.0, Culture=neutral, PublicKeyToken=0f07ec44de6ac832, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Dynamic.Core.1.2.12\lib\net46\System.Linq.Dynamic.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.AccessControl, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.AccessControl.5.0.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.1\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Permissions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Permissions.5.0.0\lib\net461\System.Security.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.5.0.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Text.Encodings.Web, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.6.0.0\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.6.0.0\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TimeZoneConverter, Version=3.5.0.0, Culture=neutral, PublicKeyToken=e20ab7d0d9479841, processorArchitecture=MSIL">
+      <HintPath>..\packages\TimeZoneConverter.3.5.0\lib\net471\TimeZoneConverter.dll</HintPath>
+    </Reference>
+    <Reference Include="Volo.Abp.Auditing, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Volo.Abp.Auditing.5.0.0\lib\netstandard2.0\Volo.Abp.Auditing.dll</HintPath>
+    </Reference>
+    <Reference Include="Volo.Abp.Auditing.Contracts, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Volo.Abp.Auditing.Contracts.5.0.0\lib\netstandard2.0\Volo.Abp.Auditing.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Volo.Abp.Authorization, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Volo.Abp.Authorization.5.0.0\lib\netstandard2.0\Volo.Abp.Authorization.dll</HintPath>
+    </Reference>
+    <Reference Include="Volo.Abp.Authorization.Abstractions, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Volo.Abp.Authorization.Abstractions.5.0.0\lib\netstandard2.0\Volo.Abp.Authorization.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Volo.Abp.AutoMapper, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Volo.Abp.AutoMapper.5.0.0\lib\netstandard2.0\Volo.Abp.AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Volo.Abp.BackgroundWorkers, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Volo.Abp.BackgroundWorkers.5.0.0\lib\netstandard2.0\Volo.Abp.BackgroundWorkers.dll</HintPath>
+    </Reference>
+    <Reference Include="Volo.Abp.Caching, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Volo.Abp.Caching.5.0.0\lib\netstandard2.0\Volo.Abp.Caching.dll</HintPath>
+    </Reference>
+    <Reference Include="Volo.Abp.Core, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Volo.Abp.Core.5.0.0\lib\netstandard2.0\Volo.Abp.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Volo.Abp.Data, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Volo.Abp.Data.5.0.0\lib\netstandard2.0\Volo.Abp.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Volo.Abp.Ddd.Application, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Volo.Abp.Ddd.Application.5.0.0\lib\netstandard2.0\Volo.Abp.Ddd.Application.dll</HintPath>
+    </Reference>
+    <Reference Include="Volo.Abp.Ddd.Application.Contracts, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Volo.Abp.Ddd.Application.Contracts.5.0.0\lib\netstandard2.0\Volo.Abp.Ddd.Application.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Volo.Abp.Ddd.Domain, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Volo.Abp.Ddd.Domain.5.0.0\lib\netstandard2.0\Volo.Abp.Ddd.Domain.dll</HintPath>
+    </Reference>
+    <Reference Include="Volo.Abp.DistributedLocking.Abstractions, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Volo.Abp.DistributedLocking.Abstractions.5.0.0\lib\netstandard2.0\Volo.Abp.DistributedLocking.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Volo.Abp.EventBus, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Volo.Abp.EventBus.5.0.0\lib\netstandard2.0\Volo.Abp.EventBus.dll</HintPath>
+    </Reference>
+    <Reference Include="Volo.Abp.EventBus.Abstractions, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Volo.Abp.EventBus.Abstractions.5.0.0\lib\netstandard2.0\Volo.Abp.EventBus.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Volo.Abp.ExceptionHandling, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Volo.Abp.ExceptionHandling.5.0.0\lib\netstandard2.0\Volo.Abp.ExceptionHandling.dll</HintPath>
+    </Reference>
+    <Reference Include="Volo.Abp.Features, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Volo.Abp.Features.5.0.0\lib\netstandard2.0\Volo.Abp.Features.dll</HintPath>
+    </Reference>
+    <Reference Include="Volo.Abp.GlobalFeatures, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Volo.Abp.GlobalFeatures.5.0.0\lib\netstandard2.0\Volo.Abp.GlobalFeatures.dll</HintPath>
+    </Reference>
+    <Reference Include="Volo.Abp.Guids, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Volo.Abp.Guids.5.0.0\lib\netstandard2.0\Volo.Abp.Guids.dll</HintPath>
+    </Reference>
+    <Reference Include="Volo.Abp.Http.Abstractions, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Volo.Abp.Http.Abstractions.5.0.0\lib\netstandard2.0\Volo.Abp.Http.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Volo.Abp.Identity.Application, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Volo.Abp.Identity.Application.5.0.0\lib\netstandard2.0\Volo.Abp.Identity.Application.dll</HintPath>
+    </Reference>
+    <Reference Include="Volo.Abp.Identity.Application.Contracts, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Volo.Abp.Identity.Application.Contracts.5.0.0\lib\netstandard2.0\Volo.Abp.Identity.Application.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Volo.Abp.Identity.Domain, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Volo.Abp.Identity.Domain.5.0.0\lib\netstandard2.0\Volo.Abp.Identity.Domain.dll</HintPath>
+    </Reference>
+    <Reference Include="Volo.Abp.Identity.Domain.Shared, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Volo.Abp.Identity.Domain.Shared.5.0.0\lib\netstandard2.0\Volo.Abp.Identity.Domain.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="Volo.Abp.Json, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Volo.Abp.Json.5.0.0\lib\netstandard2.0\Volo.Abp.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Volo.Abp.Localization, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Volo.Abp.Localization.5.0.0\lib\netstandard2.0\Volo.Abp.Localization.dll</HintPath>
+    </Reference>
+    <Reference Include="Volo.Abp.Localization.Abstractions, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Volo.Abp.Localization.Abstractions.5.0.0\lib\netstandard2.0\Volo.Abp.Localization.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Volo.Abp.MultiTenancy, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Volo.Abp.MultiTenancy.5.0.0\lib\netstandard2.0\Volo.Abp.MultiTenancy.dll</HintPath>
+    </Reference>
+    <Reference Include="Volo.Abp.ObjectExtending, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Volo.Abp.ObjectExtending.5.0.0\lib\netstandard2.0\Volo.Abp.ObjectExtending.dll</HintPath>
+    </Reference>
+    <Reference Include="Volo.Abp.ObjectMapping, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Volo.Abp.ObjectMapping.5.0.0\lib\netstandard2.0\Volo.Abp.ObjectMapping.dll</HintPath>
+    </Reference>
+    <Reference Include="Volo.Abp.PermissionManagement.Application, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Volo.Abp.PermissionManagement.Application.5.0.0\lib\netstandard2.0\Volo.Abp.PermissionManagement.Application.dll</HintPath>
+    </Reference>
+    <Reference Include="Volo.Abp.PermissionManagement.Application.Contracts, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Volo.Abp.PermissionManagement.Application.Contracts.5.0.0\lib\netstandard2.0\Volo.Abp.PermissionManagement.Application.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Volo.Abp.PermissionManagement.Domain, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Volo.Abp.PermissionManagement.Domain.5.0.0\lib\netstandard2.0\Volo.Abp.PermissionManagement.Domain.dll</HintPath>
+    </Reference>
+    <Reference Include="Volo.Abp.PermissionManagement.Domain.Shared, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Volo.Abp.PermissionManagement.Domain.Shared.5.0.0\lib\netstandard2.0\Volo.Abp.PermissionManagement.Domain.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="Volo.Abp.Security, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Volo.Abp.Security.5.0.0\lib\netstandard2.0\Volo.Abp.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Volo.Abp.Serialization, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Volo.Abp.Serialization.5.0.0\lib\netstandard2.0\Volo.Abp.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="Volo.Abp.Settings, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Volo.Abp.Settings.5.0.0\lib\netstandard2.0\Volo.Abp.Settings.dll</HintPath>
+    </Reference>
+    <Reference Include="Volo.Abp.Specifications, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Volo.Abp.Specifications.5.0.0\lib\netstandard2.0\Volo.Abp.Specifications.dll</HintPath>
+    </Reference>
+    <Reference Include="Volo.Abp.Threading, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Volo.Abp.Threading.5.0.0\lib\netstandard2.0\Volo.Abp.Threading.dll</HintPath>
+    </Reference>
+    <Reference Include="Volo.Abp.Timing, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Volo.Abp.Timing.5.0.0\lib\netstandard2.0\Volo.Abp.Timing.dll</HintPath>
+    </Reference>
+    <Reference Include="Volo.Abp.Uow, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Volo.Abp.Uow.5.0.0\lib\netstandard2.0\Volo.Abp.Uow.dll</HintPath>
+    </Reference>
+    <Reference Include="Volo.Abp.Users.Abstractions, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Volo.Abp.Users.Abstractions.5.0.0\lib\netstandard2.0\Volo.Abp.Users.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Volo.Abp.Users.Domain, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Volo.Abp.Users.Domain.5.0.0\lib\netstandard2.0\Volo.Abp.Users.Domain.dll</HintPath>
+    </Reference>
+    <Reference Include="Volo.Abp.Users.Domain.Shared, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Volo.Abp.Users.Domain.Shared.5.0.0\lib\netstandard2.0\Volo.Abp.Users.Domain.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="Volo.Abp.Validation, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Volo.Abp.Validation.5.0.0\lib\netstandard2.0\Volo.Abp.Validation.dll</HintPath>
+    </Reference>
+    <Reference Include="Volo.Abp.Validation.Abstractions, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Volo.Abp.Validation.Abstractions.5.0.0\lib\netstandard2.0\Volo.Abp.Validation.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Volo.Abp.VirtualFileSystem, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Volo.Abp.VirtualFileSystem.5.0.0\lib\netstandard2.0\Volo.Abp.VirtualFileSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseFunction\ConfigManager.cs" />
+    <Compile Include="BaseFunction\FunctionModule.cs" />
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dto\ActivityDto.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SdkCommon\IActivitiesApi.cs" />
+    <Compile Include="SdkCommon\IAuthorizeCommon.cs" />
+    <Compile Include="SdkCommon\IUsersApi.cs" />
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\56a0bb98e9a99a4669bf7f07_user_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pic_icon_login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_login2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconKey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\background_login1.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Refit.5.2.4\build\net461\refit.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Refit.5.2.4\build\net461\refit.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Extensions.FileProviders.Embedded.6.0.0\build\netstandard2.0\Microsoft.Extensions.FileProviders.Embedded.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Extensions.FileProviders.Embedded.6.0.0\build\netstandard2.0\Microsoft.Extensions.FileProviders.Embedded.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Extensions.FileProviders.Embedded.6.0.0\build\netstandard2.0\Microsoft.Extensions.FileProviders.Embedded.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Extensions.FileProviders.Embedded.6.0.0\build\netstandard2.0\Microsoft.Extensions.FileProviders.Embedded.targets'))" />
+    <Error Condition="!Exists('..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Extensions.Configuration.UserSecrets.6.0.0\build\netstandard2.0\Microsoft.Extensions.Configuration.UserSecrets.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Extensions.Configuration.UserSecrets.6.0.0\build\netstandard2.0\Microsoft.Extensions.Configuration.UserSecrets.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Extensions.Configuration.UserSecrets.6.0.0\build\netstandard2.0\Microsoft.Extensions.Configuration.UserSecrets.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Extensions.Configuration.UserSecrets.6.0.0\build\netstandard2.0\Microsoft.Extensions.Configuration.UserSecrets.targets'))" />
+  </Target>
+  <Import Project="..\packages\Refit.5.2.4\build\net461\refit.targets" Condition="Exists('..\packages\Refit.5.2.4\build\net461\refit.targets')" />
+  <Import Project="..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets" Condition="Exists('..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets')" />
+  <Import Project="..\packages\Microsoft.Extensions.FileProviders.Embedded.6.0.0\build\netstandard2.0\Microsoft.Extensions.FileProviders.Embedded.targets" Condition="Exists('..\packages\Microsoft.Extensions.FileProviders.Embedded.6.0.0\build\netstandard2.0\Microsoft.Extensions.FileProviders.Embedded.targets')" />
+  <Import Project="..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets" Condition="Exists('..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets')" />
+  <Import Project="..\packages\Microsoft.Extensions.Configuration.UserSecrets.6.0.0\build\netstandard2.0\Microsoft.Extensions.Configuration.UserSecrets.targets" Condition="Exists('..\packages\Microsoft.Extensions.Configuration.UserSecrets.6.0.0\build\netstandard2.0\Microsoft.Extensions.Configuration.UserSecrets.targets')" />
+</Project>

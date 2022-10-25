@@ -251,7 +251,7 @@ paket-files/
 .idea/
 *.sln.iml
 
-# CYUSystem
+# PBL4
 src/PBL4.Web/Logs/*
 src/PBL4.Web.Host/Logs/*
 src/PBL4.IdentityServer/Logs/*
