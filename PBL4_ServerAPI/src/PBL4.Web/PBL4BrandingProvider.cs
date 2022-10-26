@@ -1,10 +1,11 @@
 ﻿using Volo.Abp.Ui.Branding;
 using Volo.Abp.DependencyInjection;
 
-namespace PBL4.Web;
-
-[Dependency(ReplaceServices = true)]
-public class PBL4BrandingProvider : DefaultBrandingProvider
+namespace PBL4.Web
 {
-    public override string AppName => "PBL4";
+    [Dependency(ReplaceServices = true)]
+    public class PBL4BrandingProvider : DefaultBrandingProvider
+    {
+        public override string AppName => "PBL4";
+    }
 }

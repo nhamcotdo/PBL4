@@ -28,7 +28,7 @@ namespace PBL4_Winform
                 return;
             }
 
-            //SetToken(username, password);
+            SetToken(username, password);
 
             //if (!string.IsNullOrWhiteSpace(ConfigManager.Token))
             //{

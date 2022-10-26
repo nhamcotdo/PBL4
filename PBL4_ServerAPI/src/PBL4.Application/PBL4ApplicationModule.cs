@@ -7,25 +7,26 @@ using Volo.Abp.PermissionManagement;
 using Volo.Abp.SettingManagement;
 using Volo.Abp.TenantManagement;
 
-namespace PBL4;
-
-[DependsOn(
-    typeof(PBL4DomainModule),
-    typeof(AbpAccountApplicationModule),
-    typeof(PBL4ApplicationContractsModule),
-    typeof(AbpIdentityApplicationModule),
-    typeof(AbpPermissionManagementApplicationModule),
-    typeof(AbpTenantManagementApplicationModule),
-    typeof(AbpFeatureManagementApplicationModule),
-    typeof(AbpSettingManagementApplicationModule)
-    )]
-public class PBL4ApplicationModule : AbpModule
+namespace PBL4
 {
-    public override void ConfigureServices(ServiceConfigurationContext context)
+    [DependsOn(
+        typeof(PBL4DomainModule),
+        typeof(AbpAccountApplicationModule),
+        typeof(PBL4ApplicationContractsModule),
+        typeof(AbpIdentityApplicationModule),
+        typeof(AbpPermissionManagementApplicationModule),
+        typeof(AbpTenantManagementApplicationModule),
+        typeof(AbpFeatureManagementApplicationModule),
+        typeof(AbpSettingManagementApplicationModule)
+        )]
+    public class PBL4ApplicationModule : AbpModule
     {
-        Configure<AbpAutoMapperOptions>(options =>
+        public override void ConfigureServices(ServiceConfigurationContext context)
         {
-            options.AddMaps<PBL4ApplicationModule>();
-        });
+            Configure<AbpAutoMapperOptions>(options =>
+            {
+                options.AddMaps<PBL4ApplicationModule>();
+            });
+        }
     }
 }

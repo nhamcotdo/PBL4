@@ -1,6 +1,6 @@
 using System;
-using PBL4.Domain.Teachers;
 using PBL4.Sessions;
+using PBL4.Teachers;
 using Volo.Abp.Domain.Entities.Auditing;
 
 namespace PBL4.TeacherOfSessions

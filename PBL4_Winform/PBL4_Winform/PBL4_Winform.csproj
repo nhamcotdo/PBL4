@@ -427,17 +427,16 @@
   <ItemGroup>
     <Compile Include="BaseFunction\ConfigManager.cs" />
     <Compile Include="BaseFunction\FunctionModule.cs" />
-    <Compile Include="LoginForm.cs">
+    <Compile Include="Dto\Students\StudentDto.cs" />
+    <Compile Include="Dto\Terms\TermDto.cs" />
+    <Compile Include="Dto\UserLoginDto.cs" />
+    <Compile Include="SdkCommon\IStudentApi.cs" />
+    <Compile Include="SdkCommon\Terms\ITermApi.cs" />
+    <Compile Include="View\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoginForm.Designer.cs">
+    <Compile Include="View\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Dto\ActivityDto.cs" />
     <Compile Include="Program.cs" />
@@ -445,7 +444,19 @@
     <Compile Include="SdkCommon\IActivitiesApi.cs" />
     <Compile Include="SdkCommon\IAuthorizeCommon.cs" />
     <Compile Include="SdkCommon\IUsersApi.cs" />
-    <EmbeddedResource Include="LoginForm.resx">
+    <Compile Include="View\Students.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Students.Designer.cs">
+      <DependentUpon>Students.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Terms\Term.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Terms\Term.Designer.cs">
+      <DependentUpon>Term.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="View\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -458,6 +469,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="View\Students.resx">
+      <DependentUpon>Students.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="appsettings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -490,7 +504,9 @@
   <ItemGroup>
     <None Include="Resources\background_login1.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

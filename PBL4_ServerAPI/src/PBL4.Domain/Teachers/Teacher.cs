@@ -4,7 +4,7 @@ using PBL4.TeacherOfSessions;
 using PBL4.UserLogins;
 using Volo.Abp.Domain.Entities.Auditing;
 
-namespace PBL4.Domain.Teachers
+namespace PBL4.Teachers
 {
     public class Teacher : FullAuditedAggregateRoot<Guid>
     {

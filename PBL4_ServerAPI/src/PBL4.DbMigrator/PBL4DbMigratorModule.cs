@@ -3,17 +3,18 @@ using Volo.Abp.Autofac;
 using Volo.Abp.BackgroundJobs;
 using Volo.Abp.Modularity;
 
-namespace PBL4.DbMigrator;
-
-[DependsOn(
-    typeof(AbpAutofacModule),
-    typeof(PBL4EntityFrameworkCoreModule),
-    typeof(PBL4ApplicationContractsModule)
-    )]
-public class PBL4DbMigratorModule : AbpModule
+namespace PBL4.DbMigrator
 {
-    public override void ConfigureServices(ServiceConfigurationContext context)
+    [DependsOn(
+        typeof(AbpAutofacModule),
+        typeof(PBL4EntityFrameworkCoreModule),
+        typeof(PBL4ApplicationContractsModule)
+        )]
+    public class PBL4DbMigratorModule : AbpModule
     {
-        Configure<AbpBackgroundJobOptions>(options => options.IsJobExecutionEnabled = false);
+        public override void ConfigureServices(ServiceConfigurationContext context)
+        {
+            Configure<AbpBackgroundJobOptions>(options => options.IsJobExecutionEnabled = false);
+        }
     }
 }
