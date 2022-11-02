@@ -2,7 +2,7 @@
 
 namespace PBL4_Winform.Dto
 {
-    class UserLoginDto
+    public class UserLoginDto
     {
         public string Name { get; set; }
 

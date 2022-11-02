@@ -14,7 +14,7 @@ namespace PBL4.Registers
 
             return queryable
                 .Include(x => x.Class)
-                .Include(x => x.Student)
+                // .Include(x => x.Student)
                 ;
         }
     }

@@ -427,6 +427,13 @@
   <ItemGroup>
     <Compile Include="BaseFunction\ConfigManager.cs" />
     <Compile Include="BaseFunction\FunctionModule.cs" />
+    <Compile Include="Dto\CBBItem.cs" />
+    <Compile Include="Dto\Classes\ClassDto.cs" />
+    <Compile Include="Dto\Courses\CourseDto.cs" />
+    <Compile Include="Dto\LessonCompletes\LessonCompleteDto.cs" />
+    <Compile Include="Dto\LessonCompletes\LessonView.cs" />
+    <Compile Include="Dto\Lessons\LessonDto.cs" />
+    <Compile Include="Dto\Registers\RegisterDto.cs" />
     <Compile Include="Dto\Students\StudentDto.cs" />
     <Compile Include="Dto\Terms\TermDto.cs" />
     <Compile Include="Dto\UserLoginDto.cs" />
@@ -444,10 +451,16 @@
     <Compile Include="SdkCommon\IActivitiesApi.cs" />
     <Compile Include="SdkCommon\IAuthorizeCommon.cs" />
     <Compile Include="SdkCommon\IUsersApi.cs" />
-    <Compile Include="View\Students.cs">
+    <Compile Include="View\Students\StudentDetail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Students.Designer.cs">
+    <Compile Include="View\Students\StudentDetail.Designer.cs">
+      <DependentUpon>StudentDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Students\Students.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Students\Students.Designer.cs">
       <DependentUpon>Students.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Terms\Term.cs">
@@ -469,7 +482,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="View\Students.resx">
+    <EmbeddedResource Include="View\Students\StudentDetail.resx">
+      <DependentUpon>StudentDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Students\Students.resx">
       <DependentUpon>Students.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="appsettings.json">

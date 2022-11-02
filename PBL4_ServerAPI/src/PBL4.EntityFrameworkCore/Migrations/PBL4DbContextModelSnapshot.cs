@@ -211,7 +211,7 @@ namespace PBL4.Migrations
                     b.Property<Guid>("LessonId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("SessionId")
+                    b.Property<Guid?>("SessionId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("StudentId")
@@ -2804,9 +2804,7 @@ namespace PBL4.Migrations
 
                     b.HasOne("PBL4.Sessions.Session", "Session")
                         .WithMany("LessonCompletes")
-                        .HasForeignKey("SessionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("SessionId");
 
                     b.HasOne("PBL4.Students.Student", "Student")
                         .WithMany("LessonCompletes")

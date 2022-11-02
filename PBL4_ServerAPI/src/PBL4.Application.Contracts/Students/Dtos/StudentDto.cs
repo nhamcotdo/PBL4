@@ -18,10 +18,10 @@ namespace PBL4.Students.Dtos
 
         public UserLoginDto UserLogin { get; set; }
 
-        public ICollection<SessionRegisterDto> SessionRegisters { get; set; }
+        public List<SessionRegisterDto> SessionRegisters { get; set; }
 
-        public ICollection<RegisterDto> Registers { get; set; }
+        public List<RegisterDto> Registers { get; set; }
 
-        public ICollection<LessonCompleteDto> LessonCompletes { get; set; }
+        public List<LessonCompleteDto> LessonCompletes { get; set; }
     }
 }

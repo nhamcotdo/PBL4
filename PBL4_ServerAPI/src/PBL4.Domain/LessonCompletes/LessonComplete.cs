@@ -19,7 +19,7 @@ namespace PBL4.LessonCompletes
 
         public Guid ClassId { get; set; }
 
-        public Guid SessionId { get; set; }
+        public Guid? SessionId { get; set; }
 
         public String Comment { get; set; }
 
@@ -31,6 +31,6 @@ namespace PBL4.LessonCompletes
 
         public Class Class { get; set; }
 
-        public Session Session { get; set; }
+        public Session? Session { get; set; }
     }
 }

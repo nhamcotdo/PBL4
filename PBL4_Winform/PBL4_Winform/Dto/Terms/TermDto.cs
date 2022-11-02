@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PBL4_Winform.Dto.Terms
 {
-    class TermDto
+    public class TermDto
     {
         public Guid Id { get; set; }
 

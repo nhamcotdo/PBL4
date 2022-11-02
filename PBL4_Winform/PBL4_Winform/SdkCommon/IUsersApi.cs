@@ -14,8 +14,8 @@ namespace PBL4_Winform.SdkCommon
         [Get("/api/identity/users")]
         Task<PagedResultDto<IdentityUserDto>> GetListAsync(string Filter, PagedAndSortedResultRequestDto input);
 
-        [Get("/api/app/xdcbIdentityUser/findByUsername")]
-        Task<IdentityUserDto> GetByUserName(string username);
+        [Get("/api/identity/users/by-username/{userName}")]
+        Task <IdentityUserDto> GetByUserName(string username);
 
         [Put("/api/identity/users/{id}")]
         Task<IdentityUserDto> UpdateAsync(Guid id, IdentityUserUpdateDto input);

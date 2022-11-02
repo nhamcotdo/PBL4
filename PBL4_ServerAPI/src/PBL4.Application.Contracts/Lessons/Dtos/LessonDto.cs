@@ -16,11 +16,5 @@ namespace PBL4.Lessons.Dtos
         public float TimePerLesson { get; set; }
         
         public string Guide { get; set; }
-        
-        public IList<SessionDto> Sessions { get; set; }
-        
-        public IList<LessonOfCourseDto> LessonOfCourses { get; set; }
-        
-        public IList<LessonCompleteDto> LessonCompletes { get; set; }
     }
 }

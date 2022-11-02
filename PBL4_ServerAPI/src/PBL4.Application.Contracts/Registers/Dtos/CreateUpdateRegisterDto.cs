@@ -12,6 +12,6 @@ namespace PBL4.Registers.Dtos
 
         public Guid ClassId { get; set; }
 
-        public Guid LessonId { get; set; }
+        public Guid StudentId { get; set; }
     }
 }

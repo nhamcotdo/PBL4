@@ -18,7 +18,6 @@ namespace PBL4_Winform.View.Terms
         {
             InitializeComponent();
             var apiTerm = ConfigManager.GetAPIByService<ITermApi>();
-            apiTerm.De
         }
     }
 }

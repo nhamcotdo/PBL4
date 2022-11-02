@@ -15,17 +15,13 @@ namespace PBL4.LessonCompletes.Dtos
 
         public Guid ClassId { get; set; }
 
-        public Guid SessionId { get; set; }
+        public Guid? SessionId { get; set; }
 
         public String Comment { get; set; }
 
         public bool IsComplete { get; set; }
 
-        public StudentDto Student { get; set; }
-
         public LessonDto Lesson { get; set; }
-
-        public ClassDto Class { get; set; }
 
         public SessionDto Session { get; set; }
     }

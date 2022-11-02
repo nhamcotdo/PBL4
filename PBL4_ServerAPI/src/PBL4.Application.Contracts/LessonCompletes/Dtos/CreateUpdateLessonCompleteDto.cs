@@ -14,7 +14,7 @@ namespace PBL4.LessonCompletes.Dtos
 
         public Guid ClassId { get; set; }
 
-        public Guid SessionId { get; set; }
+        public Guid? SessionId { get; set; }
 
         public String Comment { get; set; }
 
