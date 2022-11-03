@@ -9,6 +9,6 @@ namespace PBL4.Students.Dtos
         [MaxLength(40)]
         public string ParentName { get; set; }
 
-        public UserLoginDto UserLogin { get; set; }
+        public CreateUpdateUserLoginDto UserLogin { get; set; }
     }
 }

@@ -430,13 +430,19 @@
     <Compile Include="Dto\CBBItem.cs" />
     <Compile Include="Dto\Classes\ClassDto.cs" />
     <Compile Include="Dto\Courses\CourseDto.cs" />
+    <Compile Include="Dto\Courses\CreateUpdateCourseDto.cs" />
     <Compile Include="Dto\LessonCompletes\LessonCompleteDto.cs" />
     <Compile Include="Dto\LessonCompletes\LessonView.cs" />
+    <Compile Include="Dto\Lessons\CreateUpdateLessonDto.cs" />
     <Compile Include="Dto\Lessons\LessonDto.cs" />
     <Compile Include="Dto\Registers\RegisterDto.cs" />
+    <Compile Include="Dto\Students\CreateUpdateStudentDto.cs" />
     <Compile Include="Dto\Students\StudentDto.cs" />
     <Compile Include="Dto\Terms\TermDto.cs" />
-    <Compile Include="Dto\UserLoginDto.cs" />
+    <Compile Include="Dto\User\CreateUpdateUserLoginDto.cs" />
+    <Compile Include="Dto\User\UserLoginDto.cs" />
+    <Compile Include="SdkCommon\ICourseApi.cs" />
+    <Compile Include="SdkCommon\ILessonApi.cs" />
     <Compile Include="SdkCommon\IStudentApi.cs" />
     <Compile Include="SdkCommon\Terms\ITermApi.cs" />
     <Compile Include="View\LoginForm.cs">
@@ -451,17 +457,17 @@
     <Compile Include="SdkCommon\IActivitiesApi.cs" />
     <Compile Include="SdkCommon\IAuthorizeCommon.cs" />
     <Compile Include="SdkCommon\IUsersApi.cs" />
+    <Compile Include="View\Mainform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Mainform.Designer.cs">
+      <DependentUpon>Mainform.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Students\StudentDetail.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\Students\StudentDetail.Designer.cs">
       <DependentUpon>StudentDetail.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Students\Students.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Students\Students.Designer.cs">
-      <DependentUpon>Students.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Terms\Term.cs">
       <SubType>Form</SubType>
@@ -482,11 +488,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="View\Mainform.resx">
+      <DependentUpon>Mainform.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Students\StudentDetail.resx">
       <DependentUpon>StudentDetail.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Students\Students.resx">
-      <DependentUpon>Students.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="appsettings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -522,6 +528,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="View\Lessons\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -13,10 +13,8 @@ using PBL4.Classes;
 using PBL4.Classes.Dtos;
 using PBL4.LessonCompletes;
 using PBL4.LessonCompletes.Dtos;
-using PBL4.Lessons;
-using PBL4.Lessons.Dtos;
-using PBL4.Sessions.Dtos;
-using PBL4.Sessions;
+using PBL4.UserLogins;
+using PBL4.UserLogins.Dtos;
 
 namespace PBL4.Students
 {
@@ -25,26 +23,34 @@ namespace PBL4.Students
         private readonly IStudentRepository _studentRepository;
         private readonly IRegisterRepository _registerRepository;
         private readonly ILessonCompleteRepository _lessonCompleteRepository;
+        private readonly IUserLoginRepository _userLoginRepository;
 
         public StudentAppService(
                                 IStudentRepository studentRepository,
                                 IRegisterRepository registerRepository,
-                                ILessonCompleteRepository lessonCompleteRepository
+                                ILessonCompleteRepository lessonCompleteRepository,
+                                IUserLoginRepository userLoginRepository
                                 ) : base(studentRepository)
         {
             _studentRepository = studentRepository;
             _registerRepository = registerRepository;
             _lessonCompleteRepository = lessonCompleteRepository;
+            _userLoginRepository = userLoginRepository;
         }
-
-        public override async Task<PagedResultDto<StudentDto>> GetListAsync(PagedAndSortedResultRequestDto input)
+        
+        public async Task<PagedResultDto<StudentDto>> SearchAsync(string filter = "")
         {
-            var queryable = await _studentRepository.GetQueryableAsync();
-            var students = await queryable
-                .Skip(input.SkipCount)
-                .Take(input.MaxResultCount)
-                .Include(x => x.UserLogin)
-                .ToListAsync();
+            var queryable = (await _studentRepository.GetQueryableAsync()).Include(x => x.UserLogin)
+                .WhereIf(
+                    !filter.IsNullOrEmpty(),
+                    x=>
+                    x.ParentName.Contains(filter)
+                    || x.UserLogin.Name.Contains(filter)
+                    || x.UserLogin.PhoneNumber.Contains(filter)
+                    || x.UserLogin.UserName.Contains(filter)
+                    || x.UserLogin.Address.Contains(filter)
+                );
+            var students = await queryable.ToListAsync();
             var maxResultCount = await queryable.CountAsync();
             var rs = new PagedResultDto<StudentDto>(maxResultCount, ObjectMapper.Map<List<Student>, List<StudentDto>>(students));
 
@@ -86,6 +92,26 @@ namespace PBL4.Students
                                             .ToListAsync()
                                             ;
             return ObjectMapper.Map<List<LessonComplete>, List<LessonCompleteDto>>(lessonCompletes);
+        }
+
+        public override async Task<StudentDto> CreateAsync(CreateUpdateStudentDto input)
+        {
+            var userLogin = ObjectMapper.Map<CreateUpdateUserLoginDto, UserLogin>(input.UserLogin);
+            var student = ObjectMapper.Map<CreateUpdateStudentDto, Student>(input);
+
+            student.UserLogin = userLogin;
+
+            return ObjectMapper.Map<Student, StudentDto>(await _studentRepository.InsertAsync(student, autoSave:true));
+        }
+
+        public override Task<StudentDto> UpdateAsync(Guid id, CreateUpdateStudentDto input)
+        {
+            return base.UpdateAsync(id, input);
+        }
+
+        public override Task DeleteAsync(Guid id)
+        {
+            return base.DeleteAsync(id);
         }
     }
 }

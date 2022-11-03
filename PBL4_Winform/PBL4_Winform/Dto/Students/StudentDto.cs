@@ -1,5 +1,6 @@
 ﻿using PBL4_Winform.Dto.LessonCompletes;
 using PBL4_Winform.Dto.Registers;
+using PBL4_Winform.Dto.User;
 using System;
 using System.Collections.Generic;
 

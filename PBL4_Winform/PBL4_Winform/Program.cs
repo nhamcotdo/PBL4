@@ -20,7 +20,7 @@ namespace PBL4_Winform
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             ConfigManager.Configuration = new ConfigurationBuilder().SetBasePath(AppDomain.CurrentDomain.BaseDirectory).AddJsonFile("appsettings.json").Build();
-            Application.Run(new Student());
+            Application.Run(new Mainform());
         }
     }
 }
