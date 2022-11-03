@@ -1,5 +1,6 @@
 ﻿using PBL4_Winform.ConfigManagers;
 using PBL4_Winform.SdkCommon;
+using PBL4_Winform.View.Lessons;
 using PBL4_Winform.View.Students;
 using System;
 using System.Collections.Generic;
@@ -30,6 +31,7 @@ namespace PBL4_Winform.View
         }
 
         //Student
+        
         private void LoadStudents(string filter = "")
         {
             var studentDtos = apiStudent.SearchAsync(filter)
@@ -103,11 +105,6 @@ namespace PBL4_Winform.View
             }
         }
 
-        //Course
-        public void LoadCourses()
-        {
-
-        }
 
         //Lesson
         public void LoadLessons(string filter = "")
@@ -117,6 +114,7 @@ namespace PBL4_Winform.View
                                                  .GetResult();
             dgvLesson.DataSource = lessonDtos.Items.Select(x => new
             {
+                Id = x.Id,
                 Title = x.Title,
                 DocumentUrl = x.DocumentUrl,
                 TimePerLesson = x.TimePerLesson,
@@ -136,5 +134,49 @@ namespace PBL4_Winform.View
                 LoadLessons(txtSearchLesson.Text);
             }
         }
+
+        private void btnAddLesson_Click(object sender, EventArgs e)
+        {
+            var lessonDetail = new LessonDetail(mode: "CREATE");
+            lessonDetail.f = LoadLessons;
+            lessonDetail.Show();
+        }
+
+        private void btnEditLesson_Click(object sender, EventArgs e)
+        {
+            if (dgvLesson.SelectedRows.Count == 1)
+            {
+                Guid id = (Guid)dgvLesson.SelectedRows[0].Cells[0].Value;
+                var lessonDetail = new LessonDetail(id: id, mode: "EDIT");
+                lessonDetail.f = LoadLessons;
+                lessonDetail.Show();
+            }
+        }
+
+        private void dgvLesson_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                Guid id = (Guid)dgvLesson.Rows[e.RowIndex].Cells[0].Value;
+                (new LessonDetail(id, mode: "VIEW")).Show();
+            }
+        }
+
+        private void btnDeleteLesson_Click(object sender, EventArgs e)
+        {
+            if (dgvLesson.SelectedRows.Count <= 0)
+                return;
+
+            var result = MessageBox.Show("Bạn có chắc chắn muốn xoá những bài học này ?");
+            if (result == DialogResult.OK)
+            {
+                foreach (DataGridViewRow lesson in dgvLesson.SelectedRows)
+                {
+                    apiLesson.DeleteAsync(Guid.Parse(lesson.Cells[0].Value.ToString()));
+                }
+                LoadLessons();
+            }
+        }
+
     }
 }

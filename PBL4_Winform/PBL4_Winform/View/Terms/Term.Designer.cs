@@ -1,7 +1,7 @@
 ﻿
 namespace PBL4_Winform.View.Terms
 {
-    partial class Term
+    partial class LessonDetail
     {
         /// <summary>
         /// Required designer variable.

@@ -55,9 +55,9 @@ namespace PBL4_Winform.View
             this.panel6 = new System.Windows.Forms.Panel();
             this.btnSearchLesson = new System.Windows.Forms.Button();
             this.txtSearchLesson = new System.Windows.Forms.TextBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.btnAddLesson = new System.Windows.Forms.Button();
+            this.btnDeleteLesson = new System.Windows.Forms.Button();
+            this.btnEditLesson = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.dgvLesson = new System.Windows.Forms.DataGridView();
@@ -357,13 +357,13 @@ namespace PBL4_Winform.View
             // 
             this.panel6.Controls.Add(this.btnSearchLesson);
             this.panel6.Controls.Add(this.txtSearchLesson);
-            this.panel6.Controls.Add(this.button5);
-            this.panel6.Controls.Add(this.button6);
-            this.panel6.Controls.Add(this.button7);
+            this.panel6.Controls.Add(this.btnAddLesson);
+            this.panel6.Controls.Add(this.btnDeleteLesson);
+            this.panel6.Controls.Add(this.btnEditLesson);
             this.panel6.Location = new System.Drawing.Point(3, 462);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(862, 45);
-            this.panel6.TabIndex = 5;
+            this.panel6.TabIndex = 6;
             // 
             // btnSearchLesson
             // 
@@ -373,7 +373,6 @@ namespace PBL4_Winform.View
             this.btnSearchLesson.TabIndex = 5;
             this.btnSearchLesson.Text = "Tìm kiếm";
             this.btnSearchLesson.UseVisualStyleBackColor = true;
-            this.btnSearchLesson.Click += new System.EventHandler(this.btnSearchLesson_Click);
             // 
             // txtSearchLesson
             // 
@@ -381,34 +380,34 @@ namespace PBL4_Winform.View
             this.txtSearchLesson.Name = "txtSearchLesson";
             this.txtSearchLesson.Size = new System.Drawing.Size(213, 22);
             this.txtSearchLesson.TabIndex = 4;
-            this.txtSearchLesson.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearchLesson_KeyPress);
             // 
-            // button5
+            // btnAddLesson
             // 
-            this.button5.Location = new System.Drawing.Point(453, 8);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 31);
-            this.button5.TabIndex = 3;
-            this.button5.Text = "Thêm";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnAddLesson.Location = new System.Drawing.Point(453, 8);
+            this.btnAddLesson.Name = "btnAddLesson";
+            this.btnAddLesson.Size = new System.Drawing.Size(75, 31);
+            this.btnAddLesson.TabIndex = 3;
+            this.btnAddLesson.Text = "Thêm";
+            this.btnAddLesson.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // btnDeleteLesson
             // 
-            this.button6.Location = new System.Drawing.Point(721, 11);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 32);
-            this.button6.TabIndex = 1;
-            this.button6.Text = "Xoá";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnDeleteLesson.Location = new System.Drawing.Point(725, 3);
+            this.btnDeleteLesson.Name = "btnDeleteLesson";
+            this.btnDeleteLesson.Size = new System.Drawing.Size(75, 32);
+            this.btnDeleteLesson.TabIndex = 1;
+            this.btnDeleteLesson.Text = "Xoá";
+            this.btnDeleteLesson.UseVisualStyleBackColor = true;
+            this.btnDeleteLesson.Click += new System.EventHandler(this.btnDeleteLesson_Click);
             // 
-            // button7
+            // btnEditLesson
             // 
-            this.button7.Location = new System.Drawing.Point(594, 10);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 34);
-            this.button7.TabIndex = 2;
-            this.button7.Text = "Sửa";
-            this.button7.UseVisualStyleBackColor = true;
+            this.btnEditLesson.Location = new System.Drawing.Point(598, 6);
+            this.btnEditLesson.Name = "btnEditLesson";
+            this.btnEditLesson.Size = new System.Drawing.Size(75, 34);
+            this.btnEditLesson.TabIndex = 2;
+            this.btnEditLesson.Text = "Sửa";
+            this.btnEditLesson.UseVisualStyleBackColor = true;
             // 
             // panel5
             // 
@@ -446,6 +445,7 @@ namespace PBL4_Winform.View
             this.dgvLesson.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLesson.Size = new System.Drawing.Size(862, 402);
             this.dgvLesson.TabIndex = 0;
+            this.dgvLesson.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLesson_CellContentDoubleClick);
             // 
             // Mainform
             // 
@@ -511,8 +511,8 @@ namespace PBL4_Winform.View
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button btnSearchLesson;
         private System.Windows.Forms.TextBox txtSearchLesson;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button btnAddLesson;
+        private System.Windows.Forms.Button btnDeleteLesson;
+        private System.Windows.Forms.Button btnEditLesson;
     }
 }

@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace PBL4_Winform.View.Terms
 {
-    public partial class Term : Form
+    public partial class LessonDetail : Form
     {
-        public Term()
+        public LessonDetail()
         {
             InitializeComponent();
             var apiTerm = ConfigManager.GetAPIByService<ITermApi>();
