@@ -14,7 +14,7 @@ namespace PBL4.Courses
 
             return queryable
                 .Include(x => x.Classes)
-                .Include(x => x.LessonOfCourses)
+                .Include(x => x.LessonOfCourses).ThenInclude(x => x.Lesson)
                 ;
         }
     }

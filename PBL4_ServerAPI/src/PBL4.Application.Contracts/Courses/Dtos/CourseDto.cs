@@ -11,7 +11,7 @@ namespace PBL4.Courses.Dtos
         public string Name { get; set; }
         public string Description { get; set; }
         public int NumberOfLesson { get; set; }
-        public IList<ClassDto> Classes { get; set; }
+        // public IList<ClassDto> Classes { get; set; }
         public IList<LessonOfCourseDto> LessonOfCourses { get; set; }
     }
 }

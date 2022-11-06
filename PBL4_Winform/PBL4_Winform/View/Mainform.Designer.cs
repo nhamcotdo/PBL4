@@ -43,13 +43,15 @@ namespace PBL4_Winform.View
             this.dgvStudent = new System.Windows.Forms.DataGridView();
             this.tabCourse = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.btnSearchCourse = new System.Windows.Forms.Button();
+            this.txtSearchCourse = new System.Windows.Forms.TextBox();
+            this.btnAddCourse = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.dgvCourse = new System.Windows.Forms.DataGridView();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -61,6 +63,17 @@ namespace PBL4_Winform.View
             this.panel5 = new System.Windows.Forms.Panel();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.dgvLesson = new System.Windows.Forms.DataGridView();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.btnSearchClass = new System.Windows.Forms.Button();
+            this.txtSearchClass = new System.Windows.Forms.TextBox();
+            this.btnAddClass = new System.Windows.Forms.Button();
+            this.btnDeleteClass = new System.Windows.Forms.Button();
+            this.btnEditClass = new System.Windows.Forms.Button();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.dgvClass = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.tabStudent.SuspendLayout();
             this.tableLayoutPanelStudent.SuspendLayout();
@@ -69,14 +82,19 @@ namespace PBL4_Winform.View
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudent)).BeginInit();
             this.tabCourse.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel4.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCourse)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLesson)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClass)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -84,6 +102,7 @@ namespace PBL4_Winform.View
             this.tabControl1.Controls.Add(this.tabStudent);
             this.tabControl1.Controls.Add(this.tabCourse);
             this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -100,7 +119,7 @@ namespace PBL4_Winform.View
             this.tabStudent.Padding = new System.Windows.Forms.Padding(3);
             this.tabStudent.Size = new System.Drawing.Size(874, 516);
             this.tabStudent.TabIndex = 0;
-            this.tabStudent.Text = "Quản lí học sinh";
+            this.tabStudent.Text = "Học sinh";
             this.tabStudent.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanelStudent
@@ -136,6 +155,7 @@ namespace PBL4_Winform.View
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(0, 0);
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(862, 56);
             this.textBox1.TabIndex = 0;
             this.textBox1.Text = "Danh sách học sinh";
@@ -204,6 +224,7 @@ namespace PBL4_Winform.View
             // 
             // dgvStudent
             // 
+            this.dgvStudent.AllowUserToAddRows = false;
             this.dgvStudent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -212,13 +233,12 @@ namespace PBL4_Winform.View
             this.dgvStudent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStudent.Location = new System.Drawing.Point(3, 54);
             this.dgvStudent.Name = "dgvStudent";
-            this.dgvStudent.RowHeadersVisible = false;
             this.dgvStudent.RowHeadersWidth = 51;
             this.dgvStudent.RowTemplate.Height = 24;
             this.dgvStudent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvStudent.Size = new System.Drawing.Size(862, 402);
             this.dgvStudent.TabIndex = 0;
-            this.dgvStudent.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStudent_CellContentDoubleClick);
+            this.dgvStudent.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvStudent_RowHeaderMouseDoubleClick);
             // 
             // tabCourse
             // 
@@ -228,16 +248,16 @@ namespace PBL4_Winform.View
             this.tabCourse.Padding = new System.Windows.Forms.Padding(3);
             this.tabCourse.Size = new System.Drawing.Size(874, 516);
             this.tabCourse.TabIndex = 1;
-            this.tabCourse.Text = "Quản lí khoá học";
+            this.tabCourse.Text = "Khoá học";
             this.tabCourse.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.dataGridView2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel4, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.dgvCourse, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -248,6 +268,66 @@ namespace PBL4_Winform.View
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(868, 510);
             this.tableLayoutPanel1.TabIndex = 5;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.btnSearchCourse);
+            this.panel4.Controls.Add(this.txtSearchCourse);
+            this.panel4.Controls.Add(this.btnAddCourse);
+            this.panel4.Controls.Add(this.button3);
+            this.panel4.Controls.Add(this.button4);
+            this.panel4.Location = new System.Drawing.Point(3, 462);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(862, 45);
+            this.panel4.TabIndex = 7;
+            // 
+            // btnSearchCourse
+            // 
+            this.btnSearchCourse.Location = new System.Drawing.Point(296, 8);
+            this.btnSearchCourse.Name = "btnSearchCourse";
+            this.btnSearchCourse.Size = new System.Drawing.Size(75, 31);
+            this.btnSearchCourse.TabIndex = 5;
+            this.btnSearchCourse.Text = "Tìm kiếm";
+            this.btnSearchCourse.UseVisualStyleBackColor = true;
+            this.btnSearchCourse.Click += new System.EventHandler(this.btnSearchCourse_Click);
+            // 
+            // txtSearchCourse
+            // 
+            this.txtSearchCourse.Location = new System.Drawing.Point(38, 12);
+            this.txtSearchCourse.Name = "txtSearchCourse";
+            this.txtSearchCourse.Size = new System.Drawing.Size(213, 22);
+            this.txtSearchCourse.TabIndex = 4;
+            this.txtSearchCourse.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearchCourse_KeyPress);
+            // 
+            // btnAddCourse
+            // 
+            this.btnAddCourse.Location = new System.Drawing.Point(453, 8);
+            this.btnAddCourse.Name = "btnAddCourse";
+            this.btnAddCourse.Size = new System.Drawing.Size(75, 31);
+            this.btnAddCourse.TabIndex = 3;
+            this.btnAddCourse.Text = "Thêm";
+            this.btnAddCourse.UseVisualStyleBackColor = true;
+            this.btnAddCourse.Click += new System.EventHandler(this.btnAddCourse_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(725, 3);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 32);
+            this.button3.TabIndex = 1;
+            this.button3.Text = "Xoá";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.btnDeleteCourse_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(598, 6);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 34);
+            this.button4.TabIndex = 2;
+            this.button4.Text = "Sửa";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.btnEditCourse_Click);
             // 
             // panel1
             // 
@@ -264,65 +344,29 @@ namespace PBL4_Winform.View
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.Location = new System.Drawing.Point(0, 0);
             this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(862, 56);
             this.textBox2.TabIndex = 0;
             this.textBox2.Text = "Danh sách khoá học";
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // dataGridView2
+            // dgvCourse
             // 
-            this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgvCourse.AllowUserToAddRows = false;
+            this.dgvCourse.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView2.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(3, 54);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersVisible = false;
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(862, 402);
-            this.dataGridView2.TabIndex = 0;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.button1);
-            this.panel4.Controls.Add(this.button2);
-            this.panel4.Controls.Add(this.button3);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(3, 462);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(862, 45);
-            this.panel4.TabIndex = 4;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(98, 8);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 31);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Thêm";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(377, 6);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 32);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Xoá";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(245, 6);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 34);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Sửa";
-            this.button3.UseVisualStyleBackColor = true;
+            this.dgvCourse.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvCourse.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgvCourse.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCourse.Location = new System.Drawing.Point(3, 54);
+            this.dgvCourse.Name = "dgvCourse";
+            this.dgvCourse.RowHeadersWidth = 51;
+            this.dgvCourse.RowTemplate.Height = 24;
+            this.dgvCourse.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCourse.Size = new System.Drawing.Size(862, 402);
+            this.dgvCourse.TabIndex = 0;
+            this.dgvCourse.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvCourse_RowHeaderMouseDoubleClick);
             // 
             // tabPage1
             // 
@@ -332,7 +376,7 @@ namespace PBL4_Winform.View
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(874, 516);
             this.tabPage1.TabIndex = 2;
-            this.tabPage1.Text = "Quản lí bài học";
+            this.tabPage1.Text = "Bài học";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel2
@@ -389,6 +433,7 @@ namespace PBL4_Winform.View
             this.btnAddLesson.TabIndex = 3;
             this.btnAddLesson.Text = "Thêm";
             this.btnAddLesson.UseVisualStyleBackColor = true;
+            this.btnAddLesson.Click += new System.EventHandler(this.btnAddLesson_Click);
             // 
             // btnDeleteLesson
             // 
@@ -408,6 +453,7 @@ namespace PBL4_Winform.View
             this.btnEditLesson.TabIndex = 2;
             this.btnEditLesson.Text = "Sửa";
             this.btnEditLesson.UseVisualStyleBackColor = true;
+            this.btnEditLesson.Click += new System.EventHandler(this.btnEditLesson_Click);
             // 
             // panel5
             // 
@@ -424,6 +470,7 @@ namespace PBL4_Winform.View
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.Location = new System.Drawing.Point(0, 0);
             this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(862, 53);
             this.textBox3.TabIndex = 0;
             this.textBox3.Text = "Danh sách bài học";
@@ -431,6 +478,7 @@ namespace PBL4_Winform.View
             // 
             // dgvLesson
             // 
+            this.dgvLesson.AllowUserToAddRows = false;
             this.dgvLesson.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -439,13 +487,140 @@ namespace PBL4_Winform.View
             this.dgvLesson.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLesson.Location = new System.Drawing.Point(3, 54);
             this.dgvLesson.Name = "dgvLesson";
-            this.dgvLesson.RowHeadersVisible = false;
             this.dgvLesson.RowHeadersWidth = 51;
             this.dgvLesson.RowTemplate.Height = 24;
             this.dgvLesson.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLesson.Size = new System.Drawing.Size(862, 402);
             this.dgvLesson.TabIndex = 0;
-            this.dgvLesson.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLesson_CellContentDoubleClick);
+            this.dgvLesson.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvLesson_RowHeaderMouseDoubleClick);
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.tableLayoutPanel3);
+            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(874, 516);
+            this.tabPage2.TabIndex = 3;
+            this.tabPage2.Text = "Lớp học";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 1;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Controls.Add(this.panel7, 0, 2);
+            this.tableLayoutPanel3.Controls.Add(this.panel8, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.dgvClass, 0, 1);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 3;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(868, 510);
+            this.tableLayoutPanel3.TabIndex = 6;
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.btnSearchClass);
+            this.panel7.Controls.Add(this.txtSearchClass);
+            this.panel7.Controls.Add(this.btnAddClass);
+            this.panel7.Controls.Add(this.btnDeleteClass);
+            this.panel7.Controls.Add(this.btnEditClass);
+            this.panel7.Location = new System.Drawing.Point(3, 462);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(862, 45);
+            this.panel7.TabIndex = 6;
+            // 
+            // btnSearchClass
+            // 
+            this.btnSearchClass.Location = new System.Drawing.Point(296, 8);
+            this.btnSearchClass.Name = "btnSearchClass";
+            this.btnSearchClass.Size = new System.Drawing.Size(75, 31);
+            this.btnSearchClass.TabIndex = 5;
+            this.btnSearchClass.Text = "Tìm kiếm";
+            this.btnSearchClass.UseVisualStyleBackColor = true;
+            this.btnSearchClass.Click += new System.EventHandler(this.btnSearchClass_Click);
+            // 
+            // txtSearchClass
+            // 
+            this.txtSearchClass.Location = new System.Drawing.Point(38, 12);
+            this.txtSearchClass.Name = "txtSearchClass";
+            this.txtSearchClass.Size = new System.Drawing.Size(213, 22);
+            this.txtSearchClass.TabIndex = 4;
+            this.txtSearchClass.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearchClass_KeyPress);
+            // 
+            // btnAddClass
+            // 
+            this.btnAddClass.Location = new System.Drawing.Point(453, 8);
+            this.btnAddClass.Name = "btnAddClass";
+            this.btnAddClass.Size = new System.Drawing.Size(75, 31);
+            this.btnAddClass.TabIndex = 3;
+            this.btnAddClass.Text = "Thêm";
+            this.btnAddClass.UseVisualStyleBackColor = true;
+            this.btnAddClass.Click += new System.EventHandler(this.btnAddClass_Click);
+            // 
+            // btnDeleteClass
+            // 
+            this.btnDeleteClass.Location = new System.Drawing.Point(725, 3);
+            this.btnDeleteClass.Name = "btnDeleteClass";
+            this.btnDeleteClass.Size = new System.Drawing.Size(75, 32);
+            this.btnDeleteClass.TabIndex = 1;
+            this.btnDeleteClass.Text = "Xoá";
+            this.btnDeleteClass.UseVisualStyleBackColor = true;
+            this.btnDeleteClass.Click += new System.EventHandler(this.btnDeleteClass_Click);
+            // 
+            // btnEditClass
+            // 
+            this.btnEditClass.Location = new System.Drawing.Point(598, 6);
+            this.btnEditClass.Name = "btnEditClass";
+            this.btnEditClass.Size = new System.Drawing.Size(75, 34);
+            this.btnEditClass.TabIndex = 2;
+            this.btnEditClass.Text = "Sửa";
+            this.btnEditClass.UseVisualStyleBackColor = true;
+            this.btnEditClass.Click += new System.EventHandler(this.btnEditClass_Click);
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.textBox5);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel8.Location = new System.Drawing.Point(3, 3);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(862, 45);
+            this.panel8.TabIndex = 3;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox5.Location = new System.Drawing.Point(0, 0);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.ReadOnly = true;
+            this.textBox5.Size = new System.Drawing.Size(862, 53);
+            this.textBox5.TabIndex = 0;
+            this.textBox5.Text = "Danh sách lớp học";
+            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // dgvClass
+            // 
+            this.dgvClass.AllowUserToAddRows = false;
+            this.dgvClass.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvClass.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvClass.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgvClass.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvClass.Location = new System.Drawing.Point(3, 54);
+            this.dgvClass.Name = "dgvClass";
+            this.dgvClass.RowHeadersWidth = 51;
+            this.dgvClass.RowTemplate.Height = 24;
+            this.dgvClass.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvClass.Size = new System.Drawing.Size(862, 402);
+            this.dgvClass.TabIndex = 0;
+            this.dgvClass.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvClass_RowHeaderMouseDoubleClick);
             // 
             // Mainform
             // 
@@ -466,10 +641,11 @@ namespace PBL4_Winform.View
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudent)).EndInit();
             this.tabCourse.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCourse)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
@@ -477,6 +653,13 @@ namespace PBL4_Winform.View
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLesson)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClass)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -496,11 +679,7 @@ namespace PBL4_Winform.View
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.DataGridView dgvCourse;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Panel panel5;
@@ -514,5 +693,22 @@ namespace PBL4_Winform.View
         private System.Windows.Forms.Button btnAddLesson;
         private System.Windows.Forms.Button btnDeleteLesson;
         private System.Windows.Forms.Button btnEditLesson;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button btnSearchCourse;
+        private System.Windows.Forms.TextBox txtSearchCourse;
+        private System.Windows.Forms.Button btnAddCourse;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Button btnSearchClass;
+        private System.Windows.Forms.TextBox txtSearchClass;
+        private System.Windows.Forms.Button btnAddClass;
+        private System.Windows.Forms.Button btnDeleteClass;
+        private System.Windows.Forms.Button btnEditClass;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.DataGridView dgvClass;
     }
 }

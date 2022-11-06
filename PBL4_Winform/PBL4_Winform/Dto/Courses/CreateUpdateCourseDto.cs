@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PBL4_Winform.Dto.Lessons;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,6 @@ namespace PBL4_Winform.Dto.Courses
         public int NumberOfLesson { get; set; }
 
         //public IList<ClassDto> Classes { get; set; }
-        //public IList<LessonOfCourseDto> LessonOfCourses { get; set; }
+        public List<LessonOfCourseDto> LessonOfCourses { get; set; }
     }
 }

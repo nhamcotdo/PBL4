@@ -16,9 +16,6 @@ namespace PBL4_Winform.SdkCommon
         [Get("/api/app/lesson")]
         Task<PagedResultDto<LessonDto>> GetListAsync(PagedAndSortedResultRequestDto input);
 
-        [Get("/api/app/lesson/lesson-by-class-id")]
-        Task<List<LessonCompleteDto>> GetLessonByClassId(Guid lessonId, Guid classId);
-
         [Post("/api/app/lesson/")]
         Task<LessonDto> CreateAsync(CreateUpdateLessonDto input);
 

@@ -11,8 +11,6 @@ namespace PBL4.LessonOfCourses.Dtos
 
         public Guid LessonId { get; set; }
 
-        public CourseDto Course { get; set; }
-
         public LessonDto Lesson { get; set; }
     }
 }
