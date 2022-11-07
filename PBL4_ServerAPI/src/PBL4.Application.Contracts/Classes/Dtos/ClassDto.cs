@@ -15,6 +15,8 @@ namespace PBL4.Classes.Dtos
         [MaxLength(40)]
         public string Name { get; set; }
 
+        public string Description { get; set; }
+        
         public DateTime StartTime { get; set; }
 
         public DateTime EndTime { get; set; }
@@ -29,10 +31,10 @@ namespace PBL4.Classes.Dtos
 
         public CourseDto Course { get; set; }
 
-        public IList<RegisterDto> Registers { get; set; }
+        // public IList<RegisterDto> Registers { get; set; }
 
-        public IList<SessionDto> Sessions { get; set; }
+        // public IList<SessionDto> Sessions { get; set; }
 
-        public IList<LessonCompleteDto> LessonCompletes { get; set; }
+        // public IList<LessonCompleteDto> LessonCompletes { get; set; }
     }
 }

@@ -51,6 +51,9 @@ namespace PBL4.Migrations
                         .HasColumnType("datetime2")
                         .HasColumnName("DeletionTime");
 
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("EndTime")
                         .HasColumnType("datetime2");
 

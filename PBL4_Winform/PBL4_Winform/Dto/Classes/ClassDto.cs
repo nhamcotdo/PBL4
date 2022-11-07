@@ -13,7 +13,11 @@ namespace PBL4_Winform.Dto.Classes
 {
     public class ClassDto
     {
+        public Guid Id { get; set; }
+
         public string Name { get; set; }
+
+        public string Description { get; set; }
 
         public DateTime StartTime { get; set; }
 
@@ -29,10 +33,8 @@ namespace PBL4_Winform.Dto.Classes
 
         public CourseDto Course { get; set; }
 
-        public List<RegisterDto> Registers { get; set; }
+        //public List<RegisterDto> Registers { get; set; }
 
-        //public IList<SessionDto> Sessions { get; set; }
-
-        public List<LessonCompleteDto> LessonCompletes { get; set; }
+        //public List<LessonCompleteDto> LessonCompletes { get; set; }
     }
 }

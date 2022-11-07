@@ -1,11 +1,15 @@
 ﻿using PBL4_Winform.ConfigManagers;
 using PBL4_Winform.SdkCommon;
+using PBL4_Winform.SdkCommon.Terms;
+using PBL4_Winform.View.Classes;
 using PBL4_Winform.View.Courses;
 using PBL4_Winform.View.Lessons;
 using PBL4_Winform.View.Students;
+using PBL4_Winform.View.Terms;
 using System;
 using System.Data;
 using System.Windows.Forms;
+using LessonDetail = PBL4_Winform.View.Lessons.LessonDetail;
 
 namespace PBL4_Winform.View
 {
@@ -15,11 +19,13 @@ namespace PBL4_Winform.View
         private ICourseApi apiCourse { get; set; }
         private ILessonApi apiLesson { get; set; }
         private IClassApi apiClass { get; set; }
+        private ITermApi apiTerm{ get; set; }
 
         private DataTable dtStudent = new DataTable();
         private DataTable dtCourse = new DataTable();
         private DataTable dtLesson = new DataTable();
         private DataTable dtClass = new DataTable();
+        private DataTable dtTerm = new DataTable();
 
         public Mainform()
         {
@@ -27,6 +33,8 @@ namespace PBL4_Winform.View
             apiLesson = ConfigManager.GetAPIByService<ILessonApi>();
             apiCourse = ConfigManager.GetAPIByService<ICourseApi>();
             apiClass = ConfigManager.GetAPIByService<IClassApi>();
+            apiTerm = ConfigManager.GetAPIByService<ITermApi>();
+
             InitializeComponent();
             //var frmLogin = new LoginForm();
             //frmLogin.ShowDialog();
@@ -35,6 +43,7 @@ namespace PBL4_Winform.View
             LoadLessons();
             LoadCourses();
             LoadClass();
+            LoadTerms();
         }
 
         private void AddHeader()
@@ -81,6 +90,14 @@ namespace PBL4_Winform.View
                     new DataColumn("Học phí", typeof(float)),
                     new DataColumn("Tên khoá học", typeof(string)),
                     new DataColumn("Tên kì học", typeof(string)),
+            });
+            dtTerm.Columns.AddRange(
+            new DataColumn[]
+            {
+                    new DataColumn("ID", typeof(Guid)),
+                    new DataColumn("Tên", typeof(string)),
+                    new DataColumn("Thời gian bắt đầu", typeof(DateTime)),
+                    new DataColumn("Thời gian Kết thúc", typeof(DateTime)),
             }
         );
         }
@@ -292,7 +309,7 @@ namespace PBL4_Winform.View
 
             var count = dgvCourse.SelectedRows.Count;
 
-            var result = MessageBox.Show("Bạn có chắc chắn muốn xoá " + count + " bài học này ?");
+            var result = MessageBox.Show("Bạn có chắc chắn muốn xoá " + count + " khoá học này ?");
             if (result == DialogResult.OK)
             {
                 foreach (DataGridViewRow course in dgvCourse.SelectedRows)
@@ -336,7 +353,7 @@ namespace PBL4_Winform.View
         {
             var classDtos = apiClass.SearchAsync(filter).GetAwaiter().GetResult().Items;
 
-            dtCourse.Rows.Clear();
+            dtClass.Rows.Clear();
             foreach (var classDto in classDtos)
             {
                 dtClass.Rows.Add(
@@ -344,8 +361,9 @@ namespace PBL4_Winform.View
                     classDto.Name,
                     classDto.StartTime,
                     classDto.EndTime,
-                    classDto.Course.Name,
-                    classDto.Term.Name
+                    classDto.Fee,
+                    classDto.Course?.Name,
+                    classDto.Term?.Name
                 );
             }
 
@@ -356,27 +374,41 @@ namespace PBL4_Winform.View
 
         private void btnSearchClass_Click(object sender, EventArgs e)
         {
-
+            LoadClass(txtSearch.Text);
         }
 
         private void btnAddClass_Click(object sender, EventArgs e)
         {
-
+            var classDetail = new ClassDetail(mode: "CREATE");
+            classDetail.f = LoadClass;
+            classDetail.Show();
         }
 
         private void btnEditClass_Click(object sender, EventArgs e)
         {
-
+            if (dgvClass.SelectedRows.Count == 1)
+            {
+                Guid id = (Guid)dgvClass.SelectedRows[0].Cells[0].Value;
+                var classDetail = new ClassDetail(id: id, mode: "EDIT");
+                classDetail.f = LoadClass;
+                classDetail.Show();
+            }
+        }
+        private void dgvClass_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                Guid id = (Guid)dgvClass.Rows[e.RowIndex].Cells[0].Value;
+                (new ClassDetail(id, mode: "VIEW")).Show();
+            }
         }
 
         private void txtSearchClass_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (e.KeyChar != 13)
+                return;
 
-        }
-
-        private void dgvClass_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-
+            LoadClass(txtSearch.Text);
         }
 
         private void btnDeleteClass_Click(object sender, EventArgs e)
@@ -384,7 +416,7 @@ namespace PBL4_Winform.View
             if (dgvClass.SelectedRows.Count <= 0)
                 return;
             var count = dgvClass.SelectedRows.Count;
-            var result = MessageBox.Show("Bạn có chắc chắn muốn xoá " + count + " học sinh này ?");
+            var result = MessageBox.Show("Bạn có chắc chắn muốn xoá " + count + " lớp học này ?");
             if (result == DialogResult.OK)
             {
                 foreach (DataGridViewRow row in dgvClass.SelectedRows)
@@ -394,6 +426,67 @@ namespace PBL4_Winform.View
                 MessageBox.Show("Đã xoá thành công " + count + " lớp học!");
                 LoadClass();
             }
+        }
+
+        //Term
+        private void LoadTerms(string filter = "")
+        {
+            var terms = apiTerm.SearchAsync(filter).GetAwaiter().GetResult().Items;
+
+            dtTerm.Rows.Clear();
+            foreach (var term in terms)
+            {
+                dtTerm.Rows.Add(term.Id, term.Name, term.StartTime, term.EndTime);
+            }
+
+            dgvTerm.DataSource = dtTerm;
+            dgvTerm.Columns[0].Visible = false;
+            dgvTerm.ReadOnly = true;
+        }
+
+        private void btnSearchTerm_Click(object sender, EventArgs e)
+        {
+            LoadTerms(txtSearchTerm.Text);
+        }
+
+        private void btnAddTerm_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEditTerm_Click(object sender, EventArgs e)
+        {
+            if (dgvTerm.SelectedRows.Count == 1)
+            {
+                Guid id = (Guid)dgvTerm.SelectedRows[0].Cells[0].Value;
+                var termDetail = new TermDetail(id: id, mode: "EDIT");
+                termDetail.f = LoadTerms;
+                termDetail.Show();
+            }
+        }
+
+        private void btnDeleteTerm_Click(object sender, EventArgs e)
+        {
+
+            if (dgvTerm.SelectedRows.Count <= 0)
+                return;
+            var count = dgvTerm.SelectedRows.Count;
+            var result = MessageBox.Show("Bạn có chắc chắn muốn xoá " + count + " kì học này ?");
+            if (result == DialogResult.OK)
+            {
+                foreach (DataGridViewRow row in dgvTerm.SelectedRows)
+                {
+                    apiTerm.DeleteAsync(Guid.Parse(row.Cells[0].Value.ToString()));
+                }
+                MessageBox.Show("Đã xoá thành công " + count + " kì học!");
+                LoadTerms();
+            }
+        }
+
+        private void txtSearchTerm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == 13)
+                LoadTerms(txtSearchTerm.Text);
         }
     }
 }

@@ -429,6 +429,7 @@
     <Compile Include="BaseFunction\FunctionModule.cs" />
     <Compile Include="Dto\CBBItem.cs" />
     <Compile Include="Dto\Classes\ClassDto.cs" />
+    <Compile Include="Dto\Classes\CreateUpdateClassDto.cs" />
     <Compile Include="Dto\Courses\CourseDto.cs" />
     <Compile Include="Dto\Courses\CreateUpdateCourseDto.cs" />
     <Compile Include="Dto\LessonCompletes\LessonCompleteDto.cs" />
@@ -444,9 +445,16 @@
     <Compile Include="Dto\User\CreateUpdateUserLoginDto.cs" />
     <Compile Include="Dto\User\UserLoginDto.cs" />
     <Compile Include="SdkCommon\ICourseApi.cs" />
+    <Compile Include="SdkCommon\IClassApi.cs" />
     <Compile Include="SdkCommon\ILessonApi.cs" />
     <Compile Include="SdkCommon\IStudentApi.cs" />
-    <Compile Include="SdkCommon\Terms\ITermApi.cs" />
+    <Compile Include="SdkCommon\ITermApi.cs" />
+    <Compile Include="View\Classes\ClassDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Classes\ClassDetail.Designer.cs">
+      <DependentUpon>ClassDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Courses\CourseDetail.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -495,6 +503,9 @@
     <Compile Include="View\Terms\Term.Designer.cs">
       <DependentUpon>Term.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\Classes\ClassDetail.resx">
+      <DependentUpon>ClassDetail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Courses\CourseDetail.resx">
       <DependentUpon>CourseDetail.cs</DependentUpon>
     </EmbeddedResource>
@@ -558,7 +569,9 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="View\NewFolder1\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

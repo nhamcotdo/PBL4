@@ -32,6 +32,7 @@ namespace PBL4_Winform.View.Courses
             _mode = mode;
             courseId = id;
             InitializeComponent();
+            btnSubmit.Text = "Sửa";
 
             dt.Columns.AddRange(new DataColumn[] {
                 new DataColumn("ID", typeof(Guid)),
@@ -84,6 +85,7 @@ namespace PBL4_Winform.View.Courses
                 rtDescription.ReadOnly = true;
                 btnAdd.Visible = false;
                 btnDelete.Visible = false;
+                btnSubmit.Text = "Đóng";
             }
         }
 
