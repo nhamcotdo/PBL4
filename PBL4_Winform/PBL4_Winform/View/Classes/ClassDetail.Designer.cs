@@ -30,6 +30,10 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.nbFee = new System.Windows.Forms.NumericUpDown();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cbbCourseName = new System.Windows.Forms.ComboBox();
+            this.cbbTermName = new System.Windows.Forms.ComboBox();
             this.dtpEnd = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -43,32 +47,26 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btnSubmit = new System.Windows.Forms.Button();
-            this.cbbTermName = new System.Windows.Forms.ComboBox();
-            this.cbbCourseName = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.nbFee = new System.Windows.Forms.NumericUpDown();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nbFee)).BeginInit();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nbFee)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.AutoSize = true;
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 500F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel2, 1, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 412F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(859, 412);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1002, 412);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panel1
@@ -88,14 +86,51 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(423, 406);
+            this.panel1.Size = new System.Drawing.Size(494, 406);
             this.panel1.TabIndex = 0;
+            // 
+            // nbFee
+            // 
+            this.nbFee.Location = new System.Drawing.Point(153, 248);
+            this.nbFee.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+            this.nbFee.Name = "nbFee";
+            this.nbFee.Size = new System.Drawing.Size(228, 22);
+            this.nbFee.TabIndex = 20;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(9, 250);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(53, 16);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "Học phí";
+            // 
+            // cbbCourseName
+            // 
+            this.cbbCourseName.FormattingEnabled = true;
+            this.cbbCourseName.Location = new System.Drawing.Point(153, 157);
+            this.cbbCourseName.Name = "cbbCourseName";
+            this.cbbCourseName.Size = new System.Drawing.Size(228, 24);
+            this.cbbCourseName.TabIndex = 17;
+            // 
+            // cbbTermName
+            // 
+            this.cbbTermName.FormattingEnabled = true;
+            this.cbbTermName.Location = new System.Drawing.Point(153, 206);
+            this.cbbTermName.Name = "cbbTermName";
+            this.cbbTermName.Size = new System.Drawing.Size(228, 24);
+            this.cbbTermName.TabIndex = 16;
             // 
             // dtpEnd
             // 
             this.dtpEnd.Location = new System.Drawing.Point(153, 110);
             this.dtpEnd.Name = "dtpEnd";
-            this.dtpEnd.Size = new System.Drawing.Size(200, 22);
+            this.dtpEnd.Size = new System.Drawing.Size(228, 22);
             this.dtpEnd.TabIndex = 15;
             // 
             // label5
@@ -129,7 +164,7 @@
             // 
             this.dtpStart.Location = new System.Drawing.Point(153, 68);
             this.dtpStart.Name = "dtpStart";
-            this.dtpStart.Size = new System.Drawing.Size(200, 22);
+            this.dtpStart.Size = new System.Drawing.Size(228, 22);
             this.dtpStart.TabIndex = 10;
             // 
             // lbTimePerLesson
@@ -143,11 +178,9 @@
             // 
             // txtName
             // 
-            this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtName.Location = new System.Drawing.Point(153, 29);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(244, 22);
+            this.txtName.Size = new System.Drawing.Size(228, 22);
             this.txtName.TabIndex = 1;
             // 
             // label1
@@ -164,9 +197,9 @@
             this.panel2.Controls.Add(this.rtDecription);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(432, 3);
+            this.panel2.Location = new System.Drawing.Point(503, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(424, 406);
+            this.panel2.Size = new System.Drawing.Size(496, 406);
             this.panel2.TabIndex = 1;
             // 
             // rtDecription
@@ -176,7 +209,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.rtDecription.Location = new System.Drawing.Point(87, 29);
             this.rtDecription.Name = "rtDecription";
-            this.rtDecription.Size = new System.Drawing.Size(320, 345);
+            this.rtDecription.Size = new System.Drawing.Size(392, 345);
             this.rtDecription.TabIndex = 12;
             this.rtDecription.Text = "";
             // 
@@ -193,15 +226,15 @@
             // 
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnSubmit, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel1, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(865, 458);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1005, 458);
             this.tableLayoutPanel2.TabIndex = 13;
             // 
             // btnSubmit
@@ -209,65 +242,28 @@
             this.btnSubmit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnSubmit.Location = new System.Drawing.Point(3, 421);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(859, 34);
+            this.btnSubmit.Size = new System.Drawing.Size(839, 34);
             this.btnSubmit.TabIndex = 1;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
-            // cbbTermName
-            // 
-            this.cbbTermName.FormattingEnabled = true;
-            this.cbbTermName.Location = new System.Drawing.Point(153, 206);
-            this.cbbTermName.Name = "cbbTermName";
-            this.cbbTermName.Size = new System.Drawing.Size(121, 24);
-            this.cbbTermName.TabIndex = 16;
-            // 
-            // cbbCourseName
-            // 
-            this.cbbCourseName.FormattingEnabled = true;
-            this.cbbCourseName.Location = new System.Drawing.Point(153, 157);
-            this.cbbCourseName.Name = "cbbCourseName";
-            this.cbbCourseName.Size = new System.Drawing.Size(121, 24);
-            this.cbbCourseName.TabIndex = 17;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(9, 250);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 16);
-            this.label6.TabIndex = 18;
-            this.label6.Text = "Học phí";
-            // 
-            // nbFee
-            // 
-            this.nbFee.Location = new System.Drawing.Point(153, 248);
-            this.nbFee.Maximum = new decimal(new int[] {
-            1000000000,
-            0,
-            0,
-            0});
-            this.nbFee.Name = "nbFee";
-            this.nbFee.Size = new System.Drawing.Size(120, 22);
-            this.nbFee.TabIndex = 20;
-            // 
             // ClassDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(865, 458);
+            this.ClientSize = new System.Drawing.Size(1005, 458);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Name = "ClassDetail";
             this.Text = "Thông tin lớp học";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nbFee)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nbFee)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -15,6 +15,5 @@ namespace PBL4_Winform.Dto.Terms
         public DateTime StartTime { get; set; }
 
         public DateTime EndTime { get; set; }
-
     }
 }

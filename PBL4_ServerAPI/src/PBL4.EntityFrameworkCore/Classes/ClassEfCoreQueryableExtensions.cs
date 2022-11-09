@@ -17,6 +17,7 @@ namespace PBL4.Classes
                 .Include(x => x.Sessions)
                 .Include(x => x.Registers)
                 .Include(x => x.LessonCompletes)
+                .Include(x => x.Term)
                 ;
         }
     }

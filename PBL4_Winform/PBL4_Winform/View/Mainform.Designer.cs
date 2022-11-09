@@ -764,6 +764,7 @@ namespace PBL4_Winform.View
             this.dgvTerm.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTerm.Size = new System.Drawing.Size(868, 406);
             this.dgvTerm.TabIndex = 0;
+            this.dgvTerm.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvTerm_RowHeaderMouseDoubleClick);
             // 
             // Mainform
             // 

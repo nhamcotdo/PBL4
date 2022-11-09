@@ -24,7 +24,7 @@ namespace PBL4.Courses
 
         public async Task<PagedResultDto<CourseDto>> SearchAsync(string filter = "")
         {
-            var queryable = (await _courseRepository.GetQueryableAsync())
+            var queryable = (await _courseRepository.WithDetailsAsync())
                 .WhereIf(
                     !filter.IsNullOrEmpty(),
                     x =>
@@ -45,6 +45,7 @@ namespace PBL4.Courses
             {
                 lesson.Id = Guid.NewGuid();
             }
+
             return base.CreateAsync(input);
         }
 

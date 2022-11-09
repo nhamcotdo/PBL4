@@ -374,7 +374,7 @@ namespace PBL4_Winform.View
 
         private void btnSearchClass_Click(object sender, EventArgs e)
         {
-            LoadClass(txtSearch.Text);
+            LoadClass(txtSearchClass.Text);
         }
 
         private void btnAddClass_Click(object sender, EventArgs e)
@@ -408,7 +408,7 @@ namespace PBL4_Winform.View
             if (e.KeyChar != 13)
                 return;
 
-            LoadClass(txtSearch.Text);
+            LoadClass(txtSearchClass.Text);
         }
 
         private void btnDeleteClass_Click(object sender, EventArgs e)
@@ -449,9 +449,17 @@ namespace PBL4_Winform.View
             LoadTerms(txtSearchTerm.Text);
         }
 
+        private void txtSearchTerm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+                LoadTerms(txtSearchTerm.Text);
+        }
+
         private void btnAddTerm_Click(object sender, EventArgs e)
         {
-
+            var termDetail = new TermDetail(mode: "CREATE");
+            termDetail.f = LoadTerms;
+            termDetail.Show();
         }
 
         private void btnEditTerm_Click(object sender, EventArgs e)
@@ -459,9 +467,18 @@ namespace PBL4_Winform.View
             if (dgvTerm.SelectedRows.Count == 1)
             {
                 Guid id = (Guid)dgvTerm.SelectedRows[0].Cells[0].Value;
-                var termDetail = new TermDetail(id: id, mode: "EDIT");
+                var termDetail = new TermDetail(id, "EDIT");
                 termDetail.f = LoadTerms;
                 termDetail.Show();
+            }
+        }
+
+        private void dgvTerm_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                Guid id = (Guid)dgvTerm.Rows[e.RowIndex].Cells[0].Value;
+                (new TermDetail(id, mode: "VIEW")).Show();
             }
         }
 
@@ -476,17 +493,11 @@ namespace PBL4_Winform.View
             {
                 foreach (DataGridViewRow row in dgvTerm.SelectedRows)
                 {
-                    apiTerm.DeleteAsync(Guid.Parse(row.Cells[0].Value.ToString()));
+                    var rs = apiTerm.DeleteAsync(Guid.Parse(row.Cells[0].Value.ToString()));
                 }
                 MessageBox.Show("Đã xoá thành công " + count + " kì học!");
                 LoadTerms();
             }
-        }
-
-        private void txtSearchTerm_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if(e.KeyChar == 13)
-                LoadTerms(txtSearchTerm.Text);
         }
     }
 }
