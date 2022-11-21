@@ -149,8 +149,6 @@ namespace PBL4.EntityFrameworkCore
             builder.Entity<Session>(b =>
             {
                 b.ToTable(PBL4Consts.DbTablePrefix + "Sessions", PBL4Consts.Class);
-                b.HasOne(x => x.Class).WithMany(l => l.Sessions).HasForeignKey(x => x.ClassId);
-                b.HasOne(x => x.Lesson).WithMany(l => l.Sessions).HasForeignKey(x => x.LessonId);
                 b.ConfigureByConvention();
             });
 
@@ -159,6 +157,8 @@ namespace PBL4.EntityFrameworkCore
                 b.ToTable(PBL4Consts.DbTablePrefix + "SessionRegisters", PBL4Consts.Class);
                 b.HasOne(x => x.Student).WithMany(l => l.SessionRegisters).HasForeignKey(x => x.StudentId);
                 b.HasOne(x => x.Session).WithMany(l => l.SessionRegisters).HasForeignKey(x => x.SessionId);
+                b.HasOne(x => x.Class).WithMany(l => l.SessionRegisters).HasForeignKey(x => x.ClassId);
+                b.HasOne(x => x.Lesson).WithMany(l => l.SessionRegisters).HasForeignKey(x => x.LessonId);
                 b.ConfigureByConvention();
             });
 
@@ -168,7 +168,7 @@ namespace PBL4.EntityFrameworkCore
                 b.HasOne(x => x.Student).WithMany(l => l.LessonCompletes).HasForeignKey(x => x.StudentId);
                 b.HasOne(x => x.Class).WithMany(l => l.LessonCompletes).HasForeignKey(x => x.ClassId);
                 b.HasOne(x => x.Lesson).WithMany(l => l.LessonCompletes).HasForeignKey(x => x.LessonId);
-                b.HasOne(x => x.Session).WithMany(l => l.LessonCompletes).HasForeignKey(x => x.SessionId);
+                b.HasOne(x => x.SessionRegister).WithMany(l => l.LessonCompletes).HasForeignKey(x => x.SessionId);
                 b.ConfigureByConvention();
             });
 

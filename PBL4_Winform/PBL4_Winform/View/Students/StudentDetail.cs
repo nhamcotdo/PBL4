@@ -76,7 +76,15 @@ namespace PBL4_Winform.View.Students
         {
             if (cbbClass.Items.Count > 0)
             {
-                dgvLesson.Rows.Clear();
+                DataTable dt = new DataTable();
+                dt.Columns.AddRange(new DataColumn[]
+                {
+                    new DataColumn("Tên bài học", typeof(string)),
+                    new DataColumn("Đã hoàn thành ?", typeof(Boolean)),
+                    new DataColumn("Đánh giá ?", typeof(string)),
+                });
+
+                dt.Rows.Clear();
                 dgvLesson.Refresh();
                 var lessons = studentApi.GetLessonByClassId(studentId, (cbbClass.SelectedItem as CBBItem).Value)
                                              .GetAwaiter()
@@ -91,8 +99,10 @@ namespace PBL4_Winform.View.Students
 
                 foreach (var lesson in lessons)
                 {
-                    dgvLesson.Rows.Add(lesson.LessonName, true, lesson.Comment);
+                    dt.Rows.Add(lesson.LessonName, lesson.IsComplete, lesson.Comment);
                 }
+                dgvLesson.AutoGenerateColumns = true;
+                dgvLesson.DataSource = dt;
             }
         }
 

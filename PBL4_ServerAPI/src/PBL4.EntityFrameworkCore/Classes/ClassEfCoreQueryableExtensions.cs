@@ -14,7 +14,7 @@ namespace PBL4.Classes
 
             return queryable
                 .Include(x => x.Course)
-                .Include(x => x.Sessions)
+                .Include(x => x.SessionRegisters)
                 .Include(x => x.Registers)
                 .Include(x => x.LessonCompletes)
                 .Include(x => x.Term)

@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using PBL4.Courses;
 using PBL4.LessonCompletes;
 using PBL4.Registers;
+using PBL4.SessionRegisters;
 using PBL4.Sessions;
 using PBL4.Terms;
 using Volo.Abp.Domain.Entities.Auditing;
@@ -38,14 +39,14 @@ namespace PBL4.Classes
 
         public ICollection<Register> Registers { get; set; }
 
-        public ICollection<Session> Sessions { get; set; }
+        public ICollection<SessionRegister> SessionRegisters { get; set; }
 
         public ICollection<LessonComplete> LessonCompletes { get; set; }
         
         public Class()
         {
             Registers = new HashSet<Register>();
-            Sessions = new HashSet<Session>();
+            SessionRegisters = new HashSet<SessionRegister>();
             LessonCompletes = new HashSet<LessonComplete>();
         }
     }

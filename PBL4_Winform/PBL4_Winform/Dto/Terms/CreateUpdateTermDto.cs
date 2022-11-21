@@ -2,7 +2,7 @@
 
 namespace PBL4_Winform.Dto.Terms
 {
-    public class CreateUpdateTermDto
+    public class CreateUpdateSessionDto
     {
         public Guid Id { get; set; }
 

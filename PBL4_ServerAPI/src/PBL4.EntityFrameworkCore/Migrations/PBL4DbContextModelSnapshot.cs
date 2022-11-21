@@ -429,6 +429,9 @@ namespace PBL4.Migrations
                     b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid>("ClassId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasMaxLength(40)
@@ -469,6 +472,9 @@ namespace PBL4.Migrations
                         .HasColumnType("uniqueidentifier")
                         .HasColumnName("LastModifierId");
 
+                    b.Property<Guid?>("LessonId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<Guid>("SessionId")
                         .HasColumnType("uniqueidentifier");
 
@@ -480,6 +486,10 @@ namespace PBL4.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ClassId");
+
+                    b.HasIndex("LessonId");
+
                     b.HasIndex("SessionId");
 
                     b.HasIndex("StudentId");
@@ -490,9 +500,6 @@ namespace PBL4.Migrations
             modelBuilder.Entity("PBL4.Sessions.Session", b =>
                 {
                     b.Property<Guid>("Id")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("ClassId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("ConcurrencyStamp")
@@ -538,17 +545,13 @@ namespace PBL4.Migrations
                         .HasColumnType("uniqueidentifier")
                         .HasColumnName("LastModifierId");
 
-                    b.Property<Guid>("LessonId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("StartTime")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ClassId");
-
-                    b.HasIndex("LessonId");
 
                     b.ToTable("PBL4Sessions", "classes");
                 });
@@ -2805,7 +2808,7 @@ namespace PBL4.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("PBL4.Sessions.Session", "Session")
+                    b.HasOne("PBL4.SessionRegisters.SessionRegister", "SessionRegister")
                         .WithMany("LessonCompletes")
                         .HasForeignKey("SessionId");
 
@@ -2819,7 +2822,7 @@ namespace PBL4.Migrations
 
                     b.Navigation("Lesson");
 
-                    b.Navigation("Session");
+                    b.Navigation("SessionRegister");
 
                     b.Navigation("Student");
                 });
@@ -2864,6 +2867,16 @@ namespace PBL4.Migrations
 
             modelBuilder.Entity("PBL4.SessionRegisters.SessionRegister", b =>
                 {
+                    b.HasOne("PBL4.Classes.Class", "Class")
+                        .WithMany("SessionRegisters")
+                        .HasForeignKey("ClassId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PBL4.Lessons.Lesson", "Lesson")
+                        .WithMany("SessionRegisters")
+                        .HasForeignKey("LessonId");
+
                     b.HasOne("PBL4.Sessions.Session", "Session")
                         .WithMany("SessionRegisters")
                         .HasForeignKey("SessionId")
@@ -2876,28 +2889,13 @@ namespace PBL4.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Session");
-
-                    b.Navigation("Student");
-                });
-
-            modelBuilder.Entity("PBL4.Sessions.Session", b =>
-                {
-                    b.HasOne("PBL4.Classes.Class", "Class")
-                        .WithMany("Sessions")
-                        .HasForeignKey("ClassId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("PBL4.Lessons.Lesson", "Lesson")
-                        .WithMany("Sessions")
-                        .HasForeignKey("LessonId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Class");
 
                     b.Navigation("Lesson");
+
+                    b.Navigation("Session");
+
+                    b.Navigation("Student");
                 });
 
             modelBuilder.Entity("PBL4.Students.Student", b =>
@@ -3224,7 +3222,7 @@ namespace PBL4.Migrations
 
                     b.Navigation("Registers");
 
-                    b.Navigation("Sessions");
+                    b.Navigation("SessionRegisters");
                 });
 
             modelBuilder.Entity("PBL4.Courses.Course", b =>
@@ -3240,13 +3238,16 @@ namespace PBL4.Migrations
 
                     b.Navigation("LessonOfCourses");
 
-                    b.Navigation("Sessions");
+                    b.Navigation("SessionRegisters");
+                });
+
+            modelBuilder.Entity("PBL4.SessionRegisters.SessionRegister", b =>
+                {
+                    b.Navigation("LessonCompletes");
                 });
 
             modelBuilder.Entity("PBL4.Sessions.Session", b =>
                 {
-                    b.Navigation("LessonCompletes");
-
                     b.Navigation("SessionRegisters");
 
                     b.Navigation("TeacherOfSessions");

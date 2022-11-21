@@ -32,5 +32,8 @@ namespace PBL4_Winform.SdkCommon
 
         [Post("/api/app/student/search")]
         Task<PagedResultDto<StudentDto>> SearchAsync(string filter = "");
+
+        [Get("/api/app/student/by-class-id/{classId}")]
+        Task<List<StudentDto>> GetByClassIdAsync(Guid classId);
     }
 }

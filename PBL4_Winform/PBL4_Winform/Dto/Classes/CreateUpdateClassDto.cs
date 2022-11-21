@@ -1,10 +1,6 @@
 ﻿using PBL4_Winform.Dto.Courses;
-using PBL4_Winform.Dto.Terms;
+using PBL4_Winform.Dto.Sessions;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PBL4_Winform.Dto.Classes
 {
@@ -24,7 +20,7 @@ namespace PBL4_Winform.Dto.Classes
 
         public Guid TermId { get; set; }
 
-        public TermDto Term { get; set; }
+        public SessionDto Term { get; set; }
 
         public CourseDto Course { get; set; }
     }

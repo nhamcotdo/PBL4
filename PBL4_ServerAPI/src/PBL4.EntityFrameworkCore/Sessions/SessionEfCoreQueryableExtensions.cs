@@ -13,8 +13,9 @@ namespace PBL4.Sessions
             }
 
             return queryable
-                .Include(x => x.SessionRegisters)
-                .Include(x => x.LessonCompletes)
+                .Include(x => x.SessionRegisters).ThenInclude(x => x.Student).ThenInclude(x => x.UserLogin)
+                .Include(x => x.SessionRegisters).ThenInclude(x => x.Class)
+                .Include(x => x.SessionRegisters).ThenInclude(x => x.Lesson)
                 .Include(x => x.TeacherOfSessions)
                 ;
         }

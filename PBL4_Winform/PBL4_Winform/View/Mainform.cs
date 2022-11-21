@@ -1,9 +1,11 @@
 ﻿using PBL4_Winform.ConfigManagers;
 using PBL4_Winform.SdkCommon;
+using PBL4_Winform.SdkCommon.Sessions;
 using PBL4_Winform.SdkCommon.Terms;
 using PBL4_Winform.View.Classes;
 using PBL4_Winform.View.Courses;
 using PBL4_Winform.View.Lessons;
+using PBL4_Winform.View.Sessions;
 using PBL4_Winform.View.Students;
 using PBL4_Winform.View.Terms;
 using System;
@@ -20,12 +22,14 @@ namespace PBL4_Winform.View
         private ILessonApi apiLesson { get; set; }
         private IClassApi apiClass { get; set; }
         private ITermApi apiTerm{ get; set; }
+        private ISessionApi apiSession{ get; set; }
 
         private DataTable dtStudent = new DataTable();
         private DataTable dtCourse = new DataTable();
         private DataTable dtLesson = new DataTable();
         private DataTable dtClass = new DataTable();
         private DataTable dtTerm = new DataTable();
+        private DataTable dtSession = new DataTable();
 
         public Mainform()
         {
@@ -34,6 +38,7 @@ namespace PBL4_Winform.View
             apiCourse = ConfigManager.GetAPIByService<ICourseApi>();
             apiClass = ConfigManager.GetAPIByService<IClassApi>();
             apiTerm = ConfigManager.GetAPIByService<ITermApi>();
+            apiSession = ConfigManager.GetAPIByService<ISessionApi>();
 
             InitializeComponent();
             //var frmLogin = new LoginForm();
@@ -44,6 +49,7 @@ namespace PBL4_Winform.View
             LoadCourses();
             LoadClass();
             LoadTerms();
+            LoadSessions();
         }
 
         private void AddHeader()
@@ -100,6 +106,17 @@ namespace PBL4_Winform.View
                     new DataColumn("Thời gian Kết thúc", typeof(DateTime)),
             }
         );
+            dtSession.Columns.AddRange(
+           new DataColumn[]
+           {
+                    new DataColumn("ID", typeof(Guid)),
+                    new DataColumn("Tên", typeof(string)),
+                    new DataColumn("Thời gian bắt đầu", typeof(DateTime)),
+                    new DataColumn("Thời gian Kết thúc", typeof(DateTime)),
+                    new DataColumn("Tổng số học sinh đăng kí", typeof(int)),
+                    new DataColumn("Tổng số học sinh tham gia", typeof(int)),
+           }
+           );
         }
 
         //Student
@@ -457,7 +474,7 @@ namespace PBL4_Winform.View
 
         private void btnAddTerm_Click(object sender, EventArgs e)
         {
-            var termDetail = new TermDetail(mode: "CREATE");
+            var termDetail = new SessionDetail(mode: "CREATE");
             termDetail.f = LoadTerms;
             termDetail.Show();
         }
@@ -467,7 +484,7 @@ namespace PBL4_Winform.View
             if (dgvTerm.SelectedRows.Count == 1)
             {
                 Guid id = (Guid)dgvTerm.SelectedRows[0].Cells[0].Value;
-                var termDetail = new TermDetail(id, "EDIT");
+                var termDetail = new SessionDetail(id, "EDIT");
                 termDetail.f = LoadTerms;
                 termDetail.Show();
             }
@@ -478,7 +495,7 @@ namespace PBL4_Winform.View
             if (e.RowIndex >= 0)
             {
                 Guid id = (Guid)dgvTerm.Rows[e.RowIndex].Cells[0].Value;
-                (new TermDetail(id, mode: "VIEW")).Show();
+                (new SessionDetail(id, mode: "VIEW")).Show();
             }
         }
 
@@ -499,5 +516,82 @@ namespace PBL4_Winform.View
                 LoadTerms();
             }
         }
+
+        //Session
+        private void LoadSessions(string filter = "")
+        {
+            var sessions = apiSession.SearchAsync(filter).GetAwaiter().GetResult().Items;
+
+            dtSession.Rows.Clear();
+            foreach (var session in sessions)
+            {
+                dtSession.Rows.Add(session.Id, session.Name, session.StartTime, session.EndTime, session.NumberStudent, session.RealNumberStudent);
+            }
+
+            dgvSession.DataSource = dtSession;
+            dgvSession.Columns[0].Visible = false;
+            dgvSession.ReadOnly = true;
+        }
+
+
+        private void btnSearchSession_Click(object sender, EventArgs e)
+        {
+            LoadSessions(txtSearchSession.Text);
+        }
+
+        private void txtSearchSession_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+                LoadSessions(txtSearchSession.Text);
+        }
+
+        private void btnAddSession_Click(object sender, EventArgs e)
+        {
+            var sessionDetail = new SessionDetail(mode: "CREATE");
+            sessionDetail.f = LoadSessions;
+            sessionDetail.Show();
+        }
+
+        private void btnEditSession_Click(object sender, EventArgs e)
+        {
+            if (dgvSession.SelectedRows.Count == 1)
+            {
+                Guid id = (Guid)dgvSession.SelectedRows[0].Cells[0].Value;
+                var sessionDetail = new SessionDetail(id, "EDIT");
+                sessionDetail.f = LoadSessions;
+                sessionDetail.Show();
+            }
+        }
+
+        private void dgvSession_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                Guid id = (Guid)dgvTerm.Rows[e.RowIndex].Cells[0].Value;
+                (new SessionDetail(id, mode: "VIEW")).Show();
+            }
+        }
+
+        private void btnDeleteSession_Click(object sender, EventArgs e)
+        {
+
+            if (dgvSession.SelectedRows.Count <= 0)
+                return;
+            var count = dgvSession.SelectedRows.Count;
+            var result = MessageBox.Show("Bạn có chắc chắn muốn xoá " + count + " buổi học này ?");
+            if (result == DialogResult.OK)
+            {
+                foreach (DataGridViewRow row in dgvSession.SelectedRows)
+                {
+                    var rs = apiSession.DeleteAsync(Guid.Parse(row.Cells[0].Value.ToString()));
+                }
+                MessageBox.Show("Đã xoá thành công " + count + " buổi học!");
+                LoadSessions();
+            }
+        }
+
+        //Session
+
+
     }
 }

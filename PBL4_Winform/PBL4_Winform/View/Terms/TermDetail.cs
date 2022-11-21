@@ -15,7 +15,7 @@ using System.Windows.Forms;
 
 namespace PBL4_Winform.View.Terms
 {
-    public partial class TermDetail : Form
+    public partial class SesionDetail : Form
     {
         public delegate void MyDel(string filter = "");
         public MyDel f { get; set; }
@@ -25,7 +25,7 @@ namespace PBL4_Winform.View.Terms
         private Guid termId;
         private string _mode { get; set; }
 
-        public TermDetail(Guid id = new Guid(), string mode = "VIEW")
+        public SesionDetail(Guid id = new Guid(), string mode = "VIEW")
         {
             termApi = ConfigManager.GetAPIByService<ITermApi>();
             _mode = mode;
@@ -61,7 +61,7 @@ namespace PBL4_Winform.View.Terms
                 return;
             }
 
-            var createUpdateTermDto = new CreateUpdateTermDto
+            var createUpdateTermDto = new CreateUpdateSessionDto
             {
                 Name = txtName.Text,
                 StartTime = dtpStart.Value,

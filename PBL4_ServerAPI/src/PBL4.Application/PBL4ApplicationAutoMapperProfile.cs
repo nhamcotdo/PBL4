@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Linq;
+using AutoMapper;
 using PBL4.Classes;
 using PBL4.Classes.Dtos;
 using PBL4.Courses;
@@ -15,6 +16,7 @@ using PBL4.SessionRegisters;
 using PBL4.SessionRegisters.Dtos;
 using PBL4.Sessions;
 using PBL4.Sessions.Dtos;
+using PBL4.Shared;
 using PBL4.Students;
 using PBL4.Students.Dtos;
 using PBL4.TeacherOfSessions;
@@ -91,7 +93,12 @@ namespace PBL4
 
             CreateMap<CreateUpdateSessionRegisterDto, SessionRegister>();
             CreateMap<SessionRegisterDto, SessionRegister>();
-            CreateMap<SessionRegister, SessionRegisterDto>();
+            CreateMap<SessionRegister, SessionRegisterDto>()
+                                                            .ForMember(x => x.StudentName, y => y.MapFrom(t => t.Student.UserLogin.Name))
+                                                            .ForMember(x => x.ClassName, y => y.MapFrom(t => t.Class.Name))
+                                                            .ForMember(x => x.LessonName, y => y.MapFrom(t => t.Lesson.Title))
+                                                            ;
+
             CreateMap<CreateUpdateSessionRegisterDto, SessionRegisterDto>();
             CreateMap<SessionRegisterDto, CreateUpdateSessionRegisterDto>();
 
@@ -113,9 +120,15 @@ namespace PBL4
             CreateMap<CreateUpdateLessonOfCourseDto, LessonOfCourseDto>();
             CreateMap<LessonOfCourseDto, CreateUpdateLessonOfCourseDto>();
 
-            CreateMap<CreateUpdateSessionDto, Session>();
+            CreateMap<CreateUpdateSessionDto, Session>()
+                    // .ForMember(x => x.SessionRegisters, y=>y.MapFrom(t => t.SessionRegisters))
+                    ;
             CreateMap<SessionDto, Session>();
-            CreateMap<Session, SessionDto>();
+            CreateMap<Session, SessionDto>().ForMember(x => x.NumberStudent, y=>y.MapFrom(src => src.SessionRegisters.Count))
+                                            .ForMember(x => x.RealNumberStudent, y=>y.MapFrom(src => src.SessionRegisters
+                                                                                                            .Where(x => x.Status == CommonEnum.SessionRegisterStatus.COMPLETED.ToString())
+                                                                                                            .ToList().Count))
+            ;
             CreateMap<CreateUpdateSessionDto, SessionDto>();
             CreateMap<SessionDto, CreateUpdateSessionDto>();
         }

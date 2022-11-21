@@ -34,5 +34,16 @@ namespace PBL4.Lessons
 
             return rs;
         }
+
+        public async Task<List<LessonDto>> GetListByStudentIdAndClassId(Guid classId, Guid studentId)
+        {
+            var queryable = await _lessonRepository.WithDetailsAsync();
+
+            return ObjectMapper.Map<List<Lesson>,List<LessonDto>>(queryable
+                                                                    .Where(
+                                                                        x => x.LessonOfCourses.Any(y => y.Course.Classes.Any(z => z.Id == classId))&&
+                                                                        x.LessonCompletes.Any(y =>y.StudentId == studentId && !y.IsComplete))
+                                                                    .ToList());
+        }
     }
 }

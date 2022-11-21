@@ -15,6 +15,8 @@ using PBL4.LessonCompletes;
 using PBL4.LessonCompletes.Dtos;
 using PBL4.UserLogins;
 using PBL4.UserLogins.Dtos;
+using PBL4.Lessons.Dtos;
+using PBL4.Shared;
 
 namespace PBL4.Students
 {
@@ -37,13 +39,13 @@ namespace PBL4.Students
             _lessonCompleteRepository = lessonCompleteRepository;
             _userLoginRepository = userLoginRepository;
         }
-        
+
         public async Task<PagedResultDto<StudentDto>> SearchAsync(string filter = "")
         {
             var queryable = (await _studentRepository.GetQueryableAsync()).Include(x => x.UserLogin)
                 .WhereIf(
                     !filter.IsNullOrEmpty(),
-                    x=>
+                    x =>
                     x.ParentName.Contains(filter)
                     || x.UserLogin.Name.Contains(filter)
                     || x.UserLogin.PhoneNumber.Contains(filter)
@@ -88,7 +90,7 @@ namespace PBL4.Students
             var lessonCompletes = await lessonCompleteQueryable
                                             .Where(x => x.StudentId == studentId && x.ClassId == classId)
                                             .Include(x => x.Lesson)
-                                            .Include(x => x.Session)
+                                            .Include(x => x.SessionRegister)
                                             .ToListAsync()
                                             ;
             return ObjectMapper.Map<List<LessonComplete>, List<LessonCompleteDto>>(lessonCompletes);
@@ -101,7 +103,7 @@ namespace PBL4.Students
 
             student.UserLogin = userLogin;
 
-            return ObjectMapper.Map<Student, StudentDto>(await _studentRepository.InsertAsync(student, autoSave:true));
+            return ObjectMapper.Map<Student, StudentDto>(await _studentRepository.InsertAsync(student, autoSave: true));
         }
 
         public override Task<StudentDto> UpdateAsync(Guid id, CreateUpdateStudentDto input)
@@ -112,6 +114,15 @@ namespace PBL4.Students
         public override Task DeleteAsync(Guid id)
         {
             return base.DeleteAsync(id);
+        }
+
+        public async Task<List<StudentDto>> GetByClassIdAsync(Guid classId)
+        {
+            
+            return ObjectMapper.Map<List<Student>, List<StudentDto>>(await (await _registerRepository.WithDetailsAsync())
+                                                                                                .Where(x => x.ClassId == classId && x.Status == CommonEnum.RegisterStatus.CONFIRMED.ToString())
+                                                                                                .Select(x =>x.Student)
+                                                                                                .ToListAsync());
         }
     }
 }

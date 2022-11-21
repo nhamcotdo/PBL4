@@ -31,6 +31,11 @@
             this.tableLayoutPanelStudentDetail = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cbShowPassword = new System.Windows.Forms.CheckBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtUserName = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -38,6 +43,8 @@
             this.dtpBirthdate = new System.Windows.Forms.DateTimePicker();
             this.lbName = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtNote = new System.Windows.Forms.TextBox();
+            this.lbNote = new System.Windows.Forms.Label();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.lbAddress = new System.Windows.Forms.Label();
             this.txtParentName = new System.Windows.Forms.TextBox();
@@ -46,16 +53,6 @@
             this.txtPhoneNumber = new System.Windows.Forms.TextBox();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.dgvLesson = new System.Windows.Forms.DataGridView();
-            this.LessonName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IsComplete = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Comment = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtUserName = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cbShowPassword = new System.Windows.Forms.CheckBox();
-            this.txtNote = new System.Windows.Forms.TextBox();
-            this.lbNote = new System.Windows.Forms.Label();
             this.tableLayoutPanelStudentDetail.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -115,6 +112,55 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(628, 307);
             this.panel1.TabIndex = 18;
+            // 
+            // cbShowPassword
+            // 
+            this.cbShowPassword.AutoSize = true;
+            this.cbShowPassword.Location = new System.Drawing.Point(57, 195);
+            this.cbShowPassword.Name = "cbShowPassword";
+            this.cbShowPassword.Size = new System.Drawing.Size(57, 20);
+            this.cbShowPassword.TabIndex = 18;
+            this.cbShowPassword.Text = "HIện";
+            this.cbShowPassword.UseVisualStyleBackColor = true;
+            this.cbShowPassword.CheckedChanged += new System.EventHandler(this.cbShowPassword_CheckedChanged);
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPassword.Location = new System.Drawing.Point(167, 173);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(360, 22);
+            this.txtPassword.TabIndex = 17;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(55, 176);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(61, 16);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "Mật khẩu";
+            // 
+            // txtUserName
+            // 
+            this.txtUserName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtUserName.Location = new System.Drawing.Point(167, 131);
+            this.txtUserName.Name = "txtUserName";
+            this.txtUserName.Size = new System.Drawing.Size(360, 22);
+            this.txtUserName.TabIndex = 15;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(54, 137);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(67, 16);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Tài khoản";
             // 
             // txtName
             // 
@@ -189,6 +235,26 @@
             this.panel2.Size = new System.Drawing.Size(684, 307);
             this.panel2.TabIndex = 19;
             // 
+            // txtNote
+            // 
+            this.txtNote.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtNote.Location = new System.Drawing.Point(140, 179);
+            this.txtNote.Multiline = true;
+            this.txtNote.Name = "txtNote";
+            this.txtNote.Size = new System.Drawing.Size(479, 80);
+            this.txtNote.TabIndex = 19;
+            // 
+            // lbNote
+            // 
+            this.lbNote.AutoSize = true;
+            this.lbNote.Location = new System.Drawing.Point(13, 182);
+            this.lbNote.Name = "lbNote";
+            this.lbNote.Size = new System.Drawing.Size(51, 16);
+            this.lbNote.TabIndex = 18;
+            this.lbNote.Text = "Ghi chú";
+            // 
             // txtAddress
             // 
             this.txtAddress.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -262,10 +328,6 @@
             this.dgvLesson.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvLesson.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
             this.dgvLesson.ColumnHeadersHeight = 29;
-            this.dgvLesson.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.LessonName,
-            this.IsComplete,
-            this.Comment});
             this.dgvLesson.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvLesson.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dgvLesson.Location = new System.Drawing.Point(3, 319);
@@ -275,96 +337,6 @@
             this.dgvLesson.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLesson.Size = new System.Drawing.Size(1324, 317);
             this.dgvLesson.TabIndex = 10;
-            // 
-            // LessonName
-            // 
-            this.LessonName.HeaderText = "Tên bài học";
-            this.LessonName.MinimumWidth = 6;
-            this.LessonName.Name = "LessonName";
-            this.LessonName.ReadOnly = true;
-            // 
-            // IsComplete
-            // 
-            this.IsComplete.HeaderText = "Đã hoàn thành";
-            this.IsComplete.MinimumWidth = 6;
-            this.IsComplete.Name = "IsComplete";
-            this.IsComplete.ReadOnly = true;
-            // 
-            // Comment
-            // 
-            this.Comment.HeaderText = "Giáo viên đánh giá";
-            this.Comment.MinimumWidth = 6;
-            this.Comment.Name = "Comment";
-            this.Comment.ReadOnly = true;
-            // 
-            // txtUserName
-            // 
-            this.txtUserName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtUserName.Location = new System.Drawing.Point(167, 131);
-            this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(360, 22);
-            this.txtUserName.TabIndex = 15;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(54, 137);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(84, 20);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "Tài khoản";
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPassword.Location = new System.Drawing.Point(167, 173);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(360, 22);
-            this.txtPassword.TabIndex = 17;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(55, 176);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 16);
-            this.label4.TabIndex = 16;
-            this.label4.Text = "Mật khẩu";
-            // 
-            // cbShowPassword
-            // 
-            this.cbShowPassword.AutoSize = true;
-            this.cbShowPassword.Location = new System.Drawing.Point(57, 195);
-            this.cbShowPassword.Name = "cbShowPassword";
-            this.cbShowPassword.Size = new System.Drawing.Size(57, 20);
-            this.cbShowPassword.TabIndex = 18;
-            this.cbShowPassword.Text = "HIện";
-            this.cbShowPassword.UseVisualStyleBackColor = true;
-            this.cbShowPassword.CheckedChanged += new System.EventHandler(this.cbShowPassword_CheckedChanged);
-            // 
-            // txtNote
-            // 
-            this.txtNote.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNote.Location = new System.Drawing.Point(140, 179);
-            this.txtNote.Multiline = true;
-            this.txtNote.Name = "txtNote";
-            this.txtNote.Size = new System.Drawing.Size(479, 80);
-            this.txtNote.TabIndex = 19;
-            // 
-            // lbNote
-            // 
-            this.lbNote.AutoSize = true;
-            this.lbNote.Location = new System.Drawing.Point(13, 182);
-            this.lbNote.Name = "lbNote";
-            this.lbNote.Size = new System.Drawing.Size(64, 20);
-            this.lbNote.TabIndex = 18;
-            this.lbNote.Text = "Ghi chú";
             // 
             // StudentDetail
             // 
@@ -406,9 +378,6 @@
         private System.Windows.Forms.TextBox txtPhoneNumber;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.DataGridView dgvLesson;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LessonName;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn IsComplete;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Comment;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtUserName;

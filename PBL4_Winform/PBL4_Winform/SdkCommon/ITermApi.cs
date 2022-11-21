@@ -1,5 +1,4 @@
-﻿using PBL4_Winform.Dto.Classes;
-using PBL4_Winform.Dto.Terms;
+﻿using PBL4_Winform.Dto.Terms;
 using Refit;
 using System;
 using System.Threading.Tasks;
@@ -22,9 +21,9 @@ namespace PBL4_Winform.SdkCommon.Terms
         Task<PagedResultDto<TermDto>> SearchAsync(string filter = "");
 
         [Post("/api/app/term/")]
-        Task<TermDto> CreateAsync(CreateUpdateTermDto input);
+        Task<TermDto> CreateAsync(CreateUpdateSessionDto input);
 
         [Put("/api/app/term/{id}")]
-        Task<TermDto> UpdateAsync(Guid id, CreateUpdateTermDto input);
+        Task<TermDto> UpdateAsync(Guid id, CreateUpdateSessionDto input);
     }
 }

@@ -17,8 +17,6 @@ namespace PBL4_Winform.Dto.Student
 
         public UserLoginDto UserLogin;
 
-        //public List<SessionRegisterDto> SessionRegisters { get; set; }
-
         public List<RegisterDto> Registers { get; set; }
 
         public List<LessonCompleteDto> LessonCompletes { get; set; }

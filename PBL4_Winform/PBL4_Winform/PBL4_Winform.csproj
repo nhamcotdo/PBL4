@@ -439,8 +439,13 @@
     <Compile Include="Dto\Lessons\LessonDto.cs" />
     <Compile Include="Dto\Lessons\LessonOfCourseDto.cs" />
     <Compile Include="Dto\Registers\RegisterDto.cs" />
+    <Compile Include="Dto\SessionRegisters\CreateUpdateSessionRegisterDto.cs" />
+    <Compile Include="Dto\SessionRegisters\SessionRegisterDto.cs" />
+    <Compile Include="Dto\SessionRegisters\SessionRegisterSimple.cs" />
     <Compile Include="Dto\Students\CreateUpdateStudentDto.cs" />
     <Compile Include="Dto\Students\StudentDto.cs" />
+    <Compile Include="Dto\Sessions\CreateUpdateSessionDto.cs" />
+    <Compile Include="Dto\Sessions\SessionDto.cs" />
     <Compile Include="Dto\Terms\CreateUpdateTermDto.cs" />
     <Compile Include="Dto\Terms\TermDto.cs" />
     <Compile Include="Dto\User\CreateUpdateUserLoginDto.cs" />
@@ -449,6 +454,7 @@
     <Compile Include="SdkCommon\IClassApi.cs" />
     <Compile Include="SdkCommon\ILessonApi.cs" />
     <Compile Include="SdkCommon\IStudentApi.cs" />
+    <Compile Include="SdkCommon\ISessionApi.cs" />
     <Compile Include="SdkCommon\ITermApi.cs" />
     <Compile Include="View\Classes\ClassDetail.cs">
       <SubType>Form</SubType>
@@ -492,6 +498,24 @@
     <Compile Include="View\Mainform.Designer.cs">
       <DependentUpon>Mainform.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Sessions\SessionDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Sessions\SessionDetail.Designer.cs">
+      <DependentUpon>SessionDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sessions\SessionLesson.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Sessions\SessionLesson.Designer.cs">
+      <DependentUpon>SessionLesson.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sessions\StudentClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Sessions\StudentClass.Designer.cs">
+      <DependentUpon>StudentClass.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Students\StudentDetail.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -531,6 +555,15 @@
     </Compile>
     <EmbeddedResource Include="View\Mainform.resx">
       <DependentUpon>Mainform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Sessions\SessionDetail.resx">
+      <DependentUpon>SessionDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Sessions\SessionLesson.resx">
+      <DependentUpon>SessionLesson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Sessions\StudentClass.resx">
+      <DependentUpon>StudentClass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Students\StudentDetail.resx">
       <DependentUpon>StudentDetail.cs</DependentUpon>
