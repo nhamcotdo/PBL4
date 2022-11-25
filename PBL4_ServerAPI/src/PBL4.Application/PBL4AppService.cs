@@ -4,14 +4,15 @@ using System.Text;
 using PBL4.Localization;
 using Volo.Abp.Application.Services;
 
-namespace PBL4;
-
-/* Inherit your application services from this class.
- */
-public abstract class PBL4AppService : ApplicationService
+namespace PBL4
 {
-    protected PBL4AppService()
+    /* Inherit your application services from this class.
+     */
+    public abstract class PBL4AppService : ApplicationService
     {
-        LocalizationResource = typeof(PBL4Resource);
+        protected PBL4AppService()
+        {
+            LocalizationResource = typeof(PBL4Resource);
+        }
     }
 }

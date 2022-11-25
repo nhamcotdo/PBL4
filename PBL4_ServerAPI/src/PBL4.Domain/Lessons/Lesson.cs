@@ -1,9 +1,8 @@
-
 using System;
 using System.Collections.Generic;
 using PBL4.LessonCompletes;
 using PBL4.LessonOfCourses;
-using PBL4.Sessions;
+using PBL4.SessionRegisters;
 using Volo.Abp.Domain.Entities.Auditing;
 
 namespace PBL4.Lessons
@@ -35,7 +34,7 @@ namespace PBL4.Lessons
         /// </summary>
         public string Guide { get; set; }
 
-        public ICollection<Session> Sessions { get; set; }
+        public ICollection<SessionRegister> SessionRegisters { get; set; }
 
         public ICollection<LessonOfCourse> LessonOfCourses { get; set; }
 
@@ -43,7 +42,7 @@ namespace PBL4.Lessons
         
         public Lesson()
         {
-            Sessions = new HashSet<Session>();
+            SessionRegisters = new HashSet<SessionRegister>();
             LessonOfCourses = new HashSet<LessonOfCourse>();
             LessonCompletes = new HashSet<LessonComplete>();
         }

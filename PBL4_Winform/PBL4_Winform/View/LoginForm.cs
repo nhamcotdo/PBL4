@@ -3,6 +3,7 @@ using PBL4_Winform.ConfigManagers;
 using System.Windows.Forms;
 using IdentityModel.Client;
 using System.Net.Http;
+using PBL4_Winform.BaseFunction;
 
 namespace PBL4_Winform
 {
@@ -28,24 +29,23 @@ namespace PBL4_Winform
                 return;
             }
 
-            //SetToken(username, password);
+            SetToken(username, password);
 
-            //if (!string.IsNullOrWhiteSpace(ConfigManager.Token))
-            //{
-            //    // get thông tin user fail
-            //    if (!FunctionModule.SetCurrentUserLogin(username))
-            //    {
+            if (!string.IsNullOrWhiteSpace(ConfigManager.Token))
+            {
+                // get thông tin user fail
+                if (!FunctionModule.SetCurrentUserLogin(username))
+                {
+                    MessageBox.Show("Bạn không đủ quyền");
+                    return;
+                }
 
-            //        MessageBox.Show("Bạn không đủ quyền");
-            //        return;
-            //    }
-
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Tài khoản hoặc mật khẩu không chính xác, vui lòng kiểm tra lại !");
-            //    return;
-            //}
+            }
+            else
+            {
+                MessageBox.Show("Tài khoản hoặc mật khẩu không chính xác, vui lòng kiểm tra lại !");
+                return;
+            }
 
             this.Close();
 
@@ -54,7 +54,7 @@ namespace PBL4_Winform
         public void SetToken(string username, string password)
         {
             var client = new HttpClient();
-            var address = ConfigManager.Configuration.GetSection("IdentityClients:Default:Authority").Value + "connect/token";
+            var address = ConfigManager.Configuration.GetSection("IdentityClients:Default:Authority").Value + "/connect/token";
             var clientId = ConfigManager.Configuration.GetSection("IdentityClients:Default:ClientId").Value;
             var clientSecret = ConfigManager.Configuration.GetSection("IdentityClients:Default:ClientSecret").Value;
             var scope = ConfigManager.Configuration.GetSection("IdentityClients:Default:Scope").Value;

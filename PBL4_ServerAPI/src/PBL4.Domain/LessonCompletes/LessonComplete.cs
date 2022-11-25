@@ -1,6 +1,7 @@
 using System;
 using PBL4.Classes;
 using PBL4.Lessons;
+using PBL4.SessionRegisters;
 using PBL4.Sessions;
 using PBL4.Students;
 using Volo.Abp.Domain.Entities.Auditing;
@@ -19,7 +20,7 @@ namespace PBL4.LessonCompletes
 
         public Guid ClassId { get; set; }
 
-        public Guid SessionId { get; set; }
+        public Guid? SessionId { get; set; }
 
         public String Comment { get; set; }
 
@@ -31,6 +32,6 @@ namespace PBL4.LessonCompletes
 
         public Class Class { get; set; }
 
-        public Session Session { get; set; }
+        public SessionRegister? SessionRegister { get; set; }
     }
 }

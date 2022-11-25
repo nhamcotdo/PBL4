@@ -23,7 +23,7 @@ namespace PBL4.Students
 
         public Guid UserId { get; set; }
 
-        public UserLogin UserLogin;
+        public UserLogin UserLogin { get; set;}
 
         public ICollection<SessionRegister> SessionRegisters { get; set; }
 

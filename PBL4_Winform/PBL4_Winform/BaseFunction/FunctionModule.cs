@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using PBL4_Winform.ConfigManagers;
-using System.Collections;
-using System.Windows.Forms;
 using Volo.Abp.Identity;
 using Volo.Abp.Data;
-using System.Linq;
 using PBL4_Winform.SdkCommon;
 
 namespace PBL4_Winform.BaseFunction
@@ -27,20 +20,20 @@ namespace PBL4_Winform.BaseFunction
             {
                 var apiUser = ConfigManager.GetAPIByService<IUsersApi>();
                 UserDto = apiUser.GetByUserName(strUserName).GetAwaiter().GetResult();
-                var tenVaiTro = UserDto.GetProperty<string>("TenVaiTro");
-                var vaiTroId = UserDto.GetProperty<string>("VaiTroId");
-                string name = UserDto.Name;
-                if (tenVaiTro.Contains("admin"))
-                {
-                    CurrentUser = "admin";
-                    name = name + " - " + "Admin";
-                }
-                else
-                {
-                    return false;
-                }
-                CurrentRole = tenVaiTro;
-                CurrentRoleId = vaiTroId;
+                //var tenVaiTro = UserDto.GetProperty<string>("TenVaiTro");
+                //var vaiTroId = UserDto.GetProperty<string>("VaiTroId");
+                //string name = UserDto.Name;
+                //if (tenVaiTro.Contains("admin"))
+                //{
+                //    CurrentUser = "admin";
+                //    name = name + " - " + "Admin";
+                //}
+                //else
+                //{
+                //    return false;
+                //}
+                //CurrentRole = tenVaiTro;
+                //CurrentRoleId = vaiTroId;
                 return true;
             }
             catch

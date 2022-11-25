@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PBL4_Winform.ConfigManagers;
+using PBL4_Winform.View;
 
 namespace PBL4_Winform
 {
@@ -19,7 +20,7 @@ namespace PBL4_Winform
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             ConfigManager.Configuration = new ConfigurationBuilder().SetBasePath(AppDomain.CurrentDomain.BaseDirectory).AddJsonFile("appsettings.json").Build();
-            Application.Run(new MainForm());
+            Application.Run(new Mainform());
         }
     }
 }

@@ -13,7 +13,10 @@ namespace PBL4.Students
             }
 
             return queryable
-                .Include(x => x.UserLogin);
+                .Include(x => x.UserLogin)
+                .Include(x => x.SessionRegisters)
+                .Include(x => x.LessonCompletes)
+                ;
         }
     }
 }

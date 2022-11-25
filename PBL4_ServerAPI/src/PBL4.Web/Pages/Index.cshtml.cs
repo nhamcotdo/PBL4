@@ -1,9 +1,10 @@
-﻿namespace PBL4.Web.Pages;
-
-public class IndexModel : PBL4PageModel
+﻿namespace PBL4.Web.Pages
 {
-    public void OnGet()
+    public class IndexModel : PBL4PageModel
     {
-
+        public void OnGet()
+        {
+            
+        }
     }
 }

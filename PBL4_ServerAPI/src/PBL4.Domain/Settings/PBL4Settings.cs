@@ -1,9 +1,10 @@
-﻿namespace PBL4.Settings;
-
-public static class PBL4Settings
+﻿namespace PBL4.Settings
 {
-    private const string Prefix = "PBL4";
+    public static class PBL4Settings
+    {
+        private const string Prefix = "PBL4";
 
-    //Add your own setting names here. Example:
-    //public const string MySetting1 = Prefix + ".MySetting1";
+        //Add your own setting names here. Example:
+        //public const string MySetting1 = Prefix + ".MySetting1";
+    }
 }

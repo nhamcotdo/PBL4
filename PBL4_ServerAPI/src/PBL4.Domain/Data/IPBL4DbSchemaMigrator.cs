@@ -1,8 +1,9 @@
 ﻿using System.Threading.Tasks;
 
-namespace PBL4.Data;
-
-public interface IPBL4DbSchemaMigrator
+namespace PBL4.Data
 {
-    Task MigrateAsync();
+    public interface IPBL4DbSchemaMigrator
+    {
+        Task MigrateAsync();
+    }
 }

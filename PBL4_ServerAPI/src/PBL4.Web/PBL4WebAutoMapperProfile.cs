@@ -1,11 +1,12 @@
 ﻿using AutoMapper;
 
-namespace PBL4.Web;
-
-public class PBL4WebAutoMapperProfile : Profile
+namespace PBL4.Web
 {
-    public PBL4WebAutoMapperProfile()
+    public class PBL4WebAutoMapperProfile : Profile
     {
-        //Define your AutoMapper configuration here for the Web project.
+        public PBL4WebAutoMapperProfile()
+        {
+            //Define your AutoMapper configuration here for the Web project.
+        }
     }
 }

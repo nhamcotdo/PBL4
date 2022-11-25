@@ -255,8 +255,6 @@ paket-files/
 PBL4_ServerAPI/src/PBL4.Web/Logs/*
 PBL4_ServerAPI/src/PBL4.Web.Host/Logs/*
 PBL4_ServerAPI/src/PBL4.IdentityServer/Logs/*
-PBL4_ServerAPI/src/PBL4.HttpApi.Host/Logs/*
-PBL4_ServerAPI/src/PBL4.HttpApi.HostWithIds/Logs/*
 PBL4_ServerAPI/src/PBL4.DbMigrator/Logs/*
 PBL4_ServerAPI/src/PBL4.Blazor.Server/Logs/*
 PBL4_ServerAPI/src/PBL4.Blazor.Server.Tiered/Logs/*

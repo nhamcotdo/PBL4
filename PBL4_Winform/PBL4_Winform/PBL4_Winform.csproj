@@ -427,17 +427,64 @@
   <ItemGroup>
     <Compile Include="BaseFunction\ConfigManager.cs" />
     <Compile Include="BaseFunction\FunctionModule.cs" />
-    <Compile Include="LoginForm.cs">
+    <Compile Include="Dto\CBBItem.cs" />
+    <Compile Include="Dto\Classes\ClassDto.cs" />
+    <Compile Include="Dto\Classes\CreateUpdateClassDto.cs" />
+    <Compile Include="Dto\Courses\CourseDto.cs" />
+    <Compile Include="Dto\Courses\CreateUpdateCourseDto.cs" />
+    <Compile Include="Dto\LessonCompletes\LessonCompleteDto.cs" />
+    <Compile Include="Dto\LessonCompletes\LessonView.cs" />
+    <Compile Include="Dto\Lessons\CreateUpdateLessonDto.cs" />
+    <Compile Include="Dto\Lessons\LessonView.cs" />
+    <Compile Include="Dto\Lessons\LessonDto.cs" />
+    <Compile Include="Dto\Lessons\LessonOfCourseDto.cs" />
+    <Compile Include="Dto\Registers\RegisterDto.cs" />
+    <Compile Include="Dto\SessionRegisters\CreateUpdateSessionRegisterDto.cs" />
+    <Compile Include="Dto\SessionRegisters\SessionRegisterDto.cs" />
+    <Compile Include="Dto\SessionRegisters\SessionRegisterSimple.cs" />
+    <Compile Include="Dto\Students\CreateUpdateStudentDto.cs" />
+    <Compile Include="Dto\Students\StudentDto.cs" />
+    <Compile Include="Dto\Sessions\CreateUpdateSessionDto.cs" />
+    <Compile Include="Dto\Sessions\SessionDto.cs" />
+    <Compile Include="Dto\Terms\CreateUpdateTermDto.cs" />
+    <Compile Include="Dto\Terms\TermDto.cs" />
+    <Compile Include="Dto\User\CreateUpdateUserLoginDto.cs" />
+    <Compile Include="Dto\User\UserLoginDto.cs" />
+    <Compile Include="SdkCommon\ICourseApi.cs" />
+    <Compile Include="SdkCommon\IClassApi.cs" />
+    <Compile Include="SdkCommon\ILessonApi.cs" />
+    <Compile Include="SdkCommon\IStudentApi.cs" />
+    <Compile Include="SdkCommon\ISessionApi.cs" />
+    <Compile Include="SdkCommon\ITermApi.cs" />
+    <Compile Include="View\Classes\ClassDetail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoginForm.Designer.cs">
+    <Compile Include="View\Classes\ClassDetail.Designer.cs">
+      <DependentUpon>ClassDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Courses\CourseDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Courses\CourseDetail.Designer.cs">
+      <DependentUpon>CourseDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Courses\Lessons.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Courses\Lessons.Designer.cs">
+      <DependentUpon>Lessons.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Lessons\LessonDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Lessons\LessonDetail.Designer.cs">
+      <DependentUpon>LessonDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Dto\ActivityDto.cs" />
     <Compile Include="Program.cs" />
@@ -445,7 +492,55 @@
     <Compile Include="SdkCommon\IActivitiesApi.cs" />
     <Compile Include="SdkCommon\IAuthorizeCommon.cs" />
     <Compile Include="SdkCommon\IUsersApi.cs" />
-    <EmbeddedResource Include="LoginForm.resx">
+    <Compile Include="View\Mainform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Mainform.Designer.cs">
+      <DependentUpon>Mainform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sessions\SessionDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Sessions\SessionDetail.Designer.cs">
+      <DependentUpon>SessionDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sessions\SessionLesson.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Sessions\SessionLesson.Designer.cs">
+      <DependentUpon>SessionLesson.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sessions\StudentClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Sessions\StudentClass.Designer.cs">
+      <DependentUpon>StudentClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Students\StudentDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Students\StudentDetail.Designer.cs">
+      <DependentUpon>StudentDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Terms\TermDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Terms\TermDetail.Designer.cs">
+      <DependentUpon>TermDetail.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="View\Classes\ClassDetail.resx">
+      <DependentUpon>ClassDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Courses\CourseDetail.resx">
+      <DependentUpon>CourseDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Courses\Lessons.resx">
+      <DependentUpon>Lessons.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Lessons\LessonDetail.resx">
+      <DependentUpon>LessonDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -458,6 +553,24 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="View\Mainform.resx">
+      <DependentUpon>Mainform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Sessions\SessionDetail.resx">
+      <DependentUpon>SessionDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Sessions\SessionLesson.resx">
+      <DependentUpon>SessionLesson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Sessions\StudentClass.resx">
+      <DependentUpon>StudentClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Students\StudentDetail.resx">
+      <DependentUpon>StudentDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Terms\TermDetail.resx">
+      <DependentUpon>TermDetail.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="appsettings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -489,6 +602,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\background_login1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

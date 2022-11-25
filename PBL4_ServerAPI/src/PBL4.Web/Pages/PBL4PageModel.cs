@@ -1,14 +1,15 @@
 ﻿using PBL4.Localization;
 using Volo.Abp.AspNetCore.Mvc.UI.RazorPages;
 
-namespace PBL4.Web.Pages;
-
-/* Inherit your PageModel classes from this class.
- */
-public abstract class PBL4PageModel : AbpPageModel
+namespace PBL4.Web.Pages
 {
-    protected PBL4PageModel()
+    /* Inherit your PageModel classes from this class.
+     */
+    public abstract class PBL4PageModel : AbpPageModel
     {
-        LocalizationResourceType = typeof(PBL4Resource);
+        protected PBL4PageModel()
+        {
+            LocalizationResourceType = typeof(PBL4Resource);
+        }
     }
 }

@@ -1,6 +1,7 @@
-﻿namespace PBL4;
-
-public static class PBL4DomainErrorCodes
+﻿namespace PBL4
 {
-    /* You can add your business exception error codes here, as constants */
+    public static class PBL4DomainErrorCodes
+    {
+        /* You can add your business exception error codes here, as constants */
+    }
 }

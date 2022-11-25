@@ -3,7 +3,7 @@
   <Import Project="..\..\common.props" />
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>PBL4</RootNamespace>
   </PropertyGroup>
 
@@ -13,12 +13,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Volo.Abp.Account.Application" Version="6.0.0-rc.4" />
-    <PackageReference Include="Volo.Abp.Identity.Application" Version="6.0.0-rc.4" />
-    <PackageReference Include="Volo.Abp.PermissionManagement.Application" Version="6.0.0-rc.4" />
-    <PackageReference Include="Volo.Abp.TenantManagement.Application" Version="6.0.0-rc.4" />
-    <PackageReference Include="Volo.Abp.FeatureManagement.Application" Version="6.0.0-rc.4" />
-    <PackageReference Include="Volo.Abp.SettingManagement.Application" Version="6.0.0-rc.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.0" />
+    <PackageReference Include="Volo.Abp.Account.Application" Version="4.4.4" />
+    <PackageReference Include="Volo.Abp.Identity.Application" Version="4.4.4" />
+    <PackageReference Include="Volo.Abp.PermissionManagement.Application" Version="4.4.4" />
+    <PackageReference Include="Volo.Abp.TenantManagement.Application" Version="4.4.4" />
+    <PackageReference Include="Volo.Abp.FeatureManagement.Application" Version="4.4.4" />
+    <PackageReference Include="Volo.Abp.SettingManagement.Application" Version="4.4.4" />
   </ItemGroup>
 
 </Project>

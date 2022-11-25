@@ -3,19 +3,19 @@ using Volo.Abp.Identity;
 using Volo.Abp.ObjectExtending;
 using Volo.Abp.Threading;
 
-namespace PBL4.EntityFrameworkCore;
-
-public static class PBL4EfCoreEntityExtensionMappings
+namespace PBL4.EntityFrameworkCore
 {
-    private static readonly OneTimeRunner OneTimeRunner = new OneTimeRunner();
-
-    public static void Configure()
+    public static class PBL4EfCoreEntityExtensionMappings
     {
-        PBL4GlobalFeatureConfigurator.Configure();
-        PBL4ModuleExtensionConfigurator.Configure();
+        private static readonly OneTimeRunner OneTimeRunner = new OneTimeRunner();
 
-        OneTimeRunner.Run(() =>
+        public static void Configure()
         {
+            PBL4GlobalFeatureConfigurator.Configure();
+            PBL4ModuleExtensionConfigurator.Configure();
+
+            OneTimeRunner.Run(() =>
+            {
                 /* You can configure extra properties for the
                  * entities defined in the modules used by your application.
                  *
@@ -39,6 +39,7 @@ public static class PBL4EfCoreEntityExtensionMappings
                  * See the documentation for more:
                  * https://docs.abp.io/en/abp/latest/Customizing-Application-Modules-Extending-Entities
                  */
-        });
+            });
+        }
     }
 }
