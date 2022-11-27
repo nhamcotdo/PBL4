@@ -260,3 +260,4 @@ PBL4_ServerAPI/src/PBL4.Blazor.Server/Logs/*
 PBL4_ServerAPI/src/PBL4.Blazor.Server.Tiered/Logs/*
 .vscode/launch.json
 .vscode/tasks.json
+PBL4_ServerAPI/src/PBL4.Web/Logs/logs.txt

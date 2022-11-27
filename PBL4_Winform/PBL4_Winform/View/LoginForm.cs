@@ -4,14 +4,17 @@ using System.Windows.Forms;
 using IdentityModel.Client;
 using System.Net.Http;
 using PBL4_Winform.BaseFunction;
+using PBL4_Winform.View;
 
 namespace PBL4_Winform
 {
     public partial class LoginForm : Form
     {
-        public LoginForm()
+        public bool IsGuest;
+        public LoginForm(bool isGuest = false)
         {
             InitializeComponent();
+            IsGuest = isGuest;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -47,8 +50,16 @@ namespace PBL4_Winform
                 return;
             }
 
-            this.Close();
-
+            this.Hide();
+            if (!this.IsGuest)
+            {
+                var mainform = new Mainform();
+                mainform.ShowDialog();
+                txtPassword.Text = "";
+                ConfigManager.Token = "";
+                FunctionModule.CurrentUser = "Khách";
+                this.Show();
+            }
         }
 
         public void SetToken(string username, string password)
@@ -78,8 +89,26 @@ namespace PBL4_Winform
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            if (!IsGuest)
+            {
+                Application.Exit();
+            }
+            else
+                this.Close();
+        }
 
+        private void btnGuest_Click(object sender, EventArgs e)
+        {
+            if (!this.IsGuest)
+            {
+                this.Hide();
+                var mainform = new Mainform();
+                mainform.ShowDialog();
+                txtPassword.Text = "";
+                ConfigManager.Token = "";
+                FunctionModule.CurrentUser = "Khách";
+                this.Show();
+            }
         }
     }
 }

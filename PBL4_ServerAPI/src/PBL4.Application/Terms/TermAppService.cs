@@ -2,21 +2,30 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
+using PBL4.Permissions;
 using PBL4.Terms.Dtos;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 
 namespace PBL4.Terms
 {
+    [Authorize]
     public class TermAppService : CrudAppService<Term, TermDto, Guid, PagedAndSortedResultRequestDto, CreateUpdateTermDto, CreateUpdateTermDto>, ITermAppService
     {
         private readonly ITermRepository _termRepository;
         public TermAppService(ITermRepository termRepository) : base(termRepository)
         {
             _termRepository = termRepository;
+             GetPolicyName = PBL4Permissions.View;
+            GetListPolicyName = PBL4Permissions.View;
+            CreatePolicyName = PBL4Permissions.Create;
+            UpdatePolicyName = PBL4Permissions.Update;
+            DeletePolicyName = PBL4Permissions.Delete;
         }
 
+        [AllowAnonymous]
          public async Task<PagedResultDto<TermDto>> SearchAsync(string filter = "")
         {
             var queryable = (await _termRepository.GetQueryableAsync())

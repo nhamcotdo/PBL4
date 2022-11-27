@@ -4,7 +4,6 @@ using PBL4_Winform.SdkCommon.Sessions;
 using PBL4_Winform.SdkCommon.Terms;
 using PBL4_Winform.View.Classes;
 using PBL4_Winform.View.Courses;
-using PBL4_Winform.View.Lessons;
 using PBL4_Winform.View.Sessions;
 using PBL4_Winform.View.Students;
 using PBL4_Winform.View.Terms;
@@ -21,8 +20,8 @@ namespace PBL4_Winform.View
         private ICourseApi apiCourse { get; set; }
         private ILessonApi apiLesson { get; set; }
         private IClassApi apiClass { get; set; }
-        private ITermApi apiTerm{ get; set; }
-        private ISessionApi apiSession{ get; set; }
+        private ITermApi apiTerm { get; set; }
+        private ISessionApi apiSession { get; set; }
 
         private DataTable dtStudent = new DataTable();
         private DataTable dtCourse = new DataTable();
@@ -41,8 +40,7 @@ namespace PBL4_Winform.View
             apiSession = ConfigManager.GetAPIByService<ISessionApi>();
 
             InitializeComponent();
-            //var frmLogin = new LoginForm();
-            //frmLogin.ShowDialog();
+
             AddHeader();
             LoadStudents();
             LoadLessons();
@@ -173,7 +171,7 @@ namespace PBL4_Winform.View
             {
                 foreach (DataGridViewRow student in dgvStudent.SelectedRows)
                 {
-                    apiStudent.DeleteAsync(Guid.Parse(student.Cells[0].Value.ToString()));
+                    apiStudent.DeleteAsync(Guid.Parse(student.Cells[0].Value.ToString())).GetAwaiter().GetResult();
                 }
                 MessageBox.Show("Đã xoá thành công " + count + " học sinh!");
                 LoadStudents();
@@ -260,7 +258,7 @@ namespace PBL4_Winform.View
             {
                 foreach (DataGridViewRow lesson in dgvLesson.SelectedRows)
                 {
-                    apiLesson.DeleteAsync(Guid.Parse(lesson.Cells[0].Value.ToString())).GetAwaiter();
+                    apiLesson.DeleteAsync(Guid.Parse(lesson.Cells[0].Value.ToString())).GetAwaiter().GetResult();
                 }
                 MessageBox.Show("Đã xoá thành công " + count + " bài học!");
                 LoadLessons();
@@ -438,7 +436,7 @@ namespace PBL4_Winform.View
             {
                 foreach (DataGridViewRow row in dgvClass.SelectedRows)
                 {
-                    apiClass.DeleteAsync(Guid.Parse(row.Cells[0].Value.ToString()));
+                    apiClass.DeleteAsync(Guid.Parse(row.Cells[0].Value.ToString())).GetAwaiter().GetResult();
                 }
                 MessageBox.Show("Đã xoá thành công " + count + " lớp học!");
                 LoadClass();
@@ -474,7 +472,7 @@ namespace PBL4_Winform.View
 
         private void btnAddTerm_Click(object sender, EventArgs e)
         {
-            var termDetail = new SessionDetail(mode: "CREATE");
+            var termDetail = new TermDetail(mode: "CREATE");
             termDetail.f = LoadTerms;
             termDetail.Show();
         }
@@ -484,7 +482,7 @@ namespace PBL4_Winform.View
             if (dgvTerm.SelectedRows.Count == 1)
             {
                 Guid id = (Guid)dgvTerm.SelectedRows[0].Cells[0].Value;
-                var termDetail = new SessionDetail(id, "EDIT");
+                var termDetail = new TermDetail(id, "EDIT");
                 termDetail.f = LoadTerms;
                 termDetail.Show();
             }
@@ -495,7 +493,7 @@ namespace PBL4_Winform.View
             if (e.RowIndex >= 0)
             {
                 Guid id = (Guid)dgvTerm.Rows[e.RowIndex].Cells[0].Value;
-                (new SessionDetail(id, mode: "VIEW")).Show();
+                (new TermDetail(id, mode: "VIEW")).Show();
             }
         }
 
@@ -510,7 +508,7 @@ namespace PBL4_Winform.View
             {
                 foreach (DataGridViewRow row in dgvTerm.SelectedRows)
                 {
-                    var rs = apiTerm.DeleteAsync(Guid.Parse(row.Cells[0].Value.ToString()));
+                    apiTerm.DeleteAsync(Guid.Parse(row.Cells[0].Value.ToString())).GetAwaiter().GetResult();
                 }
                 MessageBox.Show("Đã xoá thành công " + count + " kì học!");
                 LoadTerms();
@@ -583,15 +581,16 @@ namespace PBL4_Winform.View
             {
                 foreach (DataGridViewRow row in dgvSession.SelectedRows)
                 {
-                    var rs = apiSession.DeleteAsync(Guid.Parse(row.Cells[0].Value.ToString()));
+                    apiSession.DeleteAsync(Guid.Parse(row.Cells[0].Value.ToString())).GetAwaiter().GetResult();
                 }
                 MessageBox.Show("Đã xoá thành công " + count + " buổi học!");
                 LoadSessions();
             }
         }
 
-        //Session
-
-
-    }
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+    } 
 }

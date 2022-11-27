@@ -6,23 +6,32 @@ using Volo.Abp.Application.Dtos;
 using Microsoft.EntityFrameworkCore;
 using Volo.Abp.Application.Services;
 using System.Linq;
+using PBL4.Permissions;
+using Microsoft.AspNetCore.Authorization;
 
 namespace PBL4.Lessons
 {
+    [Authorize]
     public class LessonAppService : CrudAppService<Lesson, LessonDto, Guid, PagedAndSortedResultRequestDto, CreateUpdateLessonDto, CreateUpdateLessonDto>, ILessonAppService
     {
         private readonly ILessonRepository _lessonRepository;
         public LessonAppService(ILessonRepository lessonRepository) : base(lessonRepository)
         {
             _lessonRepository = lessonRepository;
+            GetPolicyName = PBL4Permissions.View;
+            GetListPolicyName = PBL4Permissions.View;
+            CreatePolicyName = PBL4Permissions.Create;
+            UpdatePolicyName = PBL4Permissions.Update;
+            DeletePolicyName = PBL4Permissions.Delete;
         }
 
+        [AllowAnonymous]
         public async Task<PagedResultDto<LessonDto>> SearchAsync(string filter = "")
         {
             var queryable = (await _lessonRepository.GetQueryableAsync())
                 .WhereIf(
                     !filter.IsNullOrEmpty(),
-                    x=>
+                    x =>
                     x.Title.Contains(filter)
                     || x.DocumentUrl.Contains(filter)
                     || x.Guide.Contains(filter)
@@ -35,14 +44,15 @@ namespace PBL4.Lessons
             return rs;
         }
 
+        [Authorize(PBL4Permissions.View)]
         public async Task<List<LessonDto>> GetListByStudentIdAndClassId(Guid classId, Guid studentId)
         {
             var queryable = await _lessonRepository.WithDetailsAsync();
 
-            return ObjectMapper.Map<List<Lesson>,List<LessonDto>>(queryable
+            return ObjectMapper.Map<List<Lesson>, List<LessonDto>>(queryable
                                                                     .Where(
-                                                                        x => x.LessonOfCourses.Any(y => y.Course.Classes.Any(z => z.Id == classId))&&
-                                                                        x.LessonCompletes.Any(y =>y.StudentId == studentId && !y.IsComplete))
+                                                                        x => x.LessonOfCourses.Any(y => y.Course.Classes.Any(z => z.Id == classId)) &&
+                                                                        x.LessonCompletes.Any(y => y.StudentId == studentId && !y.IsComplete))
                                                                     .ToList());
         }
     }

@@ -8,7 +8,7 @@ using Volo.Abp.Application.Dtos;
 
 namespace PBL4_Winform.SdkCommon
 {
-    interface ILessonApi
+    interface ILessonApi : IAuthorizeCommon
     {
         [Get("/api/app/lesson/{id}")]
         Task<LessonDto> GetAsync(Guid id);

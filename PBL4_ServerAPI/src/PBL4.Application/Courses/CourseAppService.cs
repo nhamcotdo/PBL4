@@ -7,11 +7,12 @@ using Microsoft.EntityFrameworkCore;
 using Volo.Abp.Application.Services;
 using System.Linq;
 using PBL4.LessonOfCourses;
-using Volo.Abp.ObjectMapping;
-using PBL4.LessonOfCourses.Dtos;
+using Microsoft.AspNetCore.Authorization;
+using PBL4.Permissions;
 
 namespace PBL4.Courses
 {
+    [Authorize]
     public class CourseAppService : CrudAppService<Course, CourseDto, Guid, PagedAndSortedResultRequestDto, CreateUpdateCourseDto, CreateUpdateCourseDto>, ICourseAppService
     {
         private readonly ICourseRepository _courseRepository;
@@ -20,8 +21,14 @@ namespace PBL4.Courses
         {
             _courseRepository = courseRepository;
             _lessonOfCourseRepository = lessonOfCourseRepository;
+            GetPolicyName = PBL4Permissions.View;
+            GetListPolicyName = PBL4Permissions.View;
+            CreatePolicyName = PBL4Permissions.Create;
+            UpdatePolicyName = PBL4Permissions.Update;
+            DeletePolicyName = PBL4Permissions.Delete;
         }
 
+        [AllowAnonymous]
         public async Task<PagedResultDto<CourseDto>> SearchAsync(string filter = "")
         {
             var queryable = (await _courseRepository.WithDetailsAsync())
@@ -54,7 +61,7 @@ namespace PBL4.Courses
             var lessonOfCourseQueryable = await _lessonOfCourseRepository.GetQueryableAsync();
             await _lessonOfCourseRepository.DeleteManyAsync(
                  lessonOfCourseQueryable.Where(x => x.CourseId == id).ToList());
-            
+
             foreach (var lesson in input.LessonOfCourses)
             {
                 lesson.Id = Guid.NewGuid();

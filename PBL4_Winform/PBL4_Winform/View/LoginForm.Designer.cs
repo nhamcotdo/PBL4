@@ -36,6 +36,7 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnGuest = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -92,11 +93,21 @@
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabStop = false;
             // 
+            // btnGuest
+            // 
+            this.btnGuest.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            resources.ApplyResources(this.btnGuest, "btnGuest");
+            this.btnGuest.ForeColor = System.Drawing.Color.White;
+            this.btnGuest.Name = "btnGuest";
+            this.btnGuest.UseVisualStyleBackColor = false;
+            this.btnGuest.Click += new System.EventHandler(this.btnGuest_Click);
+            // 
             // LoginForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::PBL4_Winform.Properties.Resources.background_login1;
+            this.Controls.Add(this.btnGuest);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
@@ -123,5 +134,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Button btnGuest;
     }
 }

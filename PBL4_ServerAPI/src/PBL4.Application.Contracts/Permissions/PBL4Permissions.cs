@@ -4,7 +4,10 @@
     {
         public const string GroupName = "PBL4";
 
-        //Add your own permission names. Example:
-        //public const string MyPermission1 = GroupName + ".MyPermission1";
+        // Add your own permission names. Example:
+        public const string Create = GroupName + ".Create";
+        public const string View = GroupName + ".View";
+        public const string Update = GroupName + ".Update";
+        public const string Delete = GroupName + ".Delete";
     }
 }

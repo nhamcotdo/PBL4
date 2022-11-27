@@ -7,7 +7,7 @@ using Volo.Abp.Application.Dtos;
 namespace PBL4_Winform.SdkCommon.Sessions
 
 {
-    interface ISessionApi
+    interface ISessionApi : IAuthorizeCommon
     {
         [Get("/api/app/session/{id}")]
         Task<SessionDto> GetAsync(Guid id);
