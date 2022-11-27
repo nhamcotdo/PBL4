@@ -6,7 +6,7 @@ using Volo.Abp.Application.Dtos;
 
 namespace PBL4_Winform.SdkCommon.Terms
 {
-    interface ITermApi
+    interface ITermApi : IAuthorizeCommon
     {
         [Get("/api/app/term/{id}")]
         Task<TermDto> GetAsync(Guid id);

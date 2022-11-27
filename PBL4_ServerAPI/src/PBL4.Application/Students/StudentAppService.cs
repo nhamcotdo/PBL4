@@ -17,9 +17,12 @@ using PBL4.UserLogins;
 using PBL4.UserLogins.Dtos;
 using PBL4.Lessons.Dtos;
 using PBL4.Shared;
+using PBL4.Permissions;
+using Microsoft.AspNetCore.Authorization;
 
 namespace PBL4.Students
 {
+    [Authorize]
     public class StudentAppService : CrudAppService<Student, StudentDto, Guid, PagedAndSortedResultRequestDto, CreateUpdateStudentDto, CreateUpdateStudentDto>, IStudentAppService
     {
         private readonly IStudentRepository _studentRepository;
@@ -34,12 +37,19 @@ namespace PBL4.Students
                                 IUserLoginRepository userLoginRepository
                                 ) : base(studentRepository)
         {
+            GetPolicyName = PBL4Permissions.View;
+            GetListPolicyName = PBL4Permissions.View;
+            CreatePolicyName = PBL4Permissions.Create;
+            UpdatePolicyName = PBL4Permissions.Update;
+            DeletePolicyName = PBL4Permissions.Delete;
+
             _studentRepository = studentRepository;
             _registerRepository = registerRepository;
             _lessonCompleteRepository = lessonCompleteRepository;
             _userLoginRepository = userLoginRepository;
         }
 
+        [AllowAnonymous]
         public async Task<PagedResultDto<StudentDto>> SearchAsync(string filter = "")
         {
             var queryable = (await _studentRepository.GetQueryableAsync()).Include(x => x.UserLogin)
@@ -58,7 +68,7 @@ namespace PBL4.Students
 
             return rs;
         }
-
+        
         public override async Task<StudentDto> GetAsync(Guid id)
         {
             var queryable = await _studentRepository.GetQueryableAsync();
@@ -84,6 +94,7 @@ namespace PBL4.Students
             return studentDto;
         }
 
+        [AllowAnonymous]
         public async Task<List<LessonCompleteDto>> GetLessonByClassId(Guid studentId, Guid classId)
         {
             var lessonCompleteQueryable = await _lessonCompleteRepository.GetQueryableAsync();
@@ -116,12 +127,13 @@ namespace PBL4.Students
             return base.DeleteAsync(id);
         }
 
+        [AllowAnonymous]
         public async Task<List<StudentDto>> GetByClassIdAsync(Guid classId)
         {
-            
+
             return ObjectMapper.Map<List<Student>, List<StudentDto>>(await (await _registerRepository.WithDetailsAsync())
                                                                                                 .Where(x => x.ClassId == classId && x.Status == CommonEnum.RegisterStatus.CONFIRMED.ToString())
-                                                                                                .Select(x =>x.Student)
+                                                                                                .Select(x => x.Student)
                                                                                                 .ToListAsync());
         }
     }

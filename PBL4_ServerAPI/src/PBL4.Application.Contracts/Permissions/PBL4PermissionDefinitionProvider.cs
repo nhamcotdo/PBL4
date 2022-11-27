@@ -10,7 +10,10 @@ namespace PBL4.Permissions
         {
             var myGroup = context.AddGroup(PBL4Permissions.GroupName);
             //Define your own permissions here. Example:
-            //myGroup.AddPermission(PBL4Permissions.MyPermission1, L("Permission:MyPermission1"));
+            myGroup.AddPermission(PBL4Permissions.Update, L("Cập nhật"));
+            myGroup.AddPermission(PBL4Permissions.Create, L("Tạo mới"));
+            myGroup.AddPermission(PBL4Permissions.View, L("Xem"));
+            myGroup.AddPermission(PBL4Permissions.Delete, L("Xoá"));
         }
 
         private static LocalizableString L(string name)

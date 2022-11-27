@@ -6,17 +6,26 @@ using Volo.Abp.Application.Dtos;
 using Microsoft.EntityFrameworkCore;
 using Volo.Abp.Application.Services;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
+using PBL4.Permissions;
 
 namespace PBL4.Classes
 {
+    [Authorize]
     public class ClassAppService : CrudAppService<Class, ClassDto, Guid, PagedAndSortedResultRequestDto, CreateUpdateClassDto, CreateUpdateClassDto>, IClassAppService
     {
         private readonly IClassRepository _classRepository;
         public ClassAppService(IClassRepository classRepository) : base(classRepository)
         {
             _classRepository = classRepository;
+            GetPolicyName = PBL4Permissions.View;
+            GetListPolicyName = PBL4Permissions.View;
+            CreatePolicyName = PBL4Permissions.Create;
+            UpdatePolicyName = PBL4Permissions.Update;
+            DeletePolicyName = PBL4Permissions.Delete;
         }
 
+        [AllowAnonymous]
         public async Task<PagedResultDto<ClassDto>> SearchAsync(string filter = "")
         {
             var queryable = (await _classRepository.WithDetailsAsync())
@@ -33,11 +42,12 @@ namespace PBL4.Classes
             return rs;
         }
 
+        [Authorize(PBL4Permissions.View)]
         public override async Task<ClassDto> GetAsync(Guid id)
         {
             var queryable = await _classRepository.WithDetailsAsync();
-            
-            return ObjectMapper.Map<Class,ClassDto>(await queryable
+
+            return ObjectMapper.Map<Class, ClassDto>(await queryable
                                     .Where(x => x.Id == id)
                                     .FirstOrDefaultAsync());
         }

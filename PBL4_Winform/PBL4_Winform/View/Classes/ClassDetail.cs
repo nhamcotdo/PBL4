@@ -3,6 +3,7 @@ using PBL4_Winform.Dto;
 using PBL4_Winform.Dto.Classes;
 using PBL4_Winform.SdkCommon;
 using PBL4_Winform.SdkCommon.Terms;
+using Refit;
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -115,7 +116,9 @@ namespace PBL4_Winform.View.Classes
             }
             else if (_mode == "EDIT")
             {
-                var classDto = classApi.UpdateAsync(classId,
+                ClassDto classDto = null;
+              
+                    classDto = classApi.UpdateAsync(classId,
                     new CreateUpdateClassDto
                     {
                         Name = txtName.Text,
@@ -126,17 +129,14 @@ namespace PBL4_Winform.View.Classes
                         TermId = (cbbTermName.SelectedValue as CBBItem).Value,
                         Fee = float.Parse(nbFee.Text)
                     }).GetAwaiter().GetResult();
-                if (classDto != null)
+             
+                             if (classDto != null)
                 {
                     var rs = MessageBox.Show("Cập nhật lớp học " + classDto.Name + " thành công!");
                     if (rs == DialogResult.OK)
                     {
                         f();
                     }
-                }
-                else
-                {
-                    MessageBox.Show("Có lỗi xảy ra khi sửa đổi lớp học!");
                 }
             }
             this.Close();

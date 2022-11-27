@@ -1,21 +1,12 @@
 ﻿using PBL4_Winform.ConfigManagers;
-using PBL4_Winform.Dto.Classes;
 using PBL4_Winform.Dto.Terms;
-using PBL4_Winform.SdkCommon;
 using PBL4_Winform.SdkCommon.Terms;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PBL4_Winform.View.Terms
 {
-    public partial class SesionDetail : Form
+    public partial class TermDetail : Form
     {
         public delegate void MyDel(string filter = "");
         public MyDel f { get; set; }
@@ -25,7 +16,7 @@ namespace PBL4_Winform.View.Terms
         private Guid termId;
         private string _mode { get; set; }
 
-        public SesionDetail(Guid id = new Guid(), string mode = "VIEW")
+        public TermDetail(Guid id = new Guid(), string mode = "VIEW")
         {
             termApi = ConfigManager.GetAPIByService<ITermApi>();
             _mode = mode;

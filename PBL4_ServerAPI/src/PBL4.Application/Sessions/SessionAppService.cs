@@ -8,6 +8,7 @@ using System.Linq;
 using PBL4.Sessions.Dtos;
 using PBL4.SessionRegisters;
 using PBL4.SessionRegisters.Dtos;
+using Microsoft.AspNetCore.Authorization;
 
 namespace PBL4.Sessions
 {
@@ -18,7 +19,7 @@ namespace PBL4.Sessions
         {
             _sessionRepository = sessionRepository;
         }
-
+        
         public async Task<PagedResultDto<SessionDto>> SearchAsync(string filter = "")
         {
             var queryable = (await _sessionRepository.WithDetailsAsync())
