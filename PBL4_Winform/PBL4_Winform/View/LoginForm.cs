@@ -65,6 +65,7 @@ namespace PBL4_Winform
         public void SetToken(string username, string password)
         {
             var client = new HttpClient();
+            client.DefaultRequestHeaders.ConnectionClose = true;
             var address = ConfigManager.Configuration.GetSection("IdentityClients:Default:Authority").Value + "/connect/token";
             var clientId = ConfigManager.Configuration.GetSection("IdentityClients:Default:ClientId").Value;
             var clientSecret = ConfigManager.Configuration.GetSection("IdentityClients:Default:ClientSecret").Value;

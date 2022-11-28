@@ -51,8 +51,8 @@
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 3;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.11111F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 74.88889F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(800, 450);
@@ -61,20 +61,21 @@
             // panel6
             // 
             this.panel6.Controls.Add(this.btnAddLesson);
-            this.panel6.Location = new System.Drawing.Point(3, 408);
+            this.panel6.Location = new System.Drawing.Point(3, 407);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(794, 39);
             this.panel6.TabIndex = 6;
             // 
             // btnAddLesson
             // 
+            this.btnAddLesson.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnAddLesson.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnAddLesson.Location = new System.Drawing.Point(0, 0);
             this.btnAddLesson.Name = "btnAddLesson";
             this.btnAddLesson.Size = new System.Drawing.Size(794, 39);
             this.btnAddLesson.TabIndex = 3;
             this.btnAddLesson.Text = "Chọn";
-            this.btnAddLesson.UseVisualStyleBackColor = true;
+            this.btnAddLesson.UseVisualStyleBackColor = false;
             this.btnAddLesson.Click += new System.EventHandler(this.btnAddLesson_Click);
             // 
             // panel5
@@ -83,19 +84,21 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(3, 3);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(794, 39);
+            this.panel5.Size = new System.Drawing.Size(794, 61);
             this.panel5.TabIndex = 3;
             // 
             // textBox3
             // 
+            this.textBox3.BackColor = System.Drawing.Color.Orange;
             this.textBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.ForeColor = System.Drawing.Color.White;
             this.textBox3.Location = new System.Drawing.Point(0, 0);
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(794, 53);
+            this.textBox3.Size = new System.Drawing.Size(794, 58);
             this.textBox3.TabIndex = 0;
-            this.textBox3.Text = "Danh sách bài học";
+            this.textBox3.Text = "DANH SÁCH BÀI HỌC";
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // dgvLesson
@@ -107,19 +110,20 @@
             this.dgvLesson.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvLesson.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvLesson.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLesson.Location = new System.Drawing.Point(3, 48);
+            this.dgvLesson.Location = new System.Drawing.Point(3, 70);
             this.dgvLesson.Name = "dgvLesson";
             this.dgvLesson.ReadOnly = true;
             this.dgvLesson.RowHeadersWidth = 51;
             this.dgvLesson.RowTemplate.Height = 24;
             this.dgvLesson.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLesson.Size = new System.Drawing.Size(794, 354);
+            this.dgvLesson.Size = new System.Drawing.Size(794, 331);
             this.dgvLesson.TabIndex = 0;
             // 
             // SessionLesson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Name = "SessionLesson";

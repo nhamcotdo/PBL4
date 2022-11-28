@@ -167,5 +167,10 @@ namespace PBL4_Winform.View.Students
 
             this.Close();
         }
+
+        private void lbAddress_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

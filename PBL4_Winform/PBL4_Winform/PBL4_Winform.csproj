@@ -508,9 +508,9 @@
     <Compile Include="SdkCommon\IActivitiesApi.cs" />
     <Compile Include="SdkCommon\IAuthorizeCommon.cs" />
     <Compile Include="SdkCommon\IUsersApi.cs" />
-    <Compile Include="View\Mainform.cs">
+    <None Include="View\Mainform.cs">
       <SubType>Form</SubType>
-    </Compile>
+    </None>
     <Compile Include="View\Mainform.Designer.cs">
       <DependentUpon>Mainform.cs</DependentUpon>
     </Compile>

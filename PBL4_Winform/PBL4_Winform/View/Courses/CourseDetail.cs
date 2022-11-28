@@ -178,5 +178,10 @@ namespace PBL4_Winform.View.Courses
                 dgvLessonOfCourse.Rows.RemoveAt(row.Index);
             }
         }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

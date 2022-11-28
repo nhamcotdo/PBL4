@@ -110,5 +110,10 @@ namespace PBL4_Winform.View.Lessons
             }
             this.Close();
         }
+
+        private void txtDocumentUrl_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

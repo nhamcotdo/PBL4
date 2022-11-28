@@ -84,6 +84,11 @@ namespace PBL4.Web
             ConfigureNavigationServices();
             ConfigureAutoApiControllers();
             ConfigureSwaggerServices(context.Services);
+            System.Net.ServicePointManager.ServerCertificateValidationCallback +=
+            (se, cert, chain, sslerror) =>
+            {
+                return true;
+            };
         }
 
         private void ConfigureUrls(IConfiguration configuration)

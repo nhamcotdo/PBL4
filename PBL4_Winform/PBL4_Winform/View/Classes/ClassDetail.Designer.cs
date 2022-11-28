@@ -66,11 +66,12 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1002, 412);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(999, 412);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.CornflowerBlue;
             this.panel1.Controls.Add(this.nbFee);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.cbbCourseName);
@@ -88,6 +89,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(494, 406);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // nbFee
             // 
@@ -104,6 +106,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Yellow;
             this.label6.Location = new System.Drawing.Point(9, 250);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 16);
@@ -136,6 +139,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Yellow;
             this.label5.Location = new System.Drawing.Point(9, 115);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(111, 16);
@@ -145,6 +149,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Yellow;
             this.label4.Location = new System.Drawing.Point(13, 206);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(43, 16);
@@ -154,6 +159,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Yellow;
             this.label2.Location = new System.Drawing.Point(13, 160);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(89, 16);
@@ -170,6 +176,7 @@
             // lbTimePerLesson
             // 
             this.lbTimePerLesson.AutoSize = true;
+            this.lbTimePerLesson.BackColor = System.Drawing.Color.Yellow;
             this.lbTimePerLesson.Location = new System.Drawing.Point(9, 73);
             this.lbTimePerLesson.Name = "lbTimePerLesson";
             this.lbTimePerLesson.Size = new System.Drawing.Size(111, 16);
@@ -186,6 +193,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Yellow;
             this.label1.Location = new System.Drawing.Point(9, 29);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(78, 16);
@@ -199,7 +207,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(503, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(496, 406);
+            this.panel2.Size = new System.Drawing.Size(493, 406);
             this.panel2.TabIndex = 1;
             // 
             // rtDecription
@@ -209,13 +217,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.rtDecription.Location = new System.Drawing.Point(87, 29);
             this.rtDecription.Name = "rtDecription";
-            this.rtDecription.Size = new System.Drawing.Size(392, 345);
+            this.rtDecription.Size = new System.Drawing.Size(389, 345);
             this.rtDecription.TabIndex = 12;
             this.rtDecription.Text = "";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.GreenYellow;
             this.label3.Location = new System.Drawing.Point(8, 29);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(40, 16);
@@ -239,19 +248,21 @@
             // 
             // btnSubmit
             // 
+            this.btnSubmit.BackColor = System.Drawing.Color.Orange;
             this.btnSubmit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnSubmit.Location = new System.Drawing.Point(3, 421);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(839, 34);
+            this.btnSubmit.Size = new System.Drawing.Size(999, 34);
             this.btnSubmit.TabIndex = 1;
             this.btnSubmit.Text = "Submit";
-            this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.UseVisualStyleBackColor = false;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // ClassDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(1005, 458);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Name = "ClassDetail";

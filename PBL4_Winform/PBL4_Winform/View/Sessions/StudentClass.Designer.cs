@@ -70,6 +70,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.panel1.Controls.Add(this.btnOk);
             this.panel1.Controls.Add(this.cbbClass);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -80,18 +81,19 @@
             // 
             // btnOk
             // 
-            this.btnOk.Location = new System.Drawing.Point(322, 25);
+            this.btnOk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnOk.Location = new System.Drawing.Point(350, 8);
             this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(75, 23);
+            this.btnOk.Size = new System.Drawing.Size(82, 34);
             this.btnOk.TabIndex = 4;
             this.btnOk.Text = "Chọn";
-            this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.UseVisualStyleBackColor = false;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // cbbClass
             // 
             this.cbbClass.FormattingEnabled = true;
-            this.cbbClass.Location = new System.Drawing.Point(30, 24);
+            this.cbbClass.Location = new System.Drawing.Point(28, 14);
             this.cbbClass.Name = "cbbClass";
             this.cbbClass.Size = new System.Drawing.Size(154, 24);
             this.cbbClass.TabIndex = 2;
@@ -101,6 +103,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "StudentClass";

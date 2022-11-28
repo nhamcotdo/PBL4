@@ -34,12 +34,12 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnGuest = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // txtUsername
@@ -49,7 +49,7 @@
             // 
             // btnExit
             // 
-            this.btnExit.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnExit.BackColor = System.Drawing.Color.Goldenrod;
             resources.ApplyResources(this.btnExit, "btnExit");
             this.btnExit.ForeColor = System.Drawing.Color.White;
             this.btnExit.Name = "btnExit";
@@ -63,7 +63,7 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnLogin.BackColor = System.Drawing.Color.Plum;
             resources.ApplyResources(this.btnLogin, "btnLogin");
             this.btnLogin.ForeColor = System.Drawing.Color.White;
             this.btnLogin.Name = "btnLogin";
@@ -78,13 +78,6 @@
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.TabStop = false;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::PBL4_Winform.Properties.Resources.pic_icon_login;
-            resources.ApplyResources(this.pictureBox2, "pictureBox2");
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.TabStop = false;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.White;
@@ -95,18 +88,24 @@
             // 
             // btnGuest
             // 
-            this.btnGuest.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnGuest.BackColor = System.Drawing.Color.SeaGreen;
             resources.ApplyResources(this.btnGuest, "btnGuest");
             this.btnGuest.ForeColor = System.Drawing.Color.White;
             this.btnGuest.Name = "btnGuest";
             this.btnGuest.UseVisualStyleBackColor = false;
             this.btnGuest.Click += new System.EventHandler(this.btnGuest_Click);
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::PBL4_Winform.Properties.Resources.pic_icon_login;
+            resources.ApplyResources(this.pictureBox2, "pictureBox2");
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.TabStop = false;
+            // 
             // LoginForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::PBL4_Winform.Properties.Resources.background_login1;
             this.Controls.Add(this.btnGuest);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
@@ -119,8 +118,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LoginForm";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -132,8 +131,8 @@
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Button btnGuest;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

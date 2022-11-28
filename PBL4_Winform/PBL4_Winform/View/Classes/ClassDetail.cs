@@ -141,5 +141,10 @@ namespace PBL4_Winform.View.Classes
             }
             this.Close();
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
