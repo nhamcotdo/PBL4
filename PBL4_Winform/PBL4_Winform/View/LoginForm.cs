@@ -39,8 +39,8 @@ namespace PBL4_Winform
                 // get thông tin user fail
                 if (!FunctionModule.SetCurrentUserLogin(username))
                 {
-                    MessageBox.Show("Bạn không đủ quyền");
-                    return;
+                    MessageBox.Show("Máy chủ đang bị lỗi hoặc thông tin đăng nhập không chính xác");
+                    Application.Exit();
                 }
 
             }

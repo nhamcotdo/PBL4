@@ -37,6 +37,7 @@ using Volo.Abp.UI.Navigation.Urls;
 using Volo.Abp.UI;
 using Volo.Abp.UI.Navigation;
 using Volo.Abp.VirtualFileSystem;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace PBL4.Web
 {
@@ -75,6 +76,8 @@ namespace PBL4.Web
             var hostingEnvironment = context.Services.GetHostingEnvironment();
             var configuration = context.Services.GetConfiguration();
 
+
+            ConfigureSameSiteCookiePolicy(context);
             ConfigureUrls(configuration);
             ConfigureBundles();
             ConfigureAuthentication(context, configuration);
@@ -84,6 +87,10 @@ namespace PBL4.Web
             ConfigureNavigationServices();
             ConfigureAutoApiControllers();
             ConfigureSwaggerServices(context.Services);
+            Configure(delegate (RazorPagesOptions options)
+            {
+                options.Conventions.AllowAnonymousToPage("/index");
+            });
         }
 
         private void ConfigureUrls(IConfiguration configuration)
@@ -92,6 +99,11 @@ namespace PBL4.Web
             {
                 options.Applications["MVC"].RootUrl = configuration["App:SelfUrl"];
             });
+        }
+
+        private static void ConfigureSameSiteCookiePolicy(ServiceConfigurationContext context)
+        {
+            context.Services.AddSameSiteCookiePolicy();
         }
 
         private void ConfigureBundles()
@@ -210,7 +222,7 @@ namespace PBL4.Web
             {
                 app.UseErrorPage();
             }
-
+            app.UseCookiePolicy();
             app.UseCorrelationId();
             app.UseStaticFiles();
             app.UseRouting();
