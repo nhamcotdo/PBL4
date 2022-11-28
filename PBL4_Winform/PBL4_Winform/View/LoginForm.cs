@@ -39,8 +39,8 @@ namespace PBL4_Winform
                 // get thông tin user fail
                 if (!FunctionModule.SetCurrentUserLogin(username))
                 {
-                    MessageBox.Show("Bạn không đủ quyền");
-                    return;
+                    MessageBox.Show("Máy chủ đang bị lỗi hoặc thông tin đăng nhập không chính xác");
+                    Application.Exit();
                 }
 
             }
@@ -65,7 +65,7 @@ namespace PBL4_Winform
         public void SetToken(string username, string password)
         {
             var client = new HttpClient();
-            var address = ConfigManager.Configuration.GetSection("IdentityClients:Default:Authority").Value + "/connect/token";
+            var address = ConfigManager.Configuration.GetSection("RemoteServices:Default:BaseUrl").Value + "/connect/token";
             var clientId = ConfigManager.Configuration.GetSection("IdentityClients:Default:ClientId").Value;
             var clientSecret = ConfigManager.Configuration.GetSection("IdentityClients:Default:ClientSecret").Value;
             var scope = ConfigManager.Configuration.GetSection("IdentityClients:Default:Scope").Value;

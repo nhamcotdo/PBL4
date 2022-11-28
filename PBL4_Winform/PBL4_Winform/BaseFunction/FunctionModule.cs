@@ -26,9 +26,9 @@ namespace PBL4_Winform.BaseFunction
                 var tenVaiTro = identityRoleDto.Name;
                 var vaiTroId = identityRoleDto.Id;
                 string name = UserDto.Name;
-               
-                CurrentUser =  name + " - " + tenVaiTro;
-             
+
+                CurrentUser = name + " - " + tenVaiTro;
+
                 CurrentRole = tenVaiTro;
                 CurrentRoleId = vaiTroId;
                 return true;
