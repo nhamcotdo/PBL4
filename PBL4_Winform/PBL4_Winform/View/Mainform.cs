@@ -166,8 +166,8 @@ namespace PBL4_Winform.View
             if (dgvStudent.SelectedRows.Count <= 0)
                 return;
             var count = dgvStudent.SelectedRows.Count;
-            var result = MessageBox.Show("Bạn có chắc chắn muốn xoá " + count + " học sinh này ?");
-            if (result == DialogResult.OK)
+            var result = MessageBox.Show("Bạn có chắc chắn muốn xoá " + count + " học sinh này ?", "Xoá?", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
             {
                 foreach (DataGridViewRow student in dgvStudent.SelectedRows)
                 {
@@ -253,8 +253,8 @@ namespace PBL4_Winform.View
             if (dgvLesson.SelectedRows.Count <= 0)
                 return;
             var count = dgvLesson.SelectedRows.Count;
-            var result = MessageBox.Show("Bạn có chắc chắn muốn xoá " + count + " bài học này ?");
-            if (result == DialogResult.OK)
+            var result = MessageBox.Show("Bạn có chắc chắn muốn xoá " + count + " bài học này ?", "Xoá?", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
             {
                 foreach (DataGridViewRow lesson in dgvLesson.SelectedRows)
                 {
@@ -324,16 +324,16 @@ namespace PBL4_Winform.View
 
             var count = dgvCourse.SelectedRows.Count;
 
-            var result = MessageBox.Show("Bạn có chắc chắn muốn xoá " + count + " khoá học này ?");
-            if (result == DialogResult.OK)
+            var result = MessageBox.Show("Bạn có chắc chắn muốn xoá " + count + " khoá học này ?", "Xoá?", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
             {
                 foreach (DataGridViewRow course in dgvCourse.SelectedRows)
                 {
                     apiCourse.DeleteAsync(Guid.Parse(course.Cells[0].Value.ToString())).GetAwaiter();
                 }
-            }
             MessageBox.Show("Đã xoá thành công " + count + " khoá học!");
             LoadCourses();
+            }
         }
 
         private void dgvStudent_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -431,8 +431,8 @@ namespace PBL4_Winform.View
             if (dgvClass.SelectedRows.Count <= 0)
                 return;
             var count = dgvClass.SelectedRows.Count;
-            var result = MessageBox.Show("Bạn có chắc chắn muốn xoá " + count + " lớp học này ?");
-            if (result == DialogResult.OK)
+            var result = MessageBox.Show("Bạn có chắc chắn muốn xoá " + count + " lớp học này ?", "Xoá?", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
             {
                 foreach (DataGridViewRow row in dgvClass.SelectedRows)
                 {
@@ -503,8 +503,8 @@ namespace PBL4_Winform.View
             if (dgvTerm.SelectedRows.Count <= 0)
                 return;
             var count = dgvTerm.SelectedRows.Count;
-            var result = MessageBox.Show("Bạn có chắc chắn muốn xoá " + count + " kì học này ?");
-            if (result == DialogResult.OK)
+            var result = MessageBox.Show("Bạn có chắc chắn muốn xoá " + count + " kì học này ?", "Xoá?", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
             {
                 foreach (DataGridViewRow row in dgvTerm.SelectedRows)
                 {
@@ -576,8 +576,8 @@ namespace PBL4_Winform.View
             if (dgvSession.SelectedRows.Count <= 0)
                 return;
             var count = dgvSession.SelectedRows.Count;
-            var result = MessageBox.Show("Bạn có chắc chắn muốn xoá " + count + " buổi học này ?");
-            if (result == DialogResult.OK)
+            var result = MessageBox.Show("Bạn có chắc chắn muốn xoá " + count + " buổi học này ?", "Xoá?", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
             {
                 foreach (DataGridViewRow row in dgvSession.SelectedRows)
                 {

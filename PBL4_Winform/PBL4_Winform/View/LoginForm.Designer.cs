@@ -49,7 +49,7 @@
             // 
             // btnExit
             // 
-            this.btnExit.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             resources.ApplyResources(this.btnExit, "btnExit");
             this.btnExit.ForeColor = System.Drawing.Color.White;
             this.btnExit.Name = "btnExit";
@@ -63,7 +63,7 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnLogin.BackColor = System.Drawing.Color.Lime;
             resources.ApplyResources(this.btnLogin, "btnLogin");
             this.btnLogin.ForeColor = System.Drawing.Color.White;
             this.btnLogin.Name = "btnLogin";
@@ -95,7 +95,7 @@
             // 
             // btnGuest
             // 
-            this.btnGuest.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnGuest.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             resources.ApplyResources(this.btnGuest, "btnGuest");
             this.btnGuest.ForeColor = System.Drawing.Color.White;
             this.btnGuest.Name = "btnGuest";
@@ -106,7 +106,7 @@
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::PBL4_Winform.Properties.Resources.background_login1;
+            this.BackgroundImage = global::PBL4_Winform.Properties.Resources.bgroudnLogin;
             this.Controls.Add(this.btnGuest);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);

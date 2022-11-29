@@ -62,12 +62,13 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 412F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(859, 412);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.CornflowerBlue;
             this.panel1.Controls.Add(this.txtDocumentUrl);
             this.panel1.Controls.Add(this.linkDocumentUrl);
             this.panel1.Controls.Add(this.label2);
@@ -85,7 +86,7 @@
             // 
             this.txtDocumentUrl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDocumentUrl.Location = new System.Drawing.Point(149, 116);
+            this.txtDocumentUrl.Location = new System.Drawing.Point(169, 116);
             this.txtDocumentUrl.Name = "txtDocumentUrl";
             this.txtDocumentUrl.Size = new System.Drawing.Size(244, 22);
             this.txtDocumentUrl.TabIndex = 9;
@@ -93,6 +94,7 @@
             // linkDocumentUrl
             // 
             this.linkDocumentUrl.AutoSize = true;
+            this.linkDocumentUrl.BackColor = System.Drawing.Color.White;
             this.linkDocumentUrl.Location = new System.Drawing.Point(9, 119);
             this.linkDocumentUrl.Name = "linkDocumentUrl";
             this.linkDocumentUrl.Size = new System.Drawing.Size(72, 16);
@@ -104,7 +106,8 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(341, 70);
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.label2.Location = new System.Drawing.Point(365, 70);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(28, 16);
             this.label2.TabIndex = 7;
@@ -117,7 +120,7 @@
             0,
             0,
             65536});
-            this.nbTimePerLesson.Location = new System.Drawing.Point(153, 68);
+            this.nbTimePerLesson.Location = new System.Drawing.Point(169, 68);
             this.nbTimePerLesson.Name = "nbTimePerLesson";
             this.nbTimePerLesson.Size = new System.Drawing.Size(178, 22);
             this.nbTimePerLesson.TabIndex = 6;
@@ -125,6 +128,7 @@
             // lbTimePerLesson
             // 
             this.lbTimePerLesson.AutoSize = true;
+            this.lbTimePerLesson.BackColor = System.Drawing.Color.White;
             this.lbTimePerLesson.Location = new System.Drawing.Point(9, 68);
             this.lbTimePerLesson.Name = "lbTimePerLesson";
             this.lbTimePerLesson.Size = new System.Drawing.Size(142, 16);
@@ -135,7 +139,7 @@
             // 
             this.txtTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTitle.Location = new System.Drawing.Point(153, 29);
+            this.txtTitle.Location = new System.Drawing.Point(169, 29);
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(244, 22);
             this.txtTitle.TabIndex = 1;
@@ -143,6 +147,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(9, 29);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(125, 16);
@@ -151,6 +156,7 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.CornflowerBlue;
             this.panel2.Controls.Add(this.rtGuide);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -173,6 +179,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.label3.Location = new System.Drawing.Point(8, 29);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 16);
@@ -196,19 +203,21 @@
             // 
             // btnSubmit
             // 
+            this.btnSubmit.BackColor = System.Drawing.Color.Orange;
             this.btnSubmit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnSubmit.Location = new System.Drawing.Point(3, 421);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(859, 34);
             this.btnSubmit.TabIndex = 1;
             this.btnSubmit.Text = "Submit";
-            this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.UseVisualStyleBackColor = false;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // LessonDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.CornflowerBlue;
             this.ClientSize = new System.Drawing.Size(865, 458);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Name = "LessonDetail";

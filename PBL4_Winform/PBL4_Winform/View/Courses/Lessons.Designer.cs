@@ -53,8 +53,8 @@
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 3;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 78F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 76F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(800, 450);
@@ -62,6 +62,7 @@
             // 
             // panel6
             // 
+            this.panel6.BackColor = System.Drawing.Color.RoyalBlue;
             this.panel6.Controls.Add(this.btnSearchLesson);
             this.panel6.Controls.Add(this.txtSearchLesson);
             this.panel6.Controls.Add(this.btnOK);
@@ -72,12 +73,13 @@
             // 
             // btnSearchLesson
             // 
-            this.btnSearchLesson.Location = new System.Drawing.Point(296, 8);
+            this.btnSearchLesson.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnSearchLesson.Location = new System.Drawing.Point(299, 5);
             this.btnSearchLesson.Name = "btnSearchLesson";
             this.btnSearchLesson.Size = new System.Drawing.Size(75, 31);
             this.btnSearchLesson.TabIndex = 5;
             this.btnSearchLesson.Text = "Tìm kiếm";
-            this.btnSearchLesson.UseVisualStyleBackColor = true;
+            this.btnSearchLesson.UseVisualStyleBackColor = false;
             // 
             // txtSearchLesson
             // 
@@ -88,12 +90,13 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(455, 6);
+            this.btnOK.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnOK.Location = new System.Drawing.Point(455, 2);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(241, 34);
             this.btnOK.TabIndex = 2;
             this.btnOK.Text = "OK";
-            this.btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.UseVisualStyleBackColor = false;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // panel5
@@ -102,17 +105,19 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(3, 3);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(794, 48);
+            this.panel5.Size = new System.Drawing.Size(794, 57);
             this.panel5.TabIndex = 3;
             // 
             // textBox3
             // 
+            this.textBox3.BackColor = System.Drawing.Color.RoyalBlue;
             this.textBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.ForeColor = System.Drawing.Color.White;
             this.textBox3.Location = new System.Drawing.Point(0, 0);
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(794, 53);
+            this.textBox3.Size = new System.Drawing.Size(794, 58);
             this.textBox3.TabIndex = 0;
             this.textBox3.Text = "Danh sách bài học";
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -126,19 +131,20 @@
             this.dgvLesson.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvLesson.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvLesson.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLesson.Location = new System.Drawing.Point(3, 57);
+            this.dgvLesson.Location = new System.Drawing.Point(3, 66);
             this.dgvLesson.Name = "dgvLesson";
             this.dgvLesson.RowHeadersVisible = false;
             this.dgvLesson.RowHeadersWidth = 51;
             this.dgvLesson.RowTemplate.Height = 24;
             this.dgvLesson.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLesson.Size = new System.Drawing.Size(794, 345);
+            this.dgvLesson.Size = new System.Drawing.Size(794, 336);
             this.dgvLesson.TabIndex = 0;
             // 
             // Lessons
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.CornflowerBlue;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Name = "Lessons";
