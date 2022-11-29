@@ -129,7 +129,7 @@
     <value>4, 4, 4, 4</value>
   </data>
   <data name="txtUsername.Size" type="System.Drawing.Size, System.Drawing">
-    <value>471, 34</value>
+    <value>471, 37</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="txtUsername.TabIndex" type="System.Int32, mscorlib">
@@ -187,7 +187,7 @@
     <value>4, 4, 4, 4</value>
   </data>
   <data name="txtPassword.Size" type="System.Drawing.Size, System.Drawing">
-    <value>471, 34</value>
+    <value>471, 37</value>
   </data>
   <data name="txtPassword.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -262,13 +262,13 @@
     <value>1</value>
   </data>
   <data name="pictureBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>268, 15</value>
+    <value>280, 13</value>
   </data>
   <data name="pictureBox2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
   </data>
   <data name="pictureBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>147, 135</value>
+    <value>146, 131</value>
   </data>
   <data name="pictureBox2.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>

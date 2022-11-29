@@ -86,6 +86,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.CornflowerBlue;
             this.panel1.Controls.Add(this.rtDescription);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.txtName);
@@ -110,6 +111,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(9, 77);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(40, 16);
@@ -128,6 +130,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(9, 29);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(89, 16);
@@ -163,6 +166,7 @@
             // dgvLessonOfCourse
             // 
             this.dgvLessonOfCourse.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvLessonOfCourse.BackgroundColor = System.Drawing.Color.White;
             this.dgvLessonOfCourse.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLessonOfCourse.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvLessonOfCourse.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
@@ -175,8 +179,10 @@
             // 
             // textBox1
             // 
+            this.textBox1.BackColor = System.Drawing.Color.Orange;
             this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.ForeColor = System.Drawing.Color.White;
             this.textBox1.Location = new System.Drawing.Point(3, 3);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
@@ -202,41 +208,46 @@
             // 
             // btnDelete
             // 
+            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnDelete.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnDelete.Location = new System.Drawing.Point(229, 3);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(220, 36);
             this.btnDelete.TabIndex = 6;
             this.btnDelete.Text = "Xoá";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnAdd
             // 
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnAdd.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAdd.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnAdd.Location = new System.Drawing.Point(3, 3);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(220, 36);
             this.btnAdd.TabIndex = 5;
             this.btnAdd.Text = "Thêm";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnSubmit
             // 
+            this.btnSubmit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnSubmit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnSubmit.Location = new System.Drawing.Point(3, 413);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(928, 34);
             this.btnSubmit.TabIndex = 1;
             this.btnSubmit.Text = "Submit";
-            this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.UseVisualStyleBackColor = false;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // CourseDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.CornflowerBlue;
             this.ClientSize = new System.Drawing.Size(934, 450);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Name = "CourseDetail";

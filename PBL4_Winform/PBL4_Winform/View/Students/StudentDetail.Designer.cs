@@ -96,6 +96,7 @@
             // panel1
             // 
             this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.panel1.Controls.Add(this.cbShowPassword);
             this.panel1.Controls.Add(this.txtPassword);
             this.panel1.Controls.Add(this.label4);
@@ -116,12 +117,13 @@
             // cbShowPassword
             // 
             this.cbShowPassword.AutoSize = true;
+            this.cbShowPassword.BackColor = System.Drawing.Color.Yellow;
             this.cbShowPassword.Location = new System.Drawing.Point(57, 195);
             this.cbShowPassword.Name = "cbShowPassword";
             this.cbShowPassword.Size = new System.Drawing.Size(57, 20);
             this.cbShowPassword.TabIndex = 18;
             this.cbShowPassword.Text = "HIện";
-            this.cbShowPassword.UseVisualStyleBackColor = true;
+            this.cbShowPassword.UseVisualStyleBackColor = false;
             this.cbShowPassword.CheckedChanged += new System.EventHandler(this.cbShowPassword_CheckedChanged);
             // 
             // txtPassword
@@ -137,6 +139,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.label4.Location = new System.Drawing.Point(55, 176);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(61, 16);
@@ -156,6 +159,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.label3.Location = new System.Drawing.Point(54, 137);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(67, 16);
@@ -175,6 +179,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.label2.Location = new System.Drawing.Point(55, 85);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 16);
@@ -184,6 +189,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.label1.Location = new System.Drawing.Point(54, 232);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(143, 16);
@@ -212,6 +218,7 @@
             // lbName
             // 
             this.lbName.AutoSize = true;
+            this.lbName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.lbName.Location = new System.Drawing.Point(54, 39);
             this.lbName.Name = "lbName";
             this.lbName.Size = new System.Drawing.Size(98, 16);
@@ -221,6 +228,7 @@
             // panel2
             // 
             this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.panel2.Controls.Add(this.txtNote);
             this.panel2.Controls.Add(this.lbNote);
             this.panel2.Controls.Add(this.txtAddress);
@@ -249,6 +257,7 @@
             // lbNote
             // 
             this.lbNote.AutoSize = true;
+            this.lbNote.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.lbNote.Location = new System.Drawing.Point(13, 182);
             this.lbNote.Name = "lbNote";
             this.lbNote.Size = new System.Drawing.Size(51, 16);
@@ -268,6 +277,7 @@
             // lbAddress
             // 
             this.lbAddress.AutoSize = true;
+            this.lbAddress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.lbAddress.Location = new System.Drawing.Point(13, 131);
             this.lbAddress.Name = "lbAddress";
             this.lbAddress.Size = new System.Drawing.Size(47, 16);
@@ -287,6 +297,7 @@
             // lbParentName
             // 
             this.lbParentName.AutoSize = true;
+            this.lbParentName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.lbParentName.Location = new System.Drawing.Point(13, 48);
             this.lbParentName.Name = "lbParentName";
             this.lbParentName.Size = new System.Drawing.Size(94, 16);
@@ -296,6 +307,7 @@
             // lbPhoneNumber
             // 
             this.lbPhoneNumber.AutoSize = true;
+            this.lbPhoneNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.lbPhoneNumber.Location = new System.Drawing.Point(13, 90);
             this.lbPhoneNumber.Name = "lbPhoneNumber";
             this.lbPhoneNumber.Size = new System.Drawing.Size(85, 16);
@@ -314,19 +326,21 @@
             // 
             // btnSubmit
             // 
+            this.btnSubmit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnSubmit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnSubmit.Location = new System.Drawing.Point(3, 642);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(1324, 39);
             this.btnSubmit.TabIndex = 12;
             this.btnSubmit.Text = "Lưu";
-            this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.UseVisualStyleBackColor = false;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // dgvLesson
             // 
             this.dgvLesson.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvLesson.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
+            this.dgvLesson.BackgroundColor = System.Drawing.Color.White;
             this.dgvLesson.ColumnHeadersHeight = 29;
             this.dgvLesson.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvLesson.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
@@ -342,6 +356,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(1330, 684);
             this.Controls.Add(this.tableLayoutPanelStudentDetail);
             this.MinimumSize = new System.Drawing.Size(1144, 731);
