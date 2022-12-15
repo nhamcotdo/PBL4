@@ -978,7 +978,7 @@ namespace PBL4_Winform.View
             this.logoutToolStripMenuItem});
             this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
             this.accountToolStripMenuItem.Size = new System.Drawing.Size(73, 27);
-            this.accountToolStripMenuItem.Text = "Khách";
+            this.accountToolStripMenuItem.Text = FunctionModule.CurrentUser;
             // 
             // logoutToolStripMenuItem
             // 
