@@ -135,7 +135,7 @@
             this.Controls.Add(this.dtpStart);
             this.Controls.Add(this.label2);
             this.Name = "TermDetail";
-            this.Text = "TermDetail";
+            this.Text = "Chi tiết khóa học";
             this.ResumeLayout(false);
             this.PerformLayout();
 

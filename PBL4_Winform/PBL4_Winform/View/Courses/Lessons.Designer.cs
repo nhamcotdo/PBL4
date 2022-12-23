@@ -117,7 +117,7 @@
             this.textBox3.Location = new System.Drawing.Point(0, 0);
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(794, 53);
+            this.textBox3.Size = new System.Drawing.Size(794, 58);
             this.textBox3.TabIndex = 0;
             this.textBox3.Text = "Danh sách bài học";
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;

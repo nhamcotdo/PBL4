@@ -246,7 +246,7 @@ namespace PBL4_Winform.View
             this.textBox7.Location = new System.Drawing.Point(0, 0);
             this.textBox7.Name = "textBox7";
             this.textBox7.ReadOnly = true;
-            this.textBox7.Size = new System.Drawing.Size(868, 53);
+            this.textBox7.Size = new System.Drawing.Size(868, 58);
             this.textBox7.TabIndex = 0;
             this.textBox7.Text = "Danh sách buổi học";
             this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -379,7 +379,7 @@ namespace PBL4_Winform.View
             this.textBox6.Location = new System.Drawing.Point(0, 0);
             this.textBox6.Name = "textBox6";
             this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(868, 53);
+            this.textBox6.Size = new System.Drawing.Size(868, 58);
             this.textBox6.TabIndex = 0;
             this.textBox6.Text = "Danh sách kì học";
             this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -514,7 +514,7 @@ namespace PBL4_Winform.View
             this.textBox5.Location = new System.Drawing.Point(0, 0);
             this.textBox5.Name = "textBox5";
             this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(862, 53);
+            this.textBox5.Size = new System.Drawing.Size(862, 58);
             this.textBox5.TabIndex = 0;
             this.textBox5.Text = "Danh sách lớp học";
             this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -647,7 +647,7 @@ namespace PBL4_Winform.View
             this.textBox3.Location = new System.Drawing.Point(0, 0);
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(862, 53);
+            this.textBox3.Size = new System.Drawing.Size(862, 58);
             this.textBox3.TabIndex = 0;
             this.textBox3.Text = "Danh sách bài học";
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -783,7 +783,7 @@ namespace PBL4_Winform.View
             this.textBox2.Location = new System.Drawing.Point(0, 0);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(862, 56);
+            this.textBox2.Size = new System.Drawing.Size(862, 62);
             this.textBox2.TabIndex = 0;
             this.textBox2.Text = "Danh sách khoá học";
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -812,7 +812,7 @@ namespace PBL4_Winform.View
             this.tabStudent.Location = new System.Drawing.Point(4, 25);
             this.tabStudent.Name = "tabStudent";
             this.tabStudent.Padding = new System.Windows.Forms.Padding(3);
-            this.tabStudent.Size = new System.Drawing.Size(874, 488);
+            this.tabStudent.Size = new System.Drawing.Size(874, 485);
             this.tabStudent.TabIndex = 0;
             this.tabStudent.Text = "Học sinh";
             this.tabStudent.UseVisualStyleBackColor = true;
@@ -832,7 +832,7 @@ namespace PBL4_Winform.View
             this.tableLayoutPanelStudent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 74.53027F));
             this.tableLayoutPanelStudent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanelStudent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelStudent.Size = new System.Drawing.Size(868, 482);
+            this.tableLayoutPanelStudent.Size = new System.Drawing.Size(868, 479);
             this.tableLayoutPanelStudent.TabIndex = 4;
             // 
             // panel2
@@ -853,7 +853,7 @@ namespace PBL4_Winform.View
             this.textBox1.Location = new System.Drawing.Point(0, 0);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(862, 56);
+            this.textBox1.Size = new System.Drawing.Size(862, 62);
             this.textBox1.TabIndex = 0;
             this.textBox1.Text = "Danh sách học sinh";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -867,7 +867,7 @@ namespace PBL4_Winform.View
             this.panel3.Controls.Add(this.btnDelete);
             this.panel3.Controls.Add(this.btnEdit);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(3, 436);
+            this.panel3.Location = new System.Drawing.Point(3, 433);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(862, 43);
             this.panel3.TabIndex = 4;
@@ -938,7 +938,7 @@ namespace PBL4_Winform.View
             this.dgvStudent.RowHeadersWidth = 51;
             this.dgvStudent.RowTemplate.Height = 24;
             this.dgvStudent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvStudent.Size = new System.Drawing.Size(862, 354);
+            this.dgvStudent.Size = new System.Drawing.Size(862, 351);
             this.dgvStudent.TabIndex = 0;
             this.dgvStudent.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvStudent_RowHeaderMouseDoubleClick);
             // 
@@ -951,22 +951,23 @@ namespace PBL4_Winform.View
             this.tabControl1.Controls.Add(this.tabTerm);
             this.tabControl1.Controls.Add(this.tabSession);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 28);
+            this.tabControl1.Location = new System.Drawing.Point(0, 31);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(882, 517);
+            this.tabControl1.Size = new System.Drawing.Size(882, 514);
             this.tabControl1.TabIndex = 0;
             // 
             // menuStrip1
             // 
             this.menuStrip1.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.accountToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(882, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(882, 31);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -976,13 +977,13 @@ namespace PBL4_Winform.View
             this.accountToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.logoutToolStripMenuItem});
             this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
-            this.accountToolStripMenuItem.Size = new System.Drawing.Size(63, 24);
-            this.accountToolStripMenuItem.Text = FunctionModule.CurrentUser;
+            this.accountToolStripMenuItem.Size = new System.Drawing.Size(73, 27);
+            this.accountToolStripMenuItem.Text = "Khách";
             // 
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(183, 30);
             this.logoutToolStripMenuItem.Text = "Đăng xuất";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
