@@ -30,11 +30,5 @@ namespace PBL4.Classes.Dtos
         public TermDto Term { get; set; }
 
         public CourseDto Course { get; set; }
-
-        // public IList<RegisterDto> Registers { get; set; }
-
-        // public IList<SessionDto> Sessions { get; set; }
-
-        // public IList<LessonCompleteDto> LessonCompletes { get; set; }
     }
 }

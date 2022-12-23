@@ -505,7 +505,6 @@
     <Compile Include="Dto\ActivityDto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SdkCommon\IActivitiesApi.cs" />
     <Compile Include="SdkCommon\IAuthorizeCommon.cs" />
     <Compile Include="SdkCommon\IUsersApi.cs" />
     <Compile Include="View\Mainform.cs">

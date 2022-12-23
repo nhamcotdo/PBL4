@@ -361,7 +361,7 @@
             this.Controls.Add(this.tableLayoutPanelStudentDetail);
             this.MinimumSize = new System.Drawing.Size(1144, 731);
             this.Name = "StudentDetail";
-            this.Text = "StudentDetail";
+            this.Text = "Chi tiết học sinh";
             this.tableLayoutPanelStudentDetail.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

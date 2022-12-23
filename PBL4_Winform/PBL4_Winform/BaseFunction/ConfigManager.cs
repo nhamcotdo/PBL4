@@ -11,7 +11,7 @@ namespace PBL4_Winform.ConfigManagers
     public static class ConfigManager
     {
         public static IConfigurationRoot Configuration;
-        public static IHost Host;
+        //public static IHost Host;
         public static string Token;
 
         public static string RemoteAPIURL()
@@ -28,6 +28,7 @@ namespace PBL4_Winform.ConfigManagers
                   CollectionFormat = CollectionFormat.Multi,
                   AuthorizationHeaderValueGetter = () => Task.FromResult(token)
               });
+              
             return obj;
         }
     }

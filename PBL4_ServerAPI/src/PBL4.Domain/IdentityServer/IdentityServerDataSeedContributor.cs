@@ -66,6 +66,7 @@ namespace PBL4.IdentityServer
         private async Task CreateApiScopesAsync()
         {
             await CreateApiScopeAsync("PBL4");
+            await CreateApiScopeAsync("PBL4_App");
             await CreateApiScopeAsync("PBL4_Winform");
         }
 
@@ -161,26 +162,6 @@ namespace PBL4.IdentityServer
                     corsOrigins: new[] { webClientRootUrl.RemovePostFix("/") }
                 );
             }
-            
-
-            //Console Test / Winform Client
-            var consoleAndWinformClientId = configurationSection["PBL4_Winform:ClientId"];
-            if (!consoleAndWinformClientId.IsNullOrWhiteSpace())
-            {
-                var webClientRootUrl = configurationSection["PBL4_Winform:RootUrl"]?.TrimEnd('/');
-
-                await CreateClientAsync(
-                    name: consoleAndWinformClientId,
-                    scopes: commonScopes,
-                    grantTypes: new[] { "password", "client_credentials", "authorization_code" },
-                    secret: (configurationSection["PBL4_Winform:ClientSecret"] ?? "1q2w3e*").Sha256(),
-                    requireClientSecret: false,
-                    redirectUri: webClientRootUrl,
-                    postLogoutRedirectUri: webClientRootUrl,
-                    corsOrigins: new[] { webClientRootUrl.RemovePostFix("/") }
-                );
-            }
-            
             
             // Swagger Client
             var swaggerClientId = configurationSection["PBL4_Swagger:ClientId"];

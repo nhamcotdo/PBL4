@@ -107,6 +107,7 @@ namespace PBL4.Students
             return ObjectMapper.Map<List<LessonComplete>, List<LessonCompleteDto>>(lessonCompletes);
         }
 
+        [Authorize(PBL4Permissions.Create)]
         public override async Task<StudentDto> CreateAsync(CreateUpdateStudentDto input)
         {
             var userLogin = ObjectMapper.Map<CreateUpdateUserLoginDto, UserLogin>(input.UserLogin);
@@ -117,6 +118,7 @@ namespace PBL4.Students
             return ObjectMapper.Map<Student, StudentDto>(await _studentRepository.InsertAsync(student, autoSave: true));
         }
 
+        [Authorize(PBL4Permissions.Update)]
         public override Task<StudentDto> UpdateAsync(Guid id, CreateUpdateStudentDto input)
         {
             return base.UpdateAsync(id, input);

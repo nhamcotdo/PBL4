@@ -117,7 +117,7 @@
             this.textBox3.Location = new System.Drawing.Point(0, 0);
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(794, 58);
+            this.textBox3.Size = new System.Drawing.Size(794, 53);
             this.textBox3.TabIndex = 0;
             this.textBox3.Text = "Danh sách bài học";
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -148,7 +148,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Name = "Lessons";
-            this.Text = "Lessons";
+            this.Text = "Danh sách bài học";
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();

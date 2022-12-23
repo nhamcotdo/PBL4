@@ -107,7 +107,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "StudentClass";
-            this.Text = "StudentClass";
+            this.Text = "Danh sách học sinh theo lớp";
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudentClass)).EndInit();
             this.panel1.ResumeLayout(false);

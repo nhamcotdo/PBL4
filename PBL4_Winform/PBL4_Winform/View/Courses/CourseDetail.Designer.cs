@@ -251,7 +251,7 @@
             this.ClientSize = new System.Drawing.Size(934, 450);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Name = "CourseDetail";
-            this.Text = "CourseDetail";
+            this.Text = "Thông tin khoá học";
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
