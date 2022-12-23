@@ -59,7 +59,7 @@ namespace PBL4_Winform
             }
             else if(e.Exception.GetType() == typeof(JsonReaderException))
             {
-                MessageBox.Show("Bạn cần đăng nhập để thực hiện thao tác này!");
+                MessageBox.Show("Bạn cần đăng nhập để thực hiện thao tác này hoặc bạn chưa đủ quyền!");
                 (new LoginForm(true)).Show();
 
                 return;

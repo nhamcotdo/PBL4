@@ -60,6 +60,7 @@
             // 
             resources.ApplyResources(this.txtPassword, "txtPassword");
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtUsername_KeyDown);
             // 
             // btnLogin
             // 
@@ -80,6 +81,7 @@
             // 
             // pictureBox2
             // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Image = global::PBL4_Winform.Properties.Resources.pic_icon_login;
             resources.ApplyResources(this.pictureBox2, "pictureBox2");
             this.pictureBox2.Name = "pictureBox2";

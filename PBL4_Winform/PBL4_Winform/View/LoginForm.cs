@@ -16,8 +16,20 @@ namespace PBL4_Winform
             InitializeComponent();
             IsGuest = isGuest;
         }
+        private void txtUsername_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 13)
+            {
+                Login();
+            }
+        }
 
         private void btnLogin_Click(object sender, EventArgs e)
+        {
+            Login();
+        }
+
+        private void Login()
         {
             string username = txtUsername.Text == null ? string.Empty : txtUsername.Text.ToString();
             string password = txtPassword.Text == null ? string.Empty : txtPassword.Text.ToString();
@@ -61,7 +73,6 @@ namespace PBL4_Winform
                 this.Show();
             }
         }
-
         public void SetToken(string username, string password)
         {
             var client = new HttpClient();
