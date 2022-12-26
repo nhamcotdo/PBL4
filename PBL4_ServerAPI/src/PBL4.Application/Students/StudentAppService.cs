@@ -15,7 +15,6 @@ using PBL4.LessonCompletes;
 using PBL4.LessonCompletes.Dtos;
 using PBL4.UserLogins;
 using PBL4.UserLogins.Dtos;
-using PBL4.Lessons.Dtos;
 using PBL4.Shared;
 using PBL4.Permissions;
 using Microsoft.AspNetCore.Authorization;
@@ -37,11 +36,11 @@ namespace PBL4.Students
                                 IUserLoginRepository userLoginRepository
                                 ) : base(studentRepository)
         {
-            GetPolicyName = PBL4Permissions.View;
-            GetListPolicyName = PBL4Permissions.View;
-            CreatePolicyName = PBL4Permissions.Create;
-            UpdatePolicyName = PBL4Permissions.Update;
-            DeletePolicyName = PBL4Permissions.Delete;
+            GetPolicyName = PBL4Permissions.Student.Get;
+            GetListPolicyName = PBL4Permissions.Student.Get;
+            CreatePolicyName = PBL4Permissions.Student.Create;
+            UpdatePolicyName = PBL4Permissions.Student.Update;
+            DeletePolicyName = PBL4Permissions.Student.Delete;
 
             _studentRepository = studentRepository;
             _registerRepository = registerRepository;
@@ -107,7 +106,7 @@ namespace PBL4.Students
             return ObjectMapper.Map<List<LessonComplete>, List<LessonCompleteDto>>(lessonCompletes);
         }
 
-        [Authorize(PBL4Permissions.Create)]
+        [Authorize(PBL4Permissions.Student.Create)]
         public override async Task<StudentDto> CreateAsync(CreateUpdateStudentDto input)
         {
             var userLogin = ObjectMapper.Map<CreateUpdateUserLoginDto, UserLogin>(input.UserLogin);
@@ -118,7 +117,7 @@ namespace PBL4.Students
             return ObjectMapper.Map<Student, StudentDto>(await _studentRepository.InsertAsync(student, autoSave: true));
         }
 
-        [Authorize(PBL4Permissions.Update)]
+        [Authorize(PBL4Permissions.Student.Update)]
         public override Task<StudentDto> UpdateAsync(Guid id, CreateUpdateStudentDto input)
         {
             return base.UpdateAsync(id, input);

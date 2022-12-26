@@ -18,11 +18,11 @@ namespace PBL4.Lessons
         public LessonAppService(ILessonRepository lessonRepository) : base(lessonRepository)
         {
             _lessonRepository = lessonRepository;
-            GetPolicyName = PBL4Permissions.View;
-            GetListPolicyName = PBL4Permissions.View;
-            CreatePolicyName = PBL4Permissions.Create;
-            UpdatePolicyName = PBL4Permissions.Update;
-            DeletePolicyName = PBL4Permissions.Delete;
+            GetPolicyName = PBL4Permissions.Lesson.Get;
+            GetListPolicyName = PBL4Permissions.Lesson.Get;
+            CreatePolicyName = PBL4Permissions.Lesson.Create;
+            UpdatePolicyName = PBL4Permissions.Lesson.Update;
+            DeletePolicyName = PBL4Permissions.Lesson.Delete;
         }
 
         [AllowAnonymous]
@@ -44,7 +44,7 @@ namespace PBL4.Lessons
             return rs;
         }
 
-        [Authorize(PBL4Permissions.View)]
+        [Authorize(PBL4Permissions.Lesson.Get)]
         public async Task<List<LessonDto>> GetListByStudentIdAndClassId(Guid classId, Guid studentId)
         {
             var queryable = await _lessonRepository.WithDetailsAsync();

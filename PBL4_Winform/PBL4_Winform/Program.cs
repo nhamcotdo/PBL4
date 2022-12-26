@@ -18,6 +18,7 @@ namespace PBL4_Winform
         static void Main()
         {
             Application.EnableVisualStyles();
+            
             Application.SetCompatibleTextRenderingDefault(false);
             ConfigManager.Configuration = new ConfigurationBuilder().SetBasePath(AppDomain.CurrentDomain.BaseDirectory).AddJsonFile("appsettings.json").Build();
             Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);

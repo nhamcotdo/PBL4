@@ -21,11 +21,11 @@ namespace PBL4.Courses
         {
             _courseRepository = courseRepository;
             _lessonOfCourseRepository = lessonOfCourseRepository;
-            GetPolicyName = PBL4Permissions.View;
-            GetListPolicyName = PBL4Permissions.View;
-            CreatePolicyName = PBL4Permissions.Create;
-            UpdatePolicyName = PBL4Permissions.Update;
-            DeletePolicyName = PBL4Permissions.Delete;
+            GetPolicyName = PBL4Permissions.Course.Get;
+            GetListPolicyName = PBL4Permissions.Course.Get;
+            CreatePolicyName = PBL4Permissions.Course.Create;
+            UpdatePolicyName = PBL4Permissions.Course.Update;
+            DeletePolicyName = PBL4Permissions.Course.Delete;
         }
 
         [AllowAnonymous]

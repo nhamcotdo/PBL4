@@ -14,11 +14,6 @@ namespace PBL4.Teachers
         public TeacherAppService(ITeacherRepository teacherRepository) : base(teacherRepository)
         {
             _teacherRepository = teacherRepository;
-            GetPolicyName = PBL4Permissions.View;
-            GetListPolicyName = PBL4Permissions.View;
-            CreatePolicyName = PBL4Permissions.Create;
-            UpdatePolicyName = PBL4Permissions.Update;
-            DeletePolicyName = PBL4Permissions.Delete;
         }
     }
 }

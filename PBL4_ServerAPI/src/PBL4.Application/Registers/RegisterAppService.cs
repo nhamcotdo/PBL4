@@ -14,11 +14,6 @@ namespace PBL4.Registers
         public RegisterAppService(IRegisterRepository registerRepository) : base(registerRepository)
         {
             _registerRepository = registerRepository;
-             GetPolicyName = PBL4Permissions.View;
-            GetListPolicyName = PBL4Permissions.View;
-            CreatePolicyName = PBL4Permissions.Create;
-            UpdatePolicyName = PBL4Permissions.Update;
-            DeletePolicyName = PBL4Permissions.Delete;
         }
     }
 }

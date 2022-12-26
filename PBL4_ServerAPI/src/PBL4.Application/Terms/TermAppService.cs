@@ -18,11 +18,11 @@ namespace PBL4.Terms
         public TermAppService(ITermRepository termRepository) : base(termRepository)
         {
             _termRepository = termRepository;
-             GetPolicyName = PBL4Permissions.View;
-            GetListPolicyName = PBL4Permissions.View;
-            CreatePolicyName = PBL4Permissions.Create;
-            UpdatePolicyName = PBL4Permissions.Update;
-            DeletePolicyName = PBL4Permissions.Delete;
+             GetPolicyName = PBL4Permissions.Term.Get;
+            GetListPolicyName = PBL4Permissions.Term.Get;
+            CreatePolicyName = PBL4Permissions.Term.Create;
+            UpdatePolicyName = PBL4Permissions.Term.Update;
+            DeletePolicyName = PBL4Permissions.Term.Delete;
         }
 
         [AllowAnonymous]
