@@ -7,6 +7,7 @@ using Volo.Abp.Application.Services;
 using System.Linq;
 using PBL4.Sessions.Dtos;
 using PBL4.SessionRegisters;
+using PBL4.Permissions;
 using PBL4.SessionRegisters.Dtos;
 using Microsoft.AspNetCore.Authorization;
 
@@ -18,6 +19,11 @@ namespace PBL4.Sessions
         public SessionAppService(ISessionRepository sessionRepository) : base(sessionRepository)
         {
             _sessionRepository = sessionRepository;
+            GetPolicyName = PBL4Permissions.Session.Get;
+            GetListPolicyName = PBL4Permissions.Session.Get;
+            CreatePolicyName = PBL4Permissions.Session.Create;
+            UpdatePolicyName = PBL4Permissions.Session.Update;
+            DeletePolicyName = PBL4Permissions.Session.Delete;
         }
         
         public async Task<PagedResultDto<SessionDto>> SearchAsync(string filter = "")
@@ -35,6 +41,7 @@ namespace PBL4.Sessions
             return rs;
         }
 
+        [Authorize(PBL4Permissions.Session.Create)]
         public async Task CreateSessionAsync(CreateUpdateSessionDto input)
         {
             input.SessionRegisters?.ForEach(
@@ -47,6 +54,7 @@ namespace PBL4.Sessions
             return;
         }
 
+        [Authorize(PBL4Permissions.Session.Update)]
         public override async Task<SessionDto> UpdateAsync(Guid id, CreateUpdateSessionDto input)
         {
             var session = await _sessionRepository.GetAsync(id);

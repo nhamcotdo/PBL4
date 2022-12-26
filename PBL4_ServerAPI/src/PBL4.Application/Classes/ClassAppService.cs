@@ -18,11 +18,11 @@ namespace PBL4.Classes
         public ClassAppService(IClassRepository classRepository) : base(classRepository)
         {
             _classRepository = classRepository;
-            GetPolicyName = PBL4Permissions.View;
-            GetListPolicyName = PBL4Permissions.View;
-            CreatePolicyName = PBL4Permissions.Create;
-            UpdatePolicyName = PBL4Permissions.Update;
-            DeletePolicyName = PBL4Permissions.Delete;
+            GetPolicyName = PBL4Permissions.Class.Get;
+            GetListPolicyName = PBL4Permissions.Class.Get;
+            CreatePolicyName = PBL4Permissions.Class.Create;
+            UpdatePolicyName = PBL4Permissions.Class.Update;
+            DeletePolicyName = PBL4Permissions.Class.Delete;
         }
 
         [AllowAnonymous]
@@ -42,7 +42,7 @@ namespace PBL4.Classes
             return rs;
         }
 
-        [Authorize(PBL4Permissions.View)]
+        [Authorize(PBL4Permissions.Class.Get)]
         public override async Task<ClassDto> GetAsync(Guid id)
         {
             var queryable = await _classRepository.WithDetailsAsync();

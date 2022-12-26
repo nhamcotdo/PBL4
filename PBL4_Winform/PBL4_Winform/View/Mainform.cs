@@ -329,7 +329,7 @@ namespace PBL4_Winform.View
             {
                 foreach (DataGridViewRow course in dgvCourse.SelectedRows)
                 {
-                    apiCourse.DeleteAsync(Guid.Parse(course.Cells[0].Value.ToString())).GetAwaiter();
+                    apiCourse.DeleteAsync(Guid.Parse(course.Cells[0].Value.ToString())).GetAwaiter().GetResult();
                 }
             MessageBox.Show("Đã xoá thành công " + count + " khoá học!");
             LoadCourses();
